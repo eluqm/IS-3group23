@@ -24,3 +24,16 @@ BackEnd: PHP
 
 **Prototipo:** https://www.figma.com/file/7NOEbTe5UWg6VplKkzYTtL/Untitled?node-id=0%3A1
 
+
+**Requisitos Funcionales:**
+
+* **Mostrar preguntas disponibles**, el sistema debe mostrar en la página principal y sin la necesidad de registrarse, toda la información de las preguntas disponibles.
+* **Registro de un usuario**, deberá ingresar su correo institucional, una contraseña y su CUI. Este formulario será enviado como una solicitud de registro a los moderadores para verificar los datos y permitir registro.
+* **Inicio de sesión de usuario**, los usuarios deben de identificarse para acceder a las funcionalidades de la página, ya sea para recibir o dar clases, recibiendo el rol de estudiante o mentor respectivamente.
+* **Perfil de usuario**, un usuario puede agregar información como una descripción, el año que curso o si es egresado. También se mostrará una sección “Mis preguntas” donde podrá visualizar las preguntas realizadas realizadas o en las que es mentor.
+* **Buscar por filtro**, el sistema permite filtrar los temas por nombre de la asignatura correspondiente.
+* **Formulario de preguntas**, el sistema tendrá un formulario para que los usuarios puedan colocar preguntas, definir la asignatura a la que corresponde y los horarios en el que puede recibir la mentoría y la fecha límite para recibir una respuesta. Las preguntas se podrán visualizar en la página principal.
+* **Vista general de pregunta**, una pregunta puede ser tomada por cualquier usuario (mentor). El mentor debería establecer un horario y definir si desea hacer la mentoría 1 a 1 con el usuario aprendiz o realizar una mentoría grupal con otros usuarios interesados (de manera opcional puede definir un límite de participantes). Luego de esto el usuario dueño de la pregunta debería confirmar si está de acuerdo con los términos del usuario mentor.
+* **Cierre de la pregunta**, una vez el estudiante haya encontrado un tutor el cual le apoye en el área correspondiente la pregunta se cerrará evitando que algún otro tutor interesado tome la enseñanza del tema.
+* **Unirse a una mentoría**, un usuario ajeno a la pregunta puede solicitar unirse en caso la opción de mentoría grupal esté disponible y haya cupos disponibles, solo así se mostrará el link del meet.
+* **Creación automática de los links de meet**, una vez el mentor haya elegido un horario establecido junto a su aprendiz correspondiente. En caso el mentor desee compartir su clase a más estudiantes además de su aprendiz, podrá colocar el link como público, y permitir el ingreso a otras personas también interesadas en el tema.
