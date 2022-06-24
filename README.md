@@ -22,4 +22,5 @@ FrontEnd: Html5 - Boostrap - CSS
 
 BackEnd: PHP
 
-**Prototipo:** [Link del prototipo en figma ] (https://www.figma.com/file/7NOEbTe5UWg6VplKkzYTtL/Untitled?node-id=0%3A1) 
+**Prototipo:** https://www.figma.com/file/7NOEbTe5UWg6VplKkzYTtL/Untitled?node-id=0%3A1
+
