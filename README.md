@@ -1,4 +1,4 @@
-# PROYECTO FINAL - INGENIERÍA DE SOFTWARE II
+# PROYECTO FINAL - INGENIERÍA DE SOFTWARE III
 ### TASTI
 ## Integrantes
 Jim Leonarda Huertas Canaza
@@ -21,3 +21,5 @@ Tasti es un intermediario para que ambas personas puedan reunirse por medio de u
 FrontEnd: Html5 - Boostrap - CSS 
 
 BackEnd: PHP
+
+**Prototipo:** [Link del prototipo en figma ] (https://www.figma.com/file/7NOEbTe5UWg6VplKkzYTtL/Untitled?node-id=0%3A1) 
