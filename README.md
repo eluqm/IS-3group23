@@ -25,7 +25,7 @@ BackEnd: PHP
 **Prototipo:** https://www.figma.com/file/7NOEbTe5UWg6VplKkzYTtL/Untitled?node-id=0%3A1
 
 
-**Requisitos Funcionales:**
+## Requisitos Funcionales
 
 * **Mostrar preguntas disponibles**, el sistema debe mostrar en la página principal y sin la necesidad de registrarse, toda la información de las preguntas disponibles.
 * **Registro de un usuario**, deberá ingresar su correo institucional, una contraseña y su CUI. Este formulario será enviado como una solicitud de registro a los moderadores para verificar los datos y permitir registro.
