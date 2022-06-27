@@ -1,5 +1,7 @@
 # PROYECTO FINAL - INGENIERÍA DE SOFTWARE III
-### TASTI
+
+### <img src="views/icons/logo.png" width="25%">
+
 ## Integrantes
 Jim Leonarda Huertas Canaza
 
