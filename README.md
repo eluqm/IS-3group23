@@ -40,20 +40,20 @@ BackEnd: PHP
 
 ## Requisitos no funcionales
 #### Rendimiento
-* **Las interfaces del sistema deben de cargar en menos de 3 segundos cuando el número de usuarios simultáneos es mayor a 10 000
-* **Los datos modificados en la base de datos deben ser actualizados para todos los usuarios que acceden en menos de 2 segundos.
-* **El sistema debe ser capaz de realizar validaciones del usuario, soportar el acceso de múltiples usuarios y sus consultas con respecto a la información simultáneamente sin reducir su rendimiento.
+* Las interfaces del sistema deben de cargar en menos de 3 segundos cuando el número de usuarios simultáneos es mayor a 10 000
+* Los datos modificados en la base de datos deben ser actualizados para todos los usuarios que acceden en menos de 2 segundos.
+* El sistema debe ser capaz de realizar validaciones del usuario, soportar el acceso de múltiples usuarios y sus consultas con respecto a la información simultáneamente sin reducir su rendimiento.
 #### Seguridad
-* **Uso de contraseñas para cada usuario. Esto permitirá que tengan acceso al sistema solo las personas que tienen autorización, a través de la validación de sus datos y mostrando mensajes de error.
-* **Registros de ingreso al sistema.
-* **Creación de roles y asignarlos a cada usuario dependiendo su funcionalidad.
+* Uso de contraseñas para cada usuario. Esto permitirá que tengan acceso al sistema solo las personas que tienen autorización, a través de la validación de sus datos y mostrando mensajes de error.
+* Registros de ingreso al sistema.
+* Creación de roles y asignarlos a cada usuario dependiendo su funcionalidad.
 #### Disponibilidad
-* **La disponibilidad del sistema será 24 horas al día, 7 días a la semana, de tal manera que el usuario pueda acceder a la información que requiera a cualquier hora del día sin ninguna complicación.
+* La disponibilidad del sistema será 24 horas al día, 7 días a la semana, de tal manera que el usuario pueda acceder a la información que requiera a cualquier hora del día sin ninguna complicación.
 #### Usabilidad
-* **El sistema debe contar con un diseño responsivo gráfico bien formado, claro, eficiente y amigable al usuario.
-* **Un nuevo usuario no debería tardar más de 120 segundos en registrarse.
-* **Un usuario registrado no debería tardar más de 150 segundos en acceder a la información que desee.
+* El sistema debe contar con un diseño responsivo gráfico bien formado, claro, eficiente y amigable al usuario.
+* Un nuevo usuario no debería tardar más de 120 segundos en registrarse.
+* Un usuario registrado no debería tardar más de 150 segundos en acceder a la información que desee.
 #### Estándar
-* **El idioma por defecto es el español.
+* El idioma por defecto es el español.
 #### Portabilidad
-* **El sistema será implantado bajo la plataforma de Windows.
+* El sistema será implantado bajo la plataforma de Windows.
