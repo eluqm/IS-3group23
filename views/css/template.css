@@ -1,0 +1,17 @@
+main {
+    background-color: var(--color_fondo);
+}
+
+aside {
+    background-color: var(--color_principal);
+    width: 25%;
+    height: 100%;
+    border-radius: 10px;
+}
+
+.main__contenido {
+    background-color: var(--color_principal);
+    width: 75%;
+    height: 100%;   
+    border-radius: 10px;
+}

@@ -1,0 +1,132 @@
+.span-icon{
+    width: 50%;
+    height: 50%;
+    display: block;
+    margin: 0 auto;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover; 
+}
+
+.nav-bar {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 15px;
+    background-color: var(--color_principal);
+}
+
+.logo-icon {
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-image: url('../icons/logo.png');  
+}
+
+.logo-title {
+    height: 2rem; 
+    width: 5rem;
+    display: block;
+    margin-right: 10px;
+}
+
+.nav-bar__barra_busqueda {
+    width: 400px;
+    display: flex;
+    margin-right: 10px;
+    background-color: var(--color_light_gray);
+    border-radius: 10px;
+}
+
+.nav-bar__barra_busqueda select {
+    text-align: center;
+    border-radius: 10px 0 0 10px;
+    border: none;
+    background-color: var(--color_gray);
+}
+
+.nav-bar__barra_busqueda input {
+    padding-left: 10px;
+    border: none;
+    background-color: transparent;
+}
+
+.nav-bar__barra_busqueda button {
+    height: 2rem;
+    width: 2rem;
+    margin-left: auto;
+    border: none;
+    background-color: transparent;
+}
+
+.search-icon {
+    background-image: url('../icons/search.png');
+}
+
+.nav-bar__publicar-pregunta {
+    height: 2rem;
+    width: 304px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 36px;
+    text-decoration: none;
+    color:white;
+    border-radius: 10px;
+    background-color: var(--color_enfasis);
+}
+
+.nav-bar__administrador{
+    width: 2rem;
+    height: 2rem;
+    border: none;
+}
+.admin-icon {
+    height: 100%;
+    width: 100%;
+    display: block;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover; 
+    background-image: url('../icons/admin.png');
+}
+
+.nav-bar__perfil{
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    margin-left: auto;
+}
+
+.nav-bar__perfil__user-name {
+    display: flex;
+    font-style: normal;
+    font-weight: 400;
+    font-size: var(--text__normal-size);
+    line-height: 29px;
+    text-decoration: none;
+}
+
+.user-image {
+    height: 2rem;
+    width: 2rem;
+    display: inline-block;
+    margin:0 5px 0 5px;
+    background-color: #177DE8;
+    border-radius: 50%;
+}
+
+/* Si esta la barra de navegacion, una clase de main es */
+
+.main-usando-navbar {
+    height: calc(100vh - 2rem - 30px);
+    width: 100%;
+    display: flex;
+    gap: 15px;
+    padding: 15px;
+}
