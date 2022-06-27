@@ -37,3 +37,23 @@ BackEnd: PHP
 * **Cierre de la pregunta**, una vez el estudiante haya encontrado un tutor el cual le apoye en el área correspondiente la pregunta se cerrará evitando que algún otro tutor interesado tome la enseñanza del tema.
 * **Unirse a una mentoría**, un usuario ajeno a la pregunta puede solicitar unirse en caso la opción de mentoría grupal esté disponible y haya cupos disponibles, solo así se mostrará el link del meet.
 * **Creación automática de los links de meet**, una vez el mentor haya elegido un horario establecido junto a su aprendiz correspondiente. En caso el mentor desee compartir su clase a más estudiantes además de su aprendiz, podrá colocar el link como público, y permitir el ingreso a otras personas también interesadas en el tema.
+
+## Requisitos no funcionales
+#### Rendimiento
+* **Las interfaces del sistema deben de cargar en menos de 3 segundos cuando el número de usuarios simultáneos es mayor a 10 000
+* **Los datos modificados en la base de datos deben ser actualizados para todos los usuarios que acceden en menos de 2 segundos.
+* **El sistema debe ser capaz de realizar validaciones del usuario, soportar el acceso de múltiples usuarios y sus consultas con respecto a la información simultáneamente sin reducir su rendimiento.
+#### Seguridad
+* **Uso de contraseñas para cada usuario. Esto permitirá que tengan acceso al sistema solo las personas que tienen autorización, a través de la validación de sus datos y mostrando mensajes de error.
+* **Registros de ingreso al sistema.
+* **Creación de roles y asignarlos a cada usuario dependiendo su funcionalidad.
+#### Disponibilidad
+* **La disponibilidad del sistema será 24 horas al día, 7 días a la semana, de tal manera que el usuario pueda acceder a la información que requiera a cualquier hora del día sin ninguna complicación.
+#### Usabilidad
+* **El sistema debe contar con un diseño responsivo gráfico bien formado, claro, eficiente y amigable al usuario.
+* **Un nuevo usuario no debería tardar más de 120 segundos en registrarse.
+* **Un usuario registrado no debería tardar más de 150 segundos en acceder a la información que desee.
+#### Estándar
+* **El idioma por defecto es el español.
+#### Portabilidad
+* **El sistema será implantado bajo la plataforma de Windows.
