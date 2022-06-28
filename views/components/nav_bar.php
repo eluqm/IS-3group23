@@ -1,3 +1,5 @@
+<!-- CSS: <link rel="stylesheet" href="components/nav_bar.css"> -->
+
 <nav class="nav-bar">
     <h1><a href=""><span class="logo-title logo-icon"></span></a></h1>
     <div>

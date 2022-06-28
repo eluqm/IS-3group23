@@ -23,12 +23,3 @@ body {
     -moz-osx-font-smoothing: grayscale;
     font-size: 62.5%;
 }
-
-main {
-    display: flex;
-    padding: 15px;
-    height: calc(100vh - 2rem - 30px);
-    background-color: var(--color_fondo);
-    gap: 15px;
-}
-
