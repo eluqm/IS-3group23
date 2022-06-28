@@ -3,7 +3,7 @@
 ### <img src="views/icons/logo.png" width="25%">
 
 ## Integrantes
-Jim Leonarda Huertas Canaza
+Jim Leonardo Huertas Canaza
 
 Dennis Pumaraime Espinoza
 
