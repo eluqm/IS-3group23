@@ -30,7 +30,7 @@
 
 .pregunta__contenido{
     padding: 10px;
-    width: fit-content;
+    width: calc(100% - 40px);
 }
 
 .pregunta__actions{
