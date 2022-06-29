@@ -1,16 +1,15 @@
 <?php
-require_once '../config/conexion.php';
+require '../config/conexion.php';
 
 class User {
 
     public function register($data){
-        $sql = "INSERT INTO users (usersName, usersUid,usersEmail, usersPwd) VALUES (:usersName,:usersEmail,:usersUid,:usersPwd)";
-        $stmt = $conn->prepare($sql);
+        $sql = "INSERT INTO users (cui, nombre, correo_electronico, contrasenia) VALUES (:usersCUI,:usersName,:usersEmail,:usersPwd)";
+        $stmt = $conn->prepare("INSERT INTO users (cui, nombre, correo_electronico, contrasenia) VALUES (:usersCUI,:usersName,:usersEmail,:usersPwd)");
+        $stmt->bindParam(':usersCUI', $data['usersCUI']);
         $stmt->bindParam(':usersName', $data['usersName']);
-        $stmt->bindParam(':usersUid', $data['usersUid']);
         $stmt->bindParam(':usersEmail', $data['usersEmail']);
-        $password = password_hash($data['usersPwd'], PASSWORD_BCRYPT);
-        $stmt->bindParam(':usersPwd', $password);
+        $stmt->bindParam(':usersPwd', $data['usersPwd']);
 
         if ($stmt->execute()) {
             return true;
