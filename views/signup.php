@@ -1,3 +1,7 @@
+<?php 
+    session_start(); 
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,14 +12,23 @@
     <title>Registrarse</title>
 </head>
 
+<?php 
+    include_once '../helpers/session_helper.php';
+?>
+
 <body>
+    <?php 
+        include_once 'header.php';
+    ?>
     <div class="login-container">
         <div class="image-container">
             <h1 class="title">Registrarse</h1>
             <img src="icons/registro.svg" width="450" height="500px">
         </div>
         <div class="login-info-container">
-            <form class="inputs-container" method="post" action="./controllers/Users.php">
+            <?php flash('register') ?>
+            <form class="inputs-container" method="post" action="../controllers/usuario.php">
+                <input type="hidden" name="type" value="register">
                 <label for="fname" >Nombre:</label>
                 <input class="input" name="usersName" type="text" placeholder="Ingresar nombre completo" required>
                 <label for="fname">Correo Institucional:</label>
