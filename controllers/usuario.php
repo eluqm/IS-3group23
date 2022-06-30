@@ -32,7 +32,23 @@ class Users {
             redirect("../views/signup.php");
         }
 
-        $data['usersPwd'] = password_hash($data['usersPwd'], PASSWORD_DEFAULT);
+        if(!preg_match("/^[a-zA-Z0-9]*$/", $data['usersUid'])){
+            flash("register", "Invalid username");
+            redirect("../views/signup.php");
+        }
+
+        if(!filter_var($data['usersEmail'], FILTER_VALIDATE_EMAIL)){
+            flash("register", "Invalid email");
+            redirect("../views/signup.php");
+        }
+
+        if(strlen($data['usersPwd']) < 6){
+            flash("register", "Invalid password");
+            redirect("../views/signup.php");
+        } else if($data['usersPwd'] !== $data['pwdRepeat']){
+            flash("register", "Passwords don't match");
+            redirect("../views/signup.php");
+        }
 
         if ($this->userModel->register($data))
         {
@@ -43,17 +59,41 @@ class Users {
         }
     }
     public function login(){
+        $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+        $data=[
+            'email' => trim($_POST['email']),
+            'usersPwd' => trim($_POST['usersPwd'])
+        ];
+
+        if(empty($data['email']) || empty($data['usersPwd'])){
+            flash("login", "Please fill out all inputs");
+            redirect("../views/login.php");
+        }
+
+        if($this->userModel->findUserByEmail($data['email'])){
+            $loggedInUser = $this->userModel->login($data['email'], $data['usersPwd']);
+            
+            if($loggedInUser){
+                $this->createUserSession($loggedInUser);
+            }else{
+                flash("login", "Password Incorrect");
+                redirect("../views/login.php");
+            }
+        }else{
+            flash("login", "No user found");
+            redirect("../views/login.php");
+        }
     }
 
     public function createUserSession($user){
-        $_SESSION['usersId'] = $user->usersId;
-        $_SESSION['usersName'] = $user->usersName;
-        $_SESSION['usersEmail'] = $user->usersEmail;
+        $_SESSION['usersCUI'] = $user->cui;
+        $_SESSION['usersName'] = $user->nombre;
+        $_SESSION['usersEmail'] = $user->correo_electronico;
         redirect("../views/template.php");
     }
 
     public function logout(){
-        unset($_SESSION['usersId']);
+        unset($_SESSION['usersCUI']);
         unset($_SESSION['usersName']);
         unset($_SESSION['usersEmail']);
         session_destroy();
@@ -63,7 +103,6 @@ class Users {
 
     $init = new Users;
 
-    //Ensure that user is sending a post request
     if($_SERVER['REQUEST_METHOD'] == 'POST'){
         switch($_POST['type']){
             case 'register':
