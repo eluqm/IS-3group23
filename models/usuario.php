@@ -3,22 +3,24 @@ require '../config/conexion.php';
 
 class User {
 
-    public function register($data){
-        $sql = "INSERT INTO users (cui, nombre, correo_electronico, contrasenia) VALUES (:usersCUI,:usersName,:usersEmail,:usersPwd)";
-        $stmt = $conn->prepare("INSERT INTO users (cui, nombre, correo_electronico, contrasenia) VALUES (:usersCUI,:usersName,:usersEmail,:usersPwd)");
-        $stmt->bindParam(':usersCUI', $data['usersCUI']);
-        $stmt->bindParam(':usersName', $data['usersName']);
-        $stmt->bindParam(':usersEmail', $data['usersEmail']);
-        $stmt->bindParam(':usersPwd', $data['usersPwd']);
+    private $db;
 
-        if ($stmt->execute()) {
+    public function __construct(){
+        $this->db = new database;
+    }
+
+    public function register($data){
+        $this->db->query('INSERT INTO usuario (cui, nombre, correo_electronico, contrasenia) 
+        VALUES (:usersCUI, :usersName, :usersEmail, :usersPwd)');
+        $this->db->bind(':usersCUI', $data['usersCUI']);
+        $this->db->bind(':usersName', $data['usersName']);
+        $this->db->bind(':usersEmail', $data['usersEmail']);
+        $this->db->bind(':usersPwd', $data['usersPwd']);
+
+        if($this->db->execute()){
             return true;
-        } else {
+        }else{
             return false;
         }
     }
-
-    public function login($nameOrEmail, $password){
-    }
-
 }
