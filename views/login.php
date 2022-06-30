@@ -32,7 +32,7 @@
             <?php flash('login') ?>
             <form class="inputs-container" method="post" action="../controllers/usuario.php">
                 <input type="hidden" name="type" value="login">
-                <input class="input" name="name/email" type="text" placeholder="Ingresar correo institucional">
+                <input class="input" name="email" type="text" placeholder="Ingresar correo institucional">
                 <input class="input" type="password" name="usersPwd" placeholder="Ingresar contraseña">
                 <button class="btn" type="submit" name="submit">Iniciar Sesión</button>
                 <p>¿No tienes cuenta?<a class="a" href="signup.php">Registrate</a></p>
