@@ -26,6 +26,8 @@ BackEnd: PHP
 
 **Prototipo:** https://www.figma.com/file/7NOEbTe5UWg6VplKkzYTtL/Untitled?node-id=0%3A1
 
+**Trello:** https://trello.com/invite/b/caSCHagM/4905f46ea8016a2aa74da6e0047c2e8c/tasti
+
 
 ## Requisitos Funcionales
 
