@@ -76,11 +76,7 @@
 }
 
 .flag-icon {
-    background-image: url('../icons/eye.png');
-}
-
-.flag-icon {
-    background-image: url('../icons/delete.png');
+    background-image: url('../icons/flag.png');
 }
 
 .checkmark-icon {

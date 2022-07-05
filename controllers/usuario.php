@@ -90,7 +90,7 @@ class Users {
         $_SESSION['usersName'] = $user->nombre;
         $_SESSION['usersEmail'] = $user->correo_electronico;
         $_SESSION['admin']= $user->admin;
-        redirect("../views/user__inicio.php");
+        redirect("../views/____index.php");
     }
 
     public function logout(){

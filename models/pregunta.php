@@ -26,4 +26,12 @@ class Pregunta {
         return false;
     }
 
+    public function get_all(){
+        $this->db->query('SELECT * FROM pregunta');
+        $consulta = $this->db->resultSet();
+
+        return $consulta;
+    }
+
+
 }

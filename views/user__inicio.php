@@ -40,41 +40,48 @@
 
                 <!-- Traer de la base de datos -->
 
-                    <!-- Modelo pregunta abierta -->
-                    <div class="pregunta">
-                        <div class="pregunta__contenido">
-                            <div class="pregunta__contenido__info">
-                                <p>Curso > Tema | Fecha</p>
-                                <p class="pregunta__contenido__status">Estado: Abierto</p>
+                <?php foreach ($datos as $dato) { ?>
+                        <div class="pregunta">
+                            <div class="pregunta__contenido">
+                                <div class="pregunta__contenido__info">
+                                    <p><?php echo $dato->curso;?> > <?php echo $dato->tema;?> | <?php echo $dato->fecha_publicacion;?></p>
+                                    <p class="pregunta__contenido__status"> Estado: 
+                                        <?php if ($dato->estado == 0): ?> 
+                                            Abierto
+                                        <?php else: ?>
+                                            Cerrado
+                                        <?php endif; ?>
+                                    </p>
+                                </div>
+                                <h2><?php echo $dato->titulo;?></h2>
+                                <p><?php echo $dato->descripcion;?></p>
+                            </div class="main__contenido__q-list">
+                            <div class="pregunta__actions">
+                                <a href="#"><span class="pregunta-icon eye-icon"></span></a>
+
+                                <?php if ($dato->estado == 0 && $dato->cui_usuario != $_SESSION['usersCUI']): ?> 
+                                <a href="#"><span class="pregunta-icon checkmark-icon"></span></a>
+                                <?php else: ?>
+                                <div><span class="pregunta-icon"></span></div>
+                                <?php endif;?>
+
+                                <?php if ($dato->cui_usuario == $_SESSION['usersCUI']&& $dato->estado == 0): ?> 
+                                <a href="#"><span class="pregunta-icon edit-icon"></span></a>
+                                <?php elseif($_SESSION['admin']==1): ?>
+                                <a href="#"><span class="pregunta-icon .x-mark-icon"></span></a>
+                                <?php else: ?>
+                                <div><span class="pregunta-icon"></span></div>
+                                <?php endif;?>
+
+                                <?php if ($dato->cui_usuario == $_SESSION['usersCUI']): ?> 
+                                <a href="#"><span class="pregunta-icon trash-icon"></span></a>
+                                <?php else: ?>
+                                <a href="#"><span class="pregunta-icon flag-icon"></span></a>
+                                <?php endif;?>
                             </div>
-                            <h2>Titulo de la pregunta?</h2>
-                            <p>Esta es una pregunta abierta</p>
-                        </div class="main__contenido__q-list">
-                        <div class="pregunta__actions">
-                            <a href="#"><span class="pregunta-icon eye-icon"></span></a>
-                            <a href="#"><span class="pregunta-icon checkmark-icon"></span></a>
-                            <a href="#"><span class="pregunta-icon x-mark-icon"></span></a>
-                            <a href="#"><span class="pregunta-icon flag-icon"></span></a>
-                        </div>
-                    </div>
-                    
-                    <!-- Modelo pregunta cerrada -->
-                    <div class="pregunta">
-                        <div class="pregunta__contenido">
-                            <div class="pregunta__contenido__info">
-                                <p>Curso > Tema | Fecha</p>
-                                <p class="pregunta__contenido__status">Estado: Cerrado</p>
-                            </div>
-                            <h2>Titulo de la pregunta?</h2>
-                            <p>Esta es una pregunta cerrada</p>
-                        </div>
-                        <div class="pregunta__actions">
-                            <a href="#"><span class="pregunta-icon eye-icon"></span></a>
-                            <a href="#"><span class="pregunta-icon"></span></a>
-                            <a href="#"><span class="pregunta-icon x-mark-icon"></span></a>
-                            <a href="#"><span class="pregunta-icon flag-icon"></span></a>
-                        </div>
-                    </div>
+                        </div>                    
+                <?php } ?>
+
                 </div>
             </section>
         </main>
