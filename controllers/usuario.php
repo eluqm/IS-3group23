@@ -89,13 +89,15 @@ class Users {
         $_SESSION['usersCUI'] = $user->cui;
         $_SESSION['usersName'] = $user->nombre;
         $_SESSION['usersEmail'] = $user->correo_electronico;
-        redirect("../views/template.php");
+        $_SESSION['admin']= $user->admin;
+        redirect("../views/user__inicio.php");
     }
 
     public function logout(){
         unset($_SESSION['usersCUI']);
         unset($_SESSION['usersName']);
         unset($_SESSION['usersEmail']);
+        unset($_SESSION['admin']);
         session_destroy();
         redirect("../views/login.php");
     }

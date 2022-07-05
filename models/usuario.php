@@ -19,9 +19,8 @@ class User {
 
         if($this->db->execute()){
             return true;
-        }else{
-            return false;
         }
+        return false;
     }
 
     public function findUserByEmail($email){
@@ -37,6 +36,18 @@ class User {
         }
     }
 
+    public function isAdmin($CUI){
+        $this->db->query('SELECT * FROM administrador WHERE cui = :CUI');
+        $this->db->bind(':CUI', $CUI);
+        
+        $this->db->single();
+        
+        if($this->db->rowCount() > 0){
+            return 1;
+        }
+        return 0;
+    }
+
     public function login($email, $password){
         $row = $this->findUserByEmail($email);
 
@@ -46,11 +57,9 @@ class User {
         }
         
         if($row->contrasenia==$password){
+            $row->admin = $this->isAdmin($row->cui);
             return $row;
-        }else{
-            return false;
         }
-
-        return $row;
+        return false;   
     }
 }
