@@ -1,24 +1,185 @@
-INSERT INTO usuario
-VALUES (20008080, 'Administrador1', 'admin01@unsa.edu.pe'),
-		(20008081, 'Administrador2', 'admin02@unsa.edu.pe'),
-        (20008082, 'Administrador3', 'admin03@unsa.edu.pe'),
-        (20008083, 'Administrador4', 'admin04@unsa.edu.pe'),
-        (20008084, 'Administrador5', 'admin05@unsa.edu.pe'),
-        (20008085, 'Administrador6', 'admin06@unsa.edu.pe'),
-        (20008086, 'Usuario1', 'user01@unsa.edu.pe'),
-        (20008087, 'Usuario2', 'user02@unsa.edu.pe'),
-        (20008088, 'Usuario3', 'user03@unsa.edu.pe'),
-        (20008089, 'Usuario4', 'user04@unsa.edu.pe'),
-        (20008090, 'Usuario5', 'user05@unsa.edu.pe'),
-        (20008091, 'Usuario6', 'user06@unsa.edu.pe'),
-        (20008092, 'Usuario7', 'user07@unsa.edu.pe'),
-        (20008093, 'Usuario8', 'user08@unsa.edu.pe');
-        
-INSERT INTO administrador VALUES (20008080),
-								(20008081),
-                                (20008082),
-                                (20008083),
-                                (20008084),
-                                (20008085),
-                                (20008086);
-                                
+USE tasti;
+
+#USUARIO
+insert into usuario (cui, nombre, correo_electronico, contrasenia) values (20204889, 'Annabell Manby', 'amanby0@zdnet.com', 'JUppkOG7');
+insert into usuario (cui, nombre, correo_electronico, contrasenia) values (20179691, 'Gibby Sheasby', 'gsheasby1@blinklist.com', 'CxTYcaDF49');
+insert into usuario (cui, nombre, correo_electronico, contrasenia) values (20218610, 'Mei Mourgue', 'mmourgue2@prweb.com', 'fqMbOL0W');
+insert into usuario (cui, nombre, correo_electronico, contrasenia) values (20170573, 'Findley Emney', 'femney3@technorati.com', 'xawMNdeSH7');
+insert into usuario (cui, nombre, correo_electronico, contrasenia) values (20206090, 'Alex Cardis', 'acardis4@berkeley.edu', '1i28Z5');
+insert into usuario (cui, nombre, correo_electronico, contrasenia) values (20205999, 'Kelvin Hegley', 'khegley5@odnoklassniki.ru', 'WEUMfar3b');
+insert into usuario (cui, nombre, correo_electronico, contrasenia) values (20201264, 'Melantha Vairow', 'mvairow6@paginegialle.it', 'OAVsa3HGh');
+insert into usuario (cui, nombre, correo_electronico, contrasenia) values (20183785, 'Gene Fearnall', 'gfearnall7@so-net.ne.jp', 'WbNCIwPq');
+insert into usuario (cui, nombre, correo_electronico, contrasenia) values (20206921, 'Myrvyn Langhorne', 'mlanghorne8@google.pl', 'kEFzTtOM5x8o');
+insert into usuario (cui, nombre, correo_electronico, contrasenia) values (20202995, 'Mellisa Simoneschi', 'msimoneschi9@joomla.org', 'WJe33Q3b');
+insert into usuario (cui, nombre, correo_electronico, contrasenia) values (20190821, 'Sergei Barsam', 'sbarsama@tinyurl.com', 'O4XUTwRk3aIs');
+insert into usuario (cui, nombre, correo_electronico, contrasenia) values (20218181, 'Germayne Duxbarry', 'gduxbarryb@cornell.edu', 'x06sHQB6G');
+insert into usuario (cui, nombre, correo_electronico, contrasenia) values (20188652, 'Andeee Cloy', 'acloyc@eventbrite.com', 'QYpn9olf');
+insert into usuario (cui, nombre, correo_electronico, contrasenia) values (20188082, 'Waylan Beyer', 'wbeyerd@blog.com', 'zDIM5ZTkIZqT');
+insert into usuario (cui, nombre, correo_electronico, contrasenia) values (20199209, 'Boycie Grunwald', 'bgrunwalde@smugmug.com', 'tkTYurOsK7');
+insert into usuario (cui, nombre, correo_electronico, contrasenia) values (20179730, 'Annette Januszewicz', 'ajanuszewiczf@istockphoto.com', 'GAvKdTfQw8');
+insert into usuario (cui, nombre, correo_electronico, contrasenia) values (20179048, 'Nomi Aspole', 'naspoleg@mozilla.com', 'w0cjoY');
+insert into usuario (cui, nombre, correo_electronico, contrasenia) values (20188344, 'Lian Comi', 'lcomih@ovh.net', 'c9uxpJin93Ks');
+insert into usuario (cui, nombre, correo_electronico, contrasenia) values (20214937, 'Briney Pinney', 'bpinneyi@godaddy.com', 'bhOTyeIqCR');
+insert into usuario (cui, nombre, correo_electronico, contrasenia) values (20208711, 'Cesare Shakesby', 'cshakesbyj@pcworld.com', 'PTfIC8iu');
+insert into usuario (cui, nombre, correo_electronico, contrasenia) values (20215513, 'Dannel Larkin', 'dlarkink@edublogs.org', 'PXo45cmpGDf');
+insert into usuario (cui, nombre, correo_electronico, contrasenia) values (20186176, 'Timothy Huthart', 'thuthartl@ezinearticles.com', 'zhnGrV');
+insert into usuario (cui, nombre, correo_electronico, contrasenia) values (20175226, 'Laura Hinchcliffe', 'lhinchcliffem@fema.gov', 'nwxsGTOUxhW');
+insert into usuario (cui, nombre, correo_electronico, contrasenia) values (20199590, 'Raymond Dallaway', 'rdallawayn@nature.com', 'o9UwtoIw');
+insert into usuario (cui, nombre, correo_electronico, contrasenia) values (20176837, 'Trude Lowseley', 'tlowseleyo@wisc.edu', 'QQ0fNU5');
+insert into usuario (cui, nombre, correo_electronico, contrasenia) values (20170048, 'Bee Rummin', 'brumminp@washingtonpost.com', 'BBfhYrYZIb');
+insert into usuario (cui, nombre, correo_electronico, contrasenia) values (20173426, 'Constantino Pandya', 'cpandyaq@edublogs.org', 'yiFOptN7S');
+insert into usuario (cui, nombre, correo_electronico, contrasenia) values (20211733, 'Janeen Pickworth', 'jpickworthr@yolasite.com', 'hJfDMwMlYTN');
+insert into usuario (cui, nombre, correo_electronico, contrasenia) values (20190748, 'Shannon Coster', 'scosters@woothemes.com', 'YXUFXmVd');
+insert into usuario (cui, nombre, correo_electronico, contrasenia) values (20207666, 'Nikola Collister', 'ncollistert@clickbank.net', 'rXLI4xbx');
+insert into usuario (cui, nombre, correo_electronico, contrasenia) values (20177708, 'Jeana Fossey', 'jfosseyu@vkontakte.ru', 'VOXuwT');
+insert into usuario (cui, nombre, correo_electronico, contrasenia) values (20214645, 'Lianna Rogeon', 'lrogeonv@php.net', 'gjFtsB');
+insert into usuario (cui, nombre, correo_electronico, contrasenia) values (20217201, 'Henri Margrett', 'hmargrettw@comsenz.com', 'SJnpR4j3');
+insert into usuario (cui, nombre, correo_electronico, contrasenia) values (20200126, 'Anthea Garment', 'agarmentx@wunderground.com', 'M7qngSSA');
+insert into usuario (cui, nombre, correo_electronico, contrasenia) values (20219852, 'Rey Burnapp', 'rburnappy@posterous.com', 'VWPuSSWhnVe');
+insert into usuario (cui, nombre, correo_electronico, contrasenia) values (20181079, 'Annabell Leppo', 'aleppoz@noaa.gov', 'fVXlAr');
+insert into usuario (cui, nombre, correo_electronico, contrasenia) values (20206554, 'Warner Aireton', 'waireton10@cam.ac.uk', '6A6dVPhiWr');
+insert into usuario (cui, nombre, correo_electronico, contrasenia) values (20197075, 'Wendye Camock', 'wcamock11@statcounter.com', 'y7ZO0NmDR3SM');
+insert into usuario (cui, nombre, correo_electronico, contrasenia) values (20216150, 'Marcelle MacIntosh', 'mmacintosh12@deviantart.com', '1akYBxBg0h6T');
+insert into usuario (cui, nombre, correo_electronico, contrasenia) values (20211520, 'Ignazio Tebbet', 'itebbet13@mozilla.org', 'zeA94x06tH');
+insert into usuario (cui, nombre, correo_electronico, contrasenia) values (20172138, 'Corrinne Hubbard', 'chubbard14@gov.uk', 'egKp8i');
+insert into usuario (cui, nombre, correo_electronico, contrasenia) values (20200436, 'Ichabod Killingbeck', 'ikillingbeck15@yelp.com', '98TUBCfeLJ');
+insert into usuario (cui, nombre, correo_electronico, contrasenia) values (20208254, 'Sydelle Balkwill', 'sbalkwill16@engadget.com', '1qmus45qBlt');
+insert into usuario (cui, nombre, correo_electronico, contrasenia) values (20170645, 'Christiana Keynes', 'ckeynes17@ning.com', 'h2cROsHqxH');
+insert into usuario (cui, nombre, correo_electronico, contrasenia) values (20203719, 'Benji Insworth', 'binsworth18@tiny.cc', 'xTJDVBxy');
+insert into usuario (cui, nombre, correo_electronico, contrasenia) values (20205307, 'Ali Huyche', 'ahuyche19@printfriendly.com', 'ztH9cwgVC8O');
+insert into usuario (cui, nombre, correo_electronico, contrasenia) values (20204074, 'Karyn Featherstone', 'kfeatherstone1a@home.pl', 'k4BbTla3');
+insert into usuario (cui, nombre, correo_electronico, contrasenia) values (20187059, 'Eve Pinnegar', 'epinnegar1b@skype.com', 'IpO60RbAej');
+insert into usuario (cui, nombre, correo_electronico, contrasenia) values (20210186, 'Clemmy Durban', 'cdurban1c@microsoft.com', 'tocH6hY');
+insert into usuario (cui, nombre, correo_electronico, contrasenia) values (20183901, 'Hamilton Mocher', 'hmocher1d@gmpg.org', 'iic1qOHI1w');
+insert into usuario (cui, nombre, correo_electronico, contrasenia) values (20190760, 'Jim Huertas', 'jhuertas@unsa.edu.pe', 'Holitas_4');
+insert into usuario (cui, nombre, correo_electronico, contrasenia) values (20190742, 'Luisa Villanueva', 'lvillanuevag@unsa.edu.pe', 'Holitas_4');
+insert into usuario (cui, nombre, correo_electronico, contrasenia) values (20190752, 'Solange Romero', 'sromeroc@unsa.edu.pe', 'Holitas_4');
+
+#ADMINISTRADOR
+insert into administrador (cui) values (20190760);
+insert into administrador (cui) values (20190742);
+insert into administrador (cui) values (20190752);
+
+#PERFIL
+insert into perfil (descripcion, cui) values ('Estudiante de 2do año, dispuesto a cooperar en tareas que exigen conocimientos de matemática.', 20204889);
+insert into perfil (descripcion, cui) values ('Estudiante de 5to año, dispuesto a cooperar en tareas que exigen conocimientos de computación gráfica.', 20179691);
+insert into perfil (descripcion, cui) values ('Estudiante de 1er año, esperando poder aprender de otros.', 20218610);
+insert into perfil (descripcion, cui) values ('Estudiante de 5to año, dispuesto a cooperar en tareas que exigen conocimientos de matemática.', 20170573);
+insert into perfil (descripcion, cui) values ('Estudiante de 2do año, esperando poder aprender de otros.', 20206090);
+insert into perfil (descripcion, cui) values ('Estudiante de 2do año, esperando poder aprender de otros.', 20205999);
+insert into perfil (descripcion, cui) values ('Estudiante de 2do año, esperando poder aprender de otros.', 20201264);
+insert into perfil (descripcion, cui) values ('Estudiante de 4to año, dispuesto a cooperar en tareas que exigen conocimientos de programación en cpp.', 20183785);
+insert into perfil (descripcion, cui) values ('Estudiante de 2do año, esperando poder aprender de otros.', 20206921);
+insert into perfil (descripcion, cui) values ('Estudiante de 2do año, esperando poder aprender de otros.', 20202995);
+insert into perfil (descripcion, cui) values ('Estudiante de 3er año, esperando poder aprender de otros.', 20190821);
+insert into perfil (descripcion, cui) values ('Estudiante de 1er año, esperando poder aprender de otros.', 20218181);
+insert into perfil (descripcion, cui) values ('Estudiante de 3er año, dispuesto a cooperar en tareas que exigen conocimientos de computación gráfica.', 20188652);
+insert into perfil (descripcion, cui) values ('Estudiante de 4to año, esperando poder aprender de otros.', 20188082);
+insert into perfil (descripcion, cui) values ('Estudiante de 4to año, dispuesto a cooperar en tareas que exigen conocimientos de computación gráfica.', 20199209);
+insert into perfil (descripcion, cui) values ('Estudiante de 5to año, dispuesto a cooperar en tareas que exigen conocimientos de programación en cpp.', 20179730);
+insert into perfil (descripcion, cui) values ('Estudiante de 5to año, dispuesto a cooperar en tareas que exigen conocimientos de matemática.', 20179048);
+insert into perfil (descripcion, cui) values ('Estudiante de 5to año, dispuesto a cooperar en tareas que exigen conocimientos de computación gráfica.', 20188344);
+insert into perfil (descripcion, cui) values ('Estudiante de 1ro año, esperando poder aprender de otros.', 20214937);
+insert into perfil (descripcion, cui) values ('Estudiante de 2do año, esperando poder aprender de otros.', 20208711);
+insert into perfil (descripcion, cui) values ('Estudiante de 1ro año, esperando poder aprender de otros.', 20215513);
+insert into perfil (descripcion, cui) values ('Estudiante de 5to año, dispuesto a cooperar en tareas que exigen conocimientos de matemática.', 20186176);
+insert into perfil (descripcion, cui) values ('Estudiante de 5to año, dispuesto a cooperar en tareas que exigen conocimientos de matemática.', 20175226);
+insert into perfil (descripcion, cui) values ('Estudiante de 4to año, dispuesto a cooperar en tareas que exigen conocimientos de programación en python.', 20199590);
+insert into perfil (descripcion, cui) values ('Estudiante de 5to año, dispuesto a cooperar en tareas que exigen conocimientos de programación en cpp.', 20176837);
+insert into perfil (descripcion, cui) values ('Estudiante de 5to año, dispuesto a cooperar en tareas que exigen conocimientos de computación gráfica.', 20170048);
+insert into perfil (descripcion, cui) values ('Estudiante de 4to año, dispuesto a cooperar en tareas que exigen conocimientos de programación en cpp.', 20173426);
+insert into perfil (descripcion, cui) values ('Estudiante de 1to año, esperando poder aprender de otros.', 20211733);
+insert into perfil (descripcion, cui) values ('Estudiante de 4to año, dispuesto a cooperar en tareas que exigen conocimientos de programación en python.', 20190748);
+insert into perfil (descripcion, cui) values ('Estudiante de 3ro año, dispuesto a cooperar en tareas que exigen conocimientos de matemática.', 20207666);
+insert into perfil (descripcion, cui) values ('Estudiante de 5to año, dispuesto a cooperar en tareas que exigen conocimientos de programación en python.', 20177708);
+insert into perfil (descripcion, cui) values ('Estudiante de 1ro año, esperando poder aprender de otros.', 20214645);
+insert into perfil (descripcion, cui) values ('Estudiante de 1ro año, esperando poder aprender de otros.', 20217201);
+insert into perfil (descripcion, cui) values ('Estudiante de 2do año, esperando poder aprender de otros.', 20200126);
+insert into perfil (descripcion, cui) values ('Estudiante de 1ro año, esperando poder aprender de otros.', 20219852);
+insert into perfil (descripcion, cui) values ('Estudiante de 4to año, dispuesto a cooperar en tareas que exigen conocimientos de programación en python.', 20181079);
+insert into perfil (descripcion, cui) values ('Estudiante de 2do año, esperando poder aprender de otros.', 20206554);
+insert into perfil (descripcion, cui) values ('Estudiante de 3ro año, esperando poder aprender de otros.', 20197075);
+insert into perfil (descripcion, cui) values ('Estudiante de 1ro año, esperando poder aprender de otros.', 20216150);
+insert into perfil (descripcion, cui) values ('Estudiante de 1ro año, esperando poder aprender de otros.', 20211520);
+insert into perfil (descripcion, cui) values ('Estudiante de 5to año, dispuesto a cooperar en tareas que exigen conocimientos de programación en java.', 20172138);
+insert into perfil (descripcion, cui) values ('Estudiante de 2do año, esperando poder aprender de otros.', 20200436);
+insert into perfil (descripcion, cui) values ('Estudiante de 2do año, esperando poder aprender de otros.', 20208254);
+insert into perfil (descripcion, cui) values ('Estudiante de 4to año, dispuesto a cooperar en tareas que exigen conocimientos de computación gráfica.', 20170645);
+insert into perfil (descripcion, cui) values ('Estudiante de 2do año, esperando poder aprender de otros.', 20203719);
+insert into perfil (descripcion, cui) values ('Estudiante de 2do año, esperando poder aprender de otros.', 20205307);
+insert into perfil (descripcion, cui) values ('Estudiante de 2do año, esperando poder aprender de otros.', 20204074);
+insert into perfil (descripcion, cui) values ('Estudiante de 4to año, dispuesto a cooperar en tareas que exigen conocimientos de programación en javascript.', 20187059);
+insert into perfil (descripcion, cui) values ('Estudiante de 1ro año, esperando poder aprender de otros.', 20210186);
+insert into perfil (descripcion, cui) values ('Estudiante de 5to año, dispuesto a cooperar en tareas que exigen conocimientos de programación en javascript.', 20183901);
+insert into perfil (descripcion, cui) values ('Estudiante de 4to año, dispuesto a cooperar en tareas que exigen conocimientos de programación en flutter.', 20190760);
+insert into perfil (descripcion, cui) values ('Estudiante de 4to año, dispuesto a cooperar en tareas que exigen conocimientos de programación en php.', 20190742);
+insert into perfil (descripcion, cui) values ('Estudiante de 4to año, dispuesto a cooperar en tareas que exigen conocimientos de nada :).', 20190752);
+
+#CURSO
+insert into curso (idcurso, nombre, anio, semestre) values (1701101, 'Razonamiento Logico Matematico', '1', '1');
+insert into curso (idcurso, nombre, anio, semestre) values (1701102, 'Metogologia del Trabajo Intelectual Universitario', '1', '1');
+insert into curso (idcurso, nombre, anio, semestre) values (1701104, 'Arte Computacional', '1', '1');
+insert into curso (idcurso, nombre, anio, semestre) values (1701105, 'Ingles Tecnico Profesional I', '1', '1');
+insert into curso (idcurso, nombre, anio, semestre) values (1701106, 'Fundamentos de Computacion', '1', '1');
+insert into curso (idcurso, nombre, anio, semestre) values (1701107, 'Estructuras Discretas I', '1', '1');
+insert into curso (idcurso, nombre, anio, semestre) values (1701114, 'Liderazgo y Oratoria', '1', '1');
+insert into curso (idcurso, nombre, anio, semestre) values (1701208, 'Estructuras Discretas II', '1', '2');
+insert into curso (idcurso, nombre, anio, semestre) values (1701209, 'Ciencia de la Computacion I', '1', '2');
+insert into curso (idcurso, nombre, anio, semestre) values (1701210, 'Calculo en una Variable', '1', '2');
+insert into curso (idcurso, nombre, anio, semestre) values (1701212, 'Ingles Tecnico Profesional II', '1', '2');
+insert into curso (idcurso, nombre, anio, semestre) values (1701215, 'Comunicacion Integral', '1', '2');
+insert into curso (idcurso, nombre, anio, semestre) values (1701216, 'Realidad Nacional', '1', '2');
+insert into curso (idcurso, nombre, anio, semestre) values (1702117, 'Arquitectura de Computadores', '2', '1');
+insert into curso (idcurso, nombre, anio, semestre) values (1702118, 'Ciencia de la Computacion II', '2', '1');
+insert into curso (idcurso, nombre, anio, semestre) values (1702119, 'Desarrollo Basado en Plataformas', '2', '1');
+insert into curso (idcurso, nombre, anio, semestre) values (1702120, 'Trabajo Interdisciplinar I', '2', '1');
+insert into curso (idcurso, nombre, anio, semestre) values (1702121, 'Calculo en Varias Variables', '2', '1');
+insert into curso (idcurso, nombre, anio, semestre) values (1702122, 'Ingles Tecnico Profesional III', '2', '1');
+insert into curso (idcurso, nombre, anio, semestre) values (1702123, 'Ciudadania e Interculturalidad', '2', '1');
+insert into curso (idcurso, nombre, anio, semestre) values (1702224, 'Algoritmos y Estructuras de Datos', '2', '2');
+insert into curso (idcurso, nombre, anio, semestre) values (1702225, 'Teoria de la Computacion', '2', '2');
+insert into curso (idcurso, nombre, anio, semestre) values (1702226, 'Base da Datos I', '2', '2');
+insert into curso (idcurso, nombre, anio, semestre) values (1702227, 'Algebra Lineal Numerica', '2', '2');
+insert into curso (idcurso, nombre, anio, semestre) values (1702228, 'Estadistica y Probabilidades', '2', '2');
+insert into curso (idcurso, nombre, anio, semestre) values (1702229, 'Ecologia y Conservacion Ambiental', '2', '2');
+insert into curso (idcurso, nombre, anio, semestre) values (1703130, 'Base de Datos II', '3', '1');
+insert into curso (idcurso, nombre, anio, semestre) values (1703131, 'Analisis y Diseño de Algoritmos', '3', '1');
+insert into curso (idcurso, nombre, anio, semestre) values (1703132, 'Ingenieria de Software I', '3', '1');
+insert into curso (idcurso, nombre, anio, semestre) values (1703133, 'Compiladores', '3', '1');
+insert into curso (idcurso, nombre, anio, semestre) values (1703134, 'Analisis Exploratorio de Datos Espaciales', '3', '1');
+insert into curso (idcurso, nombre, anio, semestre) values (1703135, 'Ecuaciones Diferenciales', '3', '1');
+insert into curso (idcurso, nombre, anio, semestre) values (1703236, 'Programacion Competitiva', '3', '2');
+insert into curso (idcurso, nombre, anio, semestre) values (1703237, 'Ingenieria de Software II', '3', '2');
+insert into curso (idcurso, nombre, anio, semestre) values (1703238, 'Estructuras de Datos Avanzados', '3', '2');
+insert into curso (idcurso, nombre, anio, semestre) values (1703239, 'Sistemas Operativos', '3', '2');
+insert into curso (idcurso, nombre, anio, semestre) values (1703240, 'Trabajo Interdisciplinar II', '3', '2');
+insert into curso (idcurso, nombre, anio, semestre) values (1703241, 'Matematica Aplicada a la Computacion', '3', '2');
+insert into curso (idcurso, nombre, anio, semestre) values (1704142, 'Investigacion en Ciencias de la Computacion', '4', '1');
+insert into curso (idcurso, nombre, anio, semestre) values (1704143, 'Desarrollo de Software Empresarial', '4', '1');
+insert into curso (idcurso, nombre, anio, semestre) values (1704144, 'Redes y Comunicacion', '4', '1');
+insert into curso (idcurso, nombre, anio, semestre) values (1704145, 'Ingenieria de Software II', '4', '1');
+insert into curso (idcurso, nombre, anio, semestre) values (1704146, 'Computacion Grafica', '4', '1');
+insert into curso (idcurso, nombre, anio, semestre) values (1704147, 'Inteligencia Artificial', '4', '1');
+insert into curso (idcurso, nombre, anio, semestre) values (1704248, 'Interaccion Humano Computador', '4', '2');
+insert into curso (idcurso, nombre, anio, semestre) values (1704249, 'Proyecto Final de Carrera I', '4', '2');
+insert into curso (idcurso, nombre, anio, semestre) values (1704250, 'Computacion Paralela y Distribuida', '4', '2');
+insert into curso (idcurso, nombre, anio, semestre) values (1704251, 'Seguridad en Computacion', '4', '2');
+insert into curso (idcurso, nombre, anio, semestre) values (1704252, 'Formacion de Empresas de Base Tecnologica I', '4', '2');
+insert into curso (idcurso, nombre, anio, semestre) values (1704253, 'Relaciones Humanas', '4', '2');
+insert into curso (idcurso, nombre, anio, semestre) values (1704254, 'Fisica Computacional', '4', '2');
+insert into curso (idcurso, nombre, anio, semestre) values (1704255, 'Topicos en Ingenieria de Software', '4', '2');
+insert into curso (idcurso, nombre, anio, semestre) values (1705156, 'Proyecto Final de Carrera II', '5', '1');
+insert into curso (idcurso, nombre, anio, semestre) values (1705157, 'Big Data', '5', '1');
+insert into curso (idcurso, nombre, anio, semestre) values (1705158, 'Etica General y Profesional', '5', '1');
+insert into curso (idcurso, nombre, anio, semestre) values (1705159, 'Formacion de Empresas de Base Tecnologica II', '5', '1');
+insert into curso (idcurso, nombre, anio, semestre) values (1705160, 'Ingles Tecnico Profesional IV', '5', '1');
+insert into curso (idcurso, nombre, anio, semestre) values (1705161, 'Topicos en Ciencia de Datos', '5', '1');
+insert into curso (idcurso, nombre, anio, semestre) values (1705162, 'Topicos en Inteligencia Artificial', '5', '1');
+insert into curso (idcurso, nombre, anio, semestre) values (1705163, 'Topicos en Computacion Grafica', '5', '1');
+insert into curso (idcurso, nombre, anio, semestre) values (1705164, 'Bioinformatica', '5', '1');
+insert into curso (idcurso, nombre, anio, semestre) values (1705265, 'Cloud Computing', '5', '2');
+insert into curso (idcurso, nombre, anio, semestre) values (1705266, 'Proyecto Final de Carrera III', '5', '2');
+insert into curso (idcurso, nombre, anio, semestre) values (1705267, 'Trabajo Interdisciplinar III', '5', '2');
+insert into curso (idcurso, nombre, anio, semestre) values (1705268, 'Internet de las Cosas', '5', '2');
+insert into curso (idcurso, nombre, anio, semestre) values (1705269, 'Robotica', '5', '2');
+insert into curso (idcurso, nombre, anio, semestre) values (1705270, 'Topicos en Ciberseguridad', '5', '2');                            
