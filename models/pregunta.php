@@ -28,9 +28,11 @@ class Pregunta {
 
     public function get_all(){
         $this->db->query('SELECT * FROM pregunta');
-        $consulta = $this->db->resultSet();
-
-        return $consulta;
+        $row = $this->db->resultSet();
+        if($this->db->rowCount() > 0){
+            return $row; 
+        }
+        return 0;
     }
 
 

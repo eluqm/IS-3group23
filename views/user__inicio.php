@@ -17,6 +17,7 @@
         <link rel="stylesheet" href="components/lista_cursos.css">
     </head>
     <body>
+        <?php session_start(); ?>
         <header>
             <?php
             include './components/nav_bar.php';
@@ -39,7 +40,7 @@
                 <div class="main__contenido__q-list">
 
                 <!-- Traer de la base de datos -->
-                <?php if (isset($datos)): ?>
+                <?php if ($datos!=0): ?>
                 <?php foreach ($datos as $dato) { ?>
                         <div class="pregunta">
                             <div class="pregunta__contenido">

@@ -33,10 +33,10 @@
     </div>
     <a href="#" class="nav-bar__publicar-pregunta">+ Publicar Pregunta</a>
     <div class="nav-bar__perfil">
-        <?php  session_start(); if($_SESSION['admin']==1) : ?>
+        <?php if($_SESSION['admin']==1) : ?>
             <a href="#" class="nav-bar__administrador"><span class="admin-icon"></span></a>
         <?php endif; ?>
-        <a href="#" class="nav-bar__perfil__user-name">
+        <a href="../controllers/usuario.php?q=profile" class="nav-bar__perfil__user-name">
             <span class="user-image"></span> 
             <p> <?php echo $_SESSION['usersEmail'];?></p>
         </a>
