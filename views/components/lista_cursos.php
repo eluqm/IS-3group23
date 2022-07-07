@@ -1,35 +1,27 @@
 <aside class="lista-cursos">
-            <form id="curso_por_anio" class="lista-cursos__header" action="#" method="get"> 
-            <select onchange="onSelectChange();" name="anio" id="anio">
-            <option class="hidden_option" selected disabled> "Curso actual" </option>
-                <option value="1er_anio">Curso 1</option>
-                <option value="2er_anio">Curso 2</option>
-                <option value="3er_anio">Curso 3</option>
-                <option value="4to_anio">Curso 4</option>
-                <option value="5to_anio">Curso 5</option>
-            </select>
-            </form>
-
-            <div class="lista-cursos__contenedor-cursos">
-                <!-- Traer de la base de datos -->                    
-                <a class="lista-cursos__curso" href="#">Curso 1</a>
-                <a class="lista-cursos__curso" href="#">Curso 2</a>
-                <a class="lista-cursos__curso" href="#">Curso 3 </a>
-                <a class="lista-cursos__curso" href="#">Curso 4 </a>
-                <a class="lista-cursos__curso" href="#">Curso 1</a>
-                <a class="lista-cursos__curso" href="#">Curso 2</a>
-                <a class="lista-cursos__curso" href="#">Curso 3 </a>
-                <a class="lista-cursos__curso" href="#">Curso 4 </a>
-                <a class="lista-cursos__curso" href="#">Curso 1</a>
-                <a class="lista-cursos__curso" href="#">Curso 2</a>
-                <a class="lista-cursos__curso" href="#">Curso 3 </a>
-                <a class="lista-cursos__curso" href="#">Curso 4 </a>
-                <a class="lista-cursos__curso" href="#">Curso 1</a>
-                <a class="lista-cursos__curso" href="#">Curso 2</a>
-                <a class="lista-cursos__curso" href="#">Curso 3 </a>
-                <a class="lista-cursos__curso" href="#">Curso 4 </a>
-            </div>
-
+    <form id="curso_por_anio" class="lista-cursos__header" action="#" method="get"> 
+        <select onchange="onSelectChange();" name="anio" id="anio">
+            <?php if (isset($anios_registrados) && $anios_registrados!=0): ?>
+            <option class="hidden_option" selected disabled><?php echo $q_anio ?><span> año</span></option>
+            <?php foreach ($anios_registrados as $dato) { ?>
+            <option value="<?php echo $dato->anio?>"><?php echo $dato->anio?><span> año</span></option>
+            <?php } ?>
+                <?php else: ?>
+            <option class="hidden_option" selected disabled> "No hay cursos agregados" </option>
+            <?php endif; ?>
+        </select>
+    </form>
+                
+    <div class="lista-cursos__contenedor-cursos">
+                    <!-- Traer de la base de datos -->      
+        <?php if (isset($lista_curso) && $lista_curso!=0): ?>
+        <?php foreach ($lista_curso as $dato) { ?>
+            <a class="lista-cursos__curso" href="#"><?php echo $dato->nombre ?></a>
+        <?php } ?>
+        <?php else: ?>
+            <p>No hay cursos agregados :)</p>
+        <?php endif; ?>
+    </div>                            
 </aside>
 
 <script>

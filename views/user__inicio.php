@@ -32,7 +32,7 @@
 
             <section class="main__contenido">
                 <div class="main__contenido__header">
-                    <button>TODO</button>
+                    <button autofocus>TODO</button>
                     <button>ABIERTAS</button>
                     <button>CERRADAS</button>
                 </div>
@@ -40,7 +40,7 @@
                 <div class="main__contenido__q-list">
 
                 <!-- Traer de la base de datos -->
-                <?php if ($datos!=0): ?>
+                <?php if (isset($datos) && $datos!=0): ?>
                 <?php foreach ($datos as $dato) { ?>
                         <div class="pregunta">
                             <div class="pregunta__contenido">
@@ -69,7 +69,7 @@
                                 <?php if ($dato->cui_usuario == $_SESSION['usersCUI']&& $dato->estado == 0): ?> 
                                 <a href="#"><span class="pregunta-icon edit-icon"></span></a>
                                 <?php elseif($_SESSION['admin']==1): ?>
-                                <a href="#"><span class="pregunta-icon .x-mark-icon"></span></a>
+                                <a href="#"><span class="pregunta-icon x-mark-icon"></span></a>
                                 <?php else: ?>
                                 <div><span class="pregunta-icon"></span></div>
                                 <?php endif;?>
