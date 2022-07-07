@@ -45,7 +45,7 @@
                         <div class="pregunta">
                             <div class="pregunta__contenido">
                                 <div class="pregunta__contenido__info">
-                                    <p><?php echo $dato->curso;?> > <?php echo $dato->tema;?> | <?php echo $dato->fecha_publicacion;?></p>
+                                    <p><?php echo $dato->nombre_curso;?> > <?php echo $dato->tema;?> | <?php echo $dato->fecha_publicacion;?></p>
                                     <p class="pregunta__contenido__status"> Estado: 
                                         <?php if ($dato->estado == 0): ?> 
                                             Abierto

@@ -27,7 +27,7 @@ class Pregunta {
     }
 
     public function get_all(){
-        $this->db->query('SELECT * FROM pregunta');
+        $this->db->query("SELECT pregunta.*, curso.nombre 'nombre_curso' FROM pregunta INNER JOIN curso ON curso.idcurso=pregunta.curso");
         $row = $this->db->resultSet();
         if($this->db->rowCount() > 0){
             return $row; 
