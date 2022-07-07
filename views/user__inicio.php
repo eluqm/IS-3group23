@@ -39,7 +39,7 @@
                 <div class="main__contenido__q-list">
 
                 <!-- Traer de la base de datos -->
-
+                <?php if (isset($datos)): ?>
                 <?php foreach ($datos as $dato) { ?>
                         <div class="pregunta">
                             <div class="pregunta__contenido">
@@ -81,7 +81,9 @@
                             </div>
                         </div>                    
                 <?php } ?>
-
+                <?php else: ?>
+                    <p>No hay preguntas :)</p>
+                <?php endif; ?>
                 </div>
             </section>
         </main>
