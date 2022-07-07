@@ -20,6 +20,17 @@
             <?php include __DIR__.'/css/user__mi-perfil.css';?>
             <?php include __DIR__.'/components/pregunta.css';?>
             <?php include __DIR__.'/components/nav_bar.css';?>
+            .logo-icon {background-image: url('./../views/icons/logo.png');}
+            .eye-icon {background-image: url('./../views/icons/eye.png');}
+            .edit-icon {background-image: url('./../views/icons/edit.png');}
+            .flag-icon {background-image: url('./../views/icons/flag.png');}
+            .checkmark-icon {background-image: url('./../views/icons/checkmark.png');}
+            .trash-icon {background-image: url('./../views/icons/delete.png');}
+            .x-mark-icon {background-image: url('./../views/icons/x-mark.png');}
+            .search-icon {background-image: url('./../views/icons/search.png');}
+            .admin-icon {background-image: url('./../views/icons/admin.png');}
+
+
         </style>
         <header>
             <?php include  __DIR__.'/components/nav_bar.php';?>
@@ -61,26 +72,10 @@
                                 <p><?php echo $dato->descripcion;?></p>
                             </div class="main__contenido__q-list">
                             <div class="pregunta__actions">
-                                <a href="#"><span class="pregunta-icon" style="background-image: url(<?php echo __DIR__.'\icons\eye.png'?>);" eye-icon"></span></a>
-                                <?php if ($dato->estado == 0 && $dato->cui_usuario != $_SESSION['usersCUI']): ?> 
-                                <a href="#"><span class="pregunta-icon checkmark-icon"></span></a>
-                                <?php else: ?>
+                                <a href="#"><span class="pregunta-icon eye-icon"></span></a>
                                 <div><span class="pregunta-icon"></span></div>
-                                <?php endif;?>
-
-                                <?php if ($dato->cui_usuario == $_SESSION['usersCUI']&& $dato->estado == 0): ?> 
                                 <a href="#"><span class="pregunta-icon edit-icon"></span></a>
-                                <?php elseif($_SESSION['admin']==1): ?>
-                                <a href="#"><span class="pregunta-icon .x-mark-icon"></span></a>
-                                <?php else: ?>
-                                <div><span class="pregunta-icon"></span></div>
-                                <?php endif;?>
-
-                                <?php if ($dato->cui_usuario == $_SESSION['usersCUI']): ?> 
                                 <a href="#"><span class="pregunta-icon trash-icon"></span></a>
-                                <?php else: ?>
-                                <a href="#"><span class="pregunta-icon flag-icon"></span></a>
-                                <?php endif;?>
                             </div>
                         </div>          
                 <?php } ?>
@@ -108,26 +103,10 @@
                                 <p><?php echo $dato->descripcion;?></p>
                             </div class="main__contenido__q-list">
                             <div class="pregunta__actions">
-                                <a href="#"><span class="pregunta-icon" style="background-image: url(<?php echo __DIR__.'\icons\eye.png'?>);" eye-icon"></span></a>
-                                <?php if ($dato->estado == 0 && $dato->cui_usuario != $_SESSION['usersCUI']): ?> 
-                                <a href="#"><span class="pregunta-icon checkmark-icon"></span></a>
-                                <?php else: ?>
+                                <a href="#"><span class="pregunta-icon eye-icon"></span></a>
                                 <div><span class="pregunta-icon"></span></div>
-                                <?php endif;?>
-
-                                <?php if ($dato->cui_usuario == $_SESSION['usersCUI']&& $dato->estado == 0): ?> 
-                                <a href="#"><span class="pregunta-icon edit-icon"></span></a>
-                                <?php elseif($_SESSION['admin']==1): ?>
-                                <a href="#"><span class="pregunta-icon .x-mark-icon"></span></a>
-                                <?php else: ?>
                                 <div><span class="pregunta-icon"></span></div>
-                                <?php endif;?>
-
-                                <?php if ($dato->cui_usuario == $_SESSION['usersCUI']): ?> 
-                                <a href="#"><span class="pregunta-icon trash-icon"></span></a>
-                                <?php else: ?>
-                                <a href="#"><span class="pregunta-icon flag-icon"></span></a>
-                                <?php endif;?>
+                                <div><span class="pregunta-icon"></span></div>
                             </div>
                         </div>          
                 <?php } ?>
