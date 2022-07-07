@@ -1,6 +1,7 @@
 <?php
 
 require_once '../models/usuario.php';
+require_once '../models/curso.php';
 require_once '../helpers/session_helper.php';
 
 class Users {
@@ -106,7 +107,9 @@ class Users {
         $datos_perfil = $this->userModel->getProfile($_SESSION['usersCUI']); 
         $datos_mi_pregunta = $this->userModel->getMisPreguntas($_SESSION['usersCUI']); 
         $datos_mi_mentoria = $this->userModel->getMisMentorias($_SESSION['usersCUI']); 
-		require_once('../views/user__mi-perfil.php');
+        $curso=new Curso();
+        $anios_registrados=$curso->get_anios();
+        require_once('../views/user__mi-perfil.php');
         exit();
     }
 }
