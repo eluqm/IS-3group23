@@ -101,6 +101,14 @@ class Users {
         session_destroy();
         redirect("../views/login.php");
     }
+
+    public function getMiPerfil(){
+        $datos_perfil = $this->userModel->getProfile($_SESSION['usersCUI']); 
+        $datos_mi_pregunta = $this->userModel->getMisPreguntas($_SESSION['usersCUI']); 
+        $datos_mi_mentoria = $this->userModel->getMisMentorias($_SESSION['usersCUI']); 
+		require_once('../views/user__mi-perfil.php');
+        exit();
+    }
 }
 
     $init = new Users;
@@ -122,8 +130,10 @@ class Users {
             case 'logout':
                 $init->logout();
                 break;
+            case 'profile':
+                $init->getMiPerfil();
             default:
-            redirect("../views/login.php");
+                redirect("../views/login.php");
         }
     }
 ?>
