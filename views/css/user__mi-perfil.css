@@ -1,10 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Overlock+SC&display=swap');
+
 main {
     width: 100%;
     justify-content: center;
     display: flex;
     padding: 15px;
     gap: 15px;
-
+    font-family: 'Overlock SC';
 }
 
 aside {
@@ -48,8 +50,13 @@ aside {
 
 .aside__button-log-out {
     width: 100%;
+    display: block;
+    text-align: center;
     font-size: 1rem;
+    text-decoration: none;
+    border-width: 1px;
     margin-top: auto;
+    color: #000000;
     border-radius: 0 0 10px 10px;
     padding: 10px;
 }
@@ -85,5 +92,6 @@ aside {
 }
 
 .main__contenido__header button:focus {
+    outline: 0;
     background-color: var(--color_principal);
 }

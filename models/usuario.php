@@ -62,4 +62,38 @@ class User {
         }
         return false;   
     }
+
+    public function getProfile($CUI){
+        $this->db->query('SELECT perfil.descripcion, usuario.nombre FROM perfil INNER JOIN usuario ON usuario.cui=perfil.cui WHERE usuario.cui=:CUI');
+        $this->db->bind(':CUI', $CUI);
+        
+        $row = $this->db->single();
+        
+        if($this->db->rowCount() > 0){
+            return $row;
+        }
+        return false;
+    }
+
+    public function getMisPreguntas($CUI){
+        $this->db->query("SELECT pregunta.*, curso.nombre 'nombre_curso' from pregunta INNER JOIN curso ON curso.idcurso=pregunta.curso WHERE pregunta.cui_usuario=:CUI");
+        $this->db->bind(':CUI', $CUI);
+        $row = $this->db->resultSet();
+        if($this->db->rowCount() > 0){
+            return $row; 
+        }
+        return 0;
+    }
+
+    public function getMisMentorias($CUI){
+        $this->db->query("SELECT pregunta.*, curso.nombre 'nombre_curso' from pregunta INNER JOIN curso ON curso.idcurso=pregunta.curso WHERE pregunta.cui_mentor=:CUI");
+        $this->db->bind(':CUI', $CUI);
+        $row = $this->db->resultSet();
+        if($this->db->rowCount() > 0){
+            return $row; 
+        }
+        return 0;
+    }
+
+
 }
