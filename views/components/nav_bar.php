@@ -1,7 +1,7 @@
 <!-- CSS: <link rel="stylesheet" href="components/nav_bar.css"> -->
 
 <nav class="nav-bar">
-    <h1><a href="../views/____index.php"><span class="logo-title logo-icon"></span></a></h1>
+    <h1><a href="../index.php"><span class="logo-title logo-icon"></span></a></h1>
     <div>
         <form class="nav-bar__barra_busqueda" action="#" method="get"> 
             <select name="curso" id="curso">

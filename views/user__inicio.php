@@ -10,24 +10,34 @@
         <title>Inicio</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="components/pregunta.css">
-        <link rel="stylesheet" href="css/general_style.css">
-        <link rel="stylesheet" href="components/nav_bar.css">
-        <link rel="stylesheet" href="css/admin__inicio.css">
-        <link rel="stylesheet" href="components/lista_cursos.css">
     </head>
     <body>
-        <?php session_start(); ?>
+        <style>
+            <?php include __DIR__.'/css/general_style.css';?>
+            <?php include __DIR__.'/css/admin__inicio.css';?>
+            <?php include __DIR__.'/components/pregunta.css';?>
+            <?php include __DIR__.'/components/nav_bar.css';?>
+            <?php include __DIR__.'/components/lista_cursos.css';?>
+            .logo-icon {background-image: url('./../views/icons/logo.png');}
+            .eye-icon {background-image: url('./../views/icons/eye.png');}
+            .edit-icon {background-image: url('./../views/icons/edit.png');}
+            .flag-icon {background-image: url('./../views/icons/flag.png');}
+            .checkmark-icon {background-image: url('./../views/icons/checkmark.png');}
+            .trash-icon {background-image: url('./../views/icons/delete.png');}
+            .x-mark-icon {background-image: url('./../views/icons/x-mark.png');}
+            .search-icon {background-image: url('./../views/icons/search.png');}
+            .admin-icon {background-image: url('./../views/icons/admin.png');}
+        </style>
         <header>
             <?php
-            include './components/nav_bar.php';
+            include __DIR__.'../components/nav_bar.php';
             ?>
         </header>
 
         <main class="main-usando-navbar">
            
             <?php
-            include './components/lista_cursos.php';
+            include __DIR__.'../components/lista_cursos.php';
             ?>
 
             <section class="main__contenido">
@@ -56,7 +66,7 @@
                                 </div>
                                 <h2><?php echo $dato->titulo;?></h2>
                                 <p><?php echo $dato->descripcion;?></p>
-                            </div class="main__contenido__q-list">
+                            </div>
                             <div class="pregunta__actions">
                                 <a href="#"><span class="pregunta-icon eye-icon"></span></a>
 
