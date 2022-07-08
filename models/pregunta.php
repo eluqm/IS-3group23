@@ -16,9 +16,9 @@ class Pregunta {
         $this->db->bind(':descripcion', $data['descripcion']);
         $this->db->bind(':curso', $data['curso']);
         $this->db->bind(':tema', $data['tema']);
-        $this->db->bind(':fecha_publicacion', $data['fecha_limite']);
+        $this->db->bind(':fecha_publicacion', $data['fecha_publicacion']);
         $this->db->bind(':fecha_limite', $data['fecha_limite']);
-        $this->db->bind(':disponibilidad', $data['disponibilidad']);
+        $this->db->bind(':disponibilidad', $data['horDisp']);
 
         if($this->db->execute())
             return true;
