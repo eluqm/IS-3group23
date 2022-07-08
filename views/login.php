@@ -17,9 +17,6 @@
 ?>
 
 <body>
-    <?php 
-        include_once 'header.php';
-    ?>
     <div class="login-container">
         <div class="image-container">
             <img src="icons/logo.png" width="300" height="150px">

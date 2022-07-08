@@ -17,9 +17,6 @@
 ?>
 
 <body>
-    <?php 
-        include_once 'header.php';
-    ?>
     <div class="login-container">
         <div class="image-container">
             <h1 class="title">Registrarse</h1>
