@@ -1,0 +1,129 @@
+.publicar_pregunta {
+    align-items:center;
+    background-color: var(--color_principal);
+    display: flex;
+    border-radius: 10px;
+    width: 100%;
+    min-height: 100px;
+    flex-direction: column;
+}
+
+
+.publicar_pregunta h1{
+    margin-top: 10mm;
+    font-size: 20mm;
+}
+
+.publicar_pregunta select{
+    width: 750px;
+    height: 40px;
+    font-family: 'Poppins';
+    font-size: 5mm;
+    padding: 3px;
+    border-radius: 7px;
+}
+
+.publicar_pregunta hr{
+    background-color: blue;
+    color: blue;
+    width: 30px;
+    height: 100px;
+}
+
+
+.publicar_pregunta form p{
+    font-size: 5mm;
+    font-family: 'Poppins';
+    font-size: 22px;
+
+    float: left;
+}
+
+.publicar_pregunta form p.boton{
+    padding-left: 100px;
+    align-items: center;
+}
+
+
+.publicar_pregunta form button{
+    font-size: 22px;
+    width: 500px;
+    height: 60px;
+    border-radius: 7PX;
+    background-color: #177DE8;
+    padding: 5px;
+    float: left;
+    font-family: 'Overlock SC';
+    color: white;
+    border-color: #177DE8;
+    
+}
+
+
+.publicar_pregunta form p:last-child {
+    clear: both;
+}
+
+  
+.publicar_pregunta form label{
+    display:inline-block;
+    width: 400px;
+ 
+    border-radius: 10px;
+    display: block;
+}
+
+.publicar_pregunta form input{
+    display:inline-block;
+    width: 750px;
+    height: 40px;
+    border-radius: 5px;
+    display: block;
+    font-size: 5mm;
+    padding: 10px;
+}
+
+.publicar_pregunta form textarea{
+    border-radius: 5px;
+    width: 750px;
+    height: 300px;
+    font-size: 5mm;
+    padding: 10px;
+}
+
+.publicar_pregunta form label.descp{ 
+    display: block;
+}
+
+
+.contain {
+    max-width: 1170px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1em;
+}
+
+
+#contenedor {
+    text-align: left;
+    width: 100%;
+    margin: auto;
+}
+   
+#lateral {
+    padding-left: 50px; 
+    width: 50%;  /* Este será el ancho que tendrá tu columna */
+    float:right; /* Aquí determinas de lado quieres quede esta "columna" */
+}
+   
+#principal {
+    padding-left: 100px;    
+    width: 50%;
+    float: left;
+}
+   /* Para limpiar los floats */
+.clearfix:after {
+     content: "";
+     display: table;
+     clear: both;
+}
