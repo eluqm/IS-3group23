@@ -18,7 +18,7 @@
             <button type="submit"><span class="span-icon search-icon"></span></button>
         </form>
     </div>
-    <a href="#" class="nav-bar__publicar-pregunta">+ Publicar Pregunta</a>
+    <a href="./publicar_pregunta.php" class="nav-bar__publicar-pregunta">+ Publicar Pregunta</a>
     <div class="nav-bar__perfil">
         <?php if($_SESSION['admin']==1) : ?>
             <a href="#" class="nav-bar__administrador"><span class="admin-icon"></span></a>
