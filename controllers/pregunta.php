@@ -20,10 +20,9 @@ class PreguntaController {
             'descripcion' => trim($_POST['descripcion']),
             'curso' => trim($_POST['curso']),
             'tema' => trim($_POST['tema']),
-            'fecha_publicacion' => trim($_POST['fecha_limite']),
-            'fecha_limite' => trim($_POST['fecha_limite']),
-            'disponibilidad' => trim($_POST['disponibilidad'])
-
+            'fecha_publicacion' => date_default_timezone_get('America/Los_Angeles'),
+            'fecha_limite' => trim($_POST['fechaLim']),
+            'horDisp' => trim($_POST['horDisp'])
         ];
 
         if($this->preguntaModel->register($data))
@@ -43,7 +42,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         case 'store':
             $init->store();
         default:
-            redirect("../views/login.php");
+            redirect("../views/publicar_pregunta.php");
     }
         
 }
