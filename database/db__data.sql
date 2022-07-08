@@ -197,3 +197,28 @@ insert into pregunta (id, titulo, descripcion, curso, tema, fecha_publicacion, c
 insert into pregunta (id, titulo, descripcion, curso, tema, fecha_publicacion, cui_usuario, disponibilidad, estado, fecha_limite) values (8, 'Como puedo ajustar el zoom a mi pagina web', 'Es que tengo un problema al tener mi pagina web con un zoom de 100% las personas con otros navegadores tendran el zoom establecido con 80% o 120% o cualquier otro numero lo que pasa es que si lo tienen en otro numero daña toda la estructura css de la pagina', 1703237, 'Programacion Web', '2022-05-19 07:35:38', 20218181, 'Todo el día', 0, '2022-07-23 23:20:26');
 insert into pregunta (id, titulo, descripcion, curso, tema, fecha_publicacion, cui_usuario, disponibilidad, estado, fecha_limite) values (9, 'Pasé Javascript a $_POST php, pero mysqli duplica la entrada', 'En 1 archivo una variable toma la fecha y hora, la guarda en $_POST con Javascript, echo la imprime, otra variable hace la conexión y se guarda en database phpmyadmin.', 1703237, 'Programacion Web', '2022-06-23 23:14:09', 20214937, 'Martes y Jueves: 4pm a 8pm', 0, '2022-07-13 09:11:25');
 insert into pregunta (id, titulo, descripcion, curso, tema, fecha_publicacion, cui_usuario, disponibilidad, estado, fecha_limite) values (10, 'Acceder a todos los índices de mi Array de una consulta Con PHP Y MySQL', 'Estoy trabajando con JSON que son alojados en mi Base de Datos y al traerlos vienen organizados pero al querer yo acceder a todos los ids de cada uno de ellos no puedo hacerlo ya que estos vuelven a iniciar en [0][1] y así dependiendo de cuantos objetos allá dentro de ellos. Lo que quiero es poder acceder a todos los ID que tengo aquí', 1703130, 'Programacion Web', '2022-05-02 16:57:35', 20208711, 'Lunes, Miercoles y Viernes: 8am 11am', 0, '2022-07-08 13:51:46');
+
+insert into pregunta (id, titulo, descripcion, curso, tema, fecha_publicacion, cui_usuario, disponibilidad, estado, fecha_limite, cui_mentor, fecha_meet, link_meet, reunion_privada, max_participantes, cupos_disponibles) values (11, 'Ejercicio de Calculo', 'Las dos funciones f y g definidas por f(x) = 3x + 3 para x real y g(t) = 3t + 3 para t real y positivo ¿son iguales?', 1701210, 'Ejercicios', '2022-05-28 13:01:15', 20215513, 'Lunes, Miercoles y Viernes: 8am 11am', 1, '2022-07-30 20:42:48', 20179691, '2022-07-16 04:32:34', 'https://meet.google.com/pqi-ttmg-rxj', 1, 1, 0);
+insert into pregunta (id, titulo, descripcion, curso, tema, fecha_publicacion, cui_usuario, disponibilidad, estado, fecha_limite, cui_mentor, fecha_meet, link_meet, reunion_privada, max_participantes, cupos_disponibles) values (12, 'Calculo con opciones', 'If functions f and g have domains Df and Dg respectively, then the domain of f / g is given by
+(A) the union of Df and Dg
+(B) the intersection of Df and Dg
+(C) the intersection of Df and Dg without the zeros of function g
+(D) None of the above', 1701210, 'Ejercicios', '2022-05-12 00:50:42', 20207666, 'Lunes y Miercoles: 6pm a 8pm', 1, '2022-08-16 00:58:01', 20170573, '2022-07-14 20:31:22', 'https://meet.google.com/pqi-ttmg-rxj', 1, 1, 0);
+insert into pregunta (id, titulo, descripcion, curso, tema, fecha_publicacion, cui_usuario, disponibilidad, estado, fecha_limite, cui_mentor, fecha_meet, link_meet, reunion_privada, max_participantes, cupos_disponibles) values (13, 'Rotacionar una columna de cubos', 'Crear una estructura de datos para dibujar una columna de cubos , 3 cubos y permitir su rotacion en relacion al cubo del medio como explicado en clase.', 1704146, 'Proyecto', '2022-06-04 01:35:26', 20207666, 'Martes y Jueves: 4pm a 7pm', 1, '2022-07-12 16:45:46', 20179048, '2022-07-04 00:58:06', 'https://meet.google.com/pqi-ttmg-rxj', 0, 5, 4);
+insert into pregunta (id, titulo, descripcion, curso, tema, fecha_publicacion, cui_usuario, disponibilidad, estado, fecha_limite, cui_mentor, fecha_meet, link_meet, reunion_privada, max_participantes, cupos_disponibles) values (14, 'Interconexion de redes', '¿Cuál es la diferencia entre una conexión DTE o DCE serial, que tipo de cable usa cada una?', 1704144, 'Tarea', '2022-06-24 21:31:36', 20214645, 'Martes y Jueves: 7am a 10pm', 1, '2022-07-10 03:30:36', 20175226, '2022-07-16 02:50:47', 'https://meet.google.com/pqi-ttmg-rxj', 0, 3, 2);
+insert into pregunta (id, titulo, descripcion, curso, tema, fecha_publicacion, cui_usuario, disponibilidad, estado, fecha_limite, cui_mentor, fecha_meet, link_meet, reunion_privada, max_participantes, cupos_disponibles) values (15, 'Interconexion de redes', '¿De qué modos se dispone dentro del CLI? Especifique las diferencias', 1704144, 'Tarea', '2022-06-08 06:04:27', 20217201, 'Martes y Miercoles: 4pm a 6pm', 1, '2022-07-29 10:28:31', 20181079, '2022-08-18 13:49:47', 'https://meet.google.com/pqi-ttmg-rxj', 0, 4, 3);
+
+
+
+#PREGUNTA RECHAZADA
+insert into pregunta_rechazada (id_pregunta) values (1);
+insert into pregunta_rechazada (id_pregunta) values (2);
+insert into pregunta_rechazada (id_pregunta) values (3);
+insert into pregunta_rechazada (id_pregunta) values (4);
+insert into pregunta_rechazada (id_pregunta) values (5);
+#PREGUNTA_NO RECHAZADA
+insert into pregunta_no_rechazada (id) values (6);
+insert into pregunta_no_rechazada (id) values (7);
+insert into pregunta_no_rechazada (id) values (8);
+insert into pregunta_no_rechazada (id) values (9);
+insert into pregunta_no_rechazada (id) values (10);
