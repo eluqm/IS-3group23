@@ -32,14 +32,8 @@
                 <input class="input" name="usersEmail" type="email" placeholder="Ingresar correo institucional" required> 
                 <label for="fname">CUI:</label>
                 <input class="input" name="usersCUI" type="text" placeholder="Ingresar CUI" required>
-                <label for="fname">Año:</label>
-                <select class="select" name="usersAño">
-                        <option value="primero">1ro</option>
-                        <option value="segundo">2do</option>
-                        <option value="tercero">3ro</option>
-                        <option value="cuarto">4to</option>
-                        <option value="quinto">5to</option>
-                </select>
+                <label for="fname">DNI:</label>
+                <input class="input" name="usersDNI" type="text" placeholder="Ingresar DNI" required>
                 <label for="fname">Contraseña:</label>
                 <input class="input" name="usersPwd" type="password" placeholder="Ingresar contraseña" required>
                 <label for="fname">Repetir contraseña:</label>

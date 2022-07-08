@@ -59,8 +59,7 @@ body {
 }
 
 .input,
-.btn,
-.select {
+.btn {
     margin-bottom: 4px;
     border-radius: 5px;
     width: 90%;
@@ -71,8 +70,7 @@ body {
     letter-spacing: 1px;
 }
 
-.input,
-.select {
+.input {
     padding-left: 20px;
     font-weight: 600;
     box-sizing: border-box;
