@@ -1,0 +1,90 @@
+.programar_clase {
+    align-items:center;
+    background-color: var(--color_principal);
+    display: flex;
+    border-radius: 10px;
+    width: 100%;
+    min-height: 100px;
+    flex-direction: column;
+}
+
+.programar_clase form{
+    padding-left: 20%;
+}
+
+.programar_clase form p{
+    font-size: 5mm;
+    font-family: 'Poppins';
+    font-size: 22px;
+
+}
+
+.programar_clase h1{
+    margin-top: 10mm;
+    font-size: 600%;
+}
+
+.programar_clase select{
+    width: 70%;
+    height: 40px;
+    font-family: 'Poppins';
+    font-size: 5mm;
+    padding: 3px;
+    border-radius: 7px;
+}
+
+
+.programar_clase form label{
+    display:inline-block;
+    width: 400px;
+ 
+    border-radius: 10px;
+    display: block;
+}
+
+.programar_clase form input{
+    display:inline-block;
+    width: 70%;
+    height: 40px;
+    border-radius: 5px;
+    display: block;
+    font-size: 5mm;
+    padding: 10px;
+}
+
+
+.programar_clase form label.descp{ 
+    display: block;
+}
+
+
+.fila{
+    display: flex;
+    align-items:center;
+
+}
+
+.fila p.bloque1{
+    width: 5%;
+}
+
+.fila p.bloque2{
+    padding-left: 25.5%;
+}
+
+.programar_clase form p.boton{
+    align-items: center;
+}
+
+.programar_clase form button{
+    font-size: 22px;
+    width: 70%;
+    height: 60px;
+    border-radius: 7PX;
+    background-color: #177DE8;
+    float: left;
+    font-family: 'Overlock SC';
+    color: white;
+    border-color: #177DE8;
+    
+}

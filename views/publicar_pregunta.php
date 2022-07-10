@@ -23,9 +23,6 @@
             include 'components/nav_bar.php';
             ?>
         </header>
-
-
-        
     <main class="main-usando-navbar ">
             <div class="publicar_pregunta">
             <h1>Publicar Pregunta</h1>
@@ -72,15 +69,8 @@
                     <button>PREGUNTAR</button>
                     </p>
                 </div>
-
-                
-
             </form>
-
             </div>
-       
-
-
     </main>
 
 
