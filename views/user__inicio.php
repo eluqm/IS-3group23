@@ -42,9 +42,9 @@
 
             <section class="main__contenido">
                 <div class="main__contenido__header">
-                    <a href="../controllers/inicioController.php?action=get_preguntas&estado=all&curso=<?php echo $curso_actual;?>">TODO</a>
-                    <a href="../controllers/inicioController.php?action=get_preguntas&estado=open&curso=<?php echo $curso_actual;?>">ABIERTAS</a>
-                    <a href="../controllers/inicioController.php?action=get_preguntas&estado=close&curso=<?php echo $curso_actual;?>">CERRADAS</a>
+                    <a id="estado_todo" href="../controllers/inicioController.php?action=get_preguntas&estado=all&curso=<?php echo $curso_actual;?>&anio=<?php echo $q_anio;?>">TODO</a>
+                    <a id="estado_open" href="../controllers/inicioController.php?action=get_preguntas&estado=open&curso=<?php echo $curso_actual;?>&anio=<?php echo $q_anio;?>">ABIERTAS</a>
+                    <a id="estado_close" href="../controllers/inicioController.php?action=get_preguntas&estado=close&curso=<?php echo $curso_actual;?>&anio=<?php echo $q_anio;?>">CERRADAS</a>
                 </div>
 
                 <div class="main__contenido__q-list">
@@ -98,5 +98,21 @@
                 </div>
             </section>
         </main>
+        <script>
+            function estilo_check_estado(){
+                switch('<?php echo $estado_actual?>'){
+                    case 'all':
+                        document.getElementById("estado_todo").style.backgroundColor = 'var(--color_principal)';
+                        break;
+                    case 'open':
+                        document.getElementById("estado_open").style.backgroundColor = 'var(--color_principal)';
+                        break;
+                    case 'close':
+                        document.getElementById("estado_close").style.backgroundColor = 'var(--color_principal)';
+                        break;
+                }
+            }
+            window.addEventListener("load",function() { estilo_check_estado() });
+        </script>
     </body>
 </html>

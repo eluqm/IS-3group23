@@ -7,20 +7,19 @@ class InicioController {
         session_start();
         $pregunta=new Pregunta();
         $curso=new Curso();
-        $datos=$pregunta->get_all();
         //lista de cursos por anio
         if(isset($_GET['anio'])){ 
-            $lista_curso=$curso->get_por_anio($_GET['anio']);
             $q_anio=$_GET['anio'];
         }
         else {
-            $lista_curso=$curso->get_por_anio(1);
             $q_anio=1;
         }
+        $datos=$pregunta->get_all_by_anio($q_anio);
+        $lista_curso=$curso->get_por_anio($q_anio);
         //variables de busqueda
         $curso_actual='all';
-        $tema='all';
-        $estado='all';
+        $tema_actual='all';
+        $estado_actual='all';
         //anio registrados
         $anios_registrados=$curso->get_anios();
         //verificar si se inicio inicio sesion
@@ -81,7 +80,9 @@ class InicioController {
             $q_anio=1;
         }
         //buscar by curso
-            $curso_actual=$CURSO;
+         $curso_actual=$CURSO;
+         $tema_actual='all';
+         $estado_actual=$ESTADO;
         //anio registrados para el componente nav_bar
         $anios_registrados=$curso->get_anios();
         //verificar si se inicio inicio sesion
