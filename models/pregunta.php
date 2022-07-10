@@ -65,6 +65,17 @@ class Pregunta {
         }
         return 0;
     }
+
+    public function get_all_by_anio($ANIO){
+        $this->db->query("SELECT pregunta.*, curso.nombre 'nombre_curso' FROM pregunta_no_rechazada INNER JOIN pregunta on pregunta_no_rechazada.id=pregunta.id INNER JOIN curso ON curso.idcurso=pregunta.curso WHERE curso.anio=:anio");
+        $this->db->bind(':anio', $ANIO);
+        $row = $this->db->resultSet();
+        if($this->db->rowCount() > 0){
+            return $row; 
+        }
+        return 0;
+    }
+
     /*
         0 => abierta
         1 => cerrada

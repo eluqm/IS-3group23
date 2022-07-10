@@ -1,5 +1,5 @@
 <aside class="lista-cursos">
-    <form id="curso_por_anio" class="lista-cursos__header" action="#" method="get"> 
+    <form id="curso_por_anio" class="lista-cursos__header" action="./../controllers/inicioController.php" method="get"> 
         <select onchange="onSelectChange();" name="anio" id="anio">
             <?php if (isset($anios_registrados) && $anios_registrados!=0): ?>
             <option class="hidden_option" selected disabled><?php echo $q_anio ?><span> año</span></option>
@@ -14,9 +14,9 @@
                 
     <div class="lista-cursos__contenedor-cursos">
                     <!-- Traer de la base de datos -->      
-        <?php if (isset($lista_curso) && $lista_curso!=0): ?>
+        <?php if (isset($lista_curso) && $lista_curso!=0):?>
         <?php foreach ($lista_curso as $dato) { ?>
-            <a class="lista-cursos__curso" href="./../controllers/inicioController.php?action=get_preguntas&estado=close&curso=<?php echo $dato->idcurso;?>"><?php echo $dato->nombre ?></a>
+            <a class="lista-cursos__curso" href="./../controllers/inicioController.php?action=get_preguntas&estado=all&curso=<?php echo $dato->idcurso;?>&anio=<?php echo $q_anio;?>"><?php echo $dato->nombre ?></a>
         <?php } ?>
         <?php else: ?>
             <p>No hay cursos agregados :)</p>
