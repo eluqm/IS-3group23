@@ -1,5 +1,5 @@
 <?php
-require '../config/conexion.php';
+require_once __DIR__.'/../config/conexion.php';
 
 class Pregunta {
 
@@ -27,7 +27,7 @@ class Pregunta {
     }
 
     public function get_all(){
-        $this->db->query("SELECT pregunta.*, curso.nombre 'nombre_curso' FROM pregunta INNER JOIN curso ON curso.idcurso=pregunta.curso");
+        $this->db->query("SELECT pregunta.*, curso.nombre 'nombre_curso' FROM pregunta_no_rechazada INNER JOIN pregunta on pregunta_no_rechazada.id=pregunta.id INNER JOIN curso ON curso.idcurso=pregunta.curso");
         $row = $this->db->resultSet();
         if($this->db->rowCount() > 0){
             return $row; 
@@ -35,5 +35,59 @@ class Pregunta {
         return 0;
     }
 
+    public function get_all_by_tema($TEMA){
+        $this->db->query("SELECT pregunta.*, curso.nombre 'nombre_curso' FROM pregunta_no_rechazada INNER JOIN pregunta on pregunta_no_rechazada.id=pregunta.id  INNER JOIN curso ON curso.idcurso=pregunta.curso WHERE tema=:tema");
+        $this->db->bind(':tema', $TEMA);
+        $row = $this->db->resultSet();
+        if($this->db->rowCount() > 0){
+            return $row; 
+        }
+        return 0;
+    }
+  
+    public function get_all_by_curso($CURSO){
+        $this->db->query("SELECT pregunta.*, curso.nombre 'nombre_curso' FROM pregunta_no_rechazada INNER JOIN pregunta on pregunta_no_rechazada.id=pregunta.id  INNER JOIN curso ON curso.idcurso=pregunta.curso WHERE curso=:curso");
+        $this->db->bind(':curso', $CURSO);
+        $row = $this->db->resultSet();
+        if($this->db->rowCount() > 0){
+            return $row; 
+        }
+        return 0;
+    }
+    
+    public function get_all_by_curso_and_tema($CURSO,$TEMA){
+        $this->db->query("SELECT pregunta.*, curso.nombre 'nombre_curso' FROM pregunta_no_rechazada INNER JOIN pregunta on pregunta_no_rechazada.id=pregunta.id  INNER JOIN curso ON curso.idcurso=pregunta.curso WHERE pregunta.tema=:tema AND pregunta.curso=:curso");
+        $this->db->bind(':tema', $TEMA);
+        $this->db->bind(':curso', $CURSO);
+        $row = $this->db->resultSet();
+        if($this->db->rowCount() > 0){
+            return $row; 
+        }
+        return 0;
+    }
+    /*
+        0 => abierta
+        1 => cerrada
+    */
+    public function get_all_by_estado_and_curso($ESTADO,$CURSO){
+        $this->db->query("SELECT pregunta.*, curso.nombre 'nombre_curso' FROM pregunta_no_rechazada INNER JOIN pregunta on pregunta_no_rechazada.id=pregunta.id  INNER JOIN curso ON curso.idcurso=pregunta.curso WHERE pregunta.curso=:curso AND pregunta.estado=:estado");
+        $this->db->bind(':curso', $CURSO);
+        $this->db->bind(':estado', $ESTADO);
+        $row = $this->db->resultSet();
+        if($this->db->rowCount() > 0){
+            return $row; 
+        }
+        return 0;
+    }
+
+    public function get_all_by_estado($ESTADO){
+        $this->db->query("SELECT pregunta.*, curso.nombre 'nombre_curso' FROM pregunta_no_rechazada INNER JOIN pregunta on pregunta_no_rechazada.id=pregunta.id  INNER JOIN curso ON curso.idcurso=pregunta.curso WHERE pregunta.estado=:estado");
+        $this->db->bind(':estado', $ESTADO);
+        $row = $this->db->resultSet();
+        if($this->db->rowCount() > 0){
+            return $row; 
+        }
+        return 0;
+    }
 
 }

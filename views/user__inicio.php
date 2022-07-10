@@ -14,7 +14,7 @@
     <body>
         <style>
             <?php include __DIR__.'/css/general_style.css';?>
-            <?php include __DIR__.'/css/admin__inicio.css';?>
+            <?php include __DIR__.'/css/inicio.css';?>
             <?php include __DIR__.'/components/pregunta.css';?>
             <?php include __DIR__.'/components/nav_bar.css';?>
             <?php include __DIR__.'/components/lista_cursos.css';?>
@@ -42,9 +42,9 @@
 
             <section class="main__contenido">
                 <div class="main__contenido__header">
-                    <button autofocus>TODO</button>
-                    <button>ABIERTAS</button>
-                    <button>CERRADAS</button>
+                    <a href="../controllers/inicioController.php?action=get_preguntas&estado=all&curso=<?php echo $curso_actual;?>">TODO</a>
+                    <a href="../controllers/inicioController.php?action=get_preguntas&estado=open&curso=<?php echo $curso_actual;?>">ABIERTAS</a>
+                    <a href="../controllers/inicioController.php?action=get_preguntas&estado=close&curso=<?php echo $curso_actual;?>">CERRADAS</a>
                 </div>
 
                 <div class="main__contenido__q-list">

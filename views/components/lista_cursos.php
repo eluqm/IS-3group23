@@ -16,7 +16,7 @@
                     <!-- Traer de la base de datos -->      
         <?php if (isset($lista_curso) && $lista_curso!=0): ?>
         <?php foreach ($lista_curso as $dato) { ?>
-            <a class="lista-cursos__curso" href="#"><?php echo $dato->nombre ?></a>
+            <a class="lista-cursos__curso" href="./../controllers/inicioController.php?action=get_preguntas&estado=close&curso=<?php echo $dato->idcurso;?>"><?php echo $dato->nombre ?></a>
         <?php } ?>
         <?php else: ?>
             <p>No hay cursos agregados :)</p>
