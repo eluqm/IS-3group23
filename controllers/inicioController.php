@@ -37,25 +37,8 @@ class InicioController {
         }
     }
 
-    /*
-        -1 => all
-        0 => open
-        1 => close
-    */
-    public function get_estado_for_query($ESTADO){
-        if($ESTADO=='all'){
-            return -1;
-        }
-        else if($ESTADO=='open'){
-            return 0;
-        } 
-        else if($ESTADO=='close'){
-            return 1;
-        }          
-    }
-
     public function get_by_estado($ESTADO){
-        $estado_query = $this->get_estado_for_query($ESTADO);
+        $estado_query = $this->pregunta->get_estado_for_query($ESTADO);
         if($estado_query==-1){
             return $this->pregunta->get_all();
         }
@@ -65,7 +48,7 @@ class InicioController {
     }
 
     public function get_by_estado_and_anio($ESTADO,$ANIO){
-        $estado_query = $this->get_estado_for_query($ESTADO);
+        $estado_query = $this->pregunta->get_estado_for_query($ESTADO);
         if($estado_query==-1){
             return $this->pregunta->get_all_by_anio($ANIO);
         }
@@ -75,7 +58,7 @@ class InicioController {
     }
 
     public function get_by_curso($ESTADO,$CURSO){
-        $estado_query = $this->get_estado_for_query($ESTADO);
+        $estado_query = $this->pregunta->get_estado_for_query($ESTADO);
         if($estado_query==-1){
             return $this->pregunta->get_all_by_curso($CURSO);
         }
