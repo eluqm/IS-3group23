@@ -10,13 +10,13 @@ class User {
     }
 
     public function register($data){
-        $this->db->query('INSERT INTO usuario (cui, nombre, correo_electronico, contrasenia)
-        VALUES (:usersCUI, :usersName, :usersEmail, :usersPwd)');
+        $this->db->query('INSERT INTO solicitud_registro (id, fecha_creacion, CUI, nombre, correo, DNI, contrasenia, estado, admin_encargado, fecha_atencion, admin_nota)
+        VALUES (0, now(), :usersCUI, :usersName, :usersEmail, :usersDNI, :usersPwd, 0, 20190742, now(),');
         $this->db->bind(':usersCUI', $data['usersCUI']);
         $this->db->bind(':usersName', $data['usersName']);
         $this->db->bind(':usersEmail', $data['usersEmail']);
+        $this->db->bind(':usersDNI', $data['usersDNI']);
         $this->db->bind(':usersPwd', $data['usersPwd']);
-
         if($this->db->execute()){
             return true;
         }
