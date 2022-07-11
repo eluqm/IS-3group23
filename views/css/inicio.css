@@ -40,10 +40,6 @@ main {
     line-height: 30px;
 }
 
-.main__contenido__header button:focus {
-    background-color: var(--color_principal);
-}
-
 .main__contenido__q-list {
     display: flex;
     flex-direction: column;
