@@ -127,4 +127,21 @@ class Pregunta {
         return false;
     }
 
+    // borrar pregunta
+    public function delete($id) {
+
+        $this->db->query('
+                DELETE FROM `solicitud_revision-pregunta` WHERE id_pregunta = :id;
+                DELETE FROM `reunion_publica-participantes` WHERE id_pregunta = :id;
+                DELETE FROM pregunta_rechazada WHERE id_pregunta = :id;
+                DELETE FROM pregunta_no_rechazada WHERE id = :id;
+                DELETE FROM pregunta WHERE id = :id;');
+        $this->db->bind(':id', $id);
+
+        if($this->db->execute())
+            return true;
+            
+        return false;
+    }
+
 }
