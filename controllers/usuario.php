@@ -20,21 +20,27 @@ class Users {
             'usersName' => trim($_POST['usersName']),
             'usersEmail' => trim($_POST['usersEmail']),
             'usersCUI' => trim($_POST['usersCUI']),
+            'usersDNI' => trim($_POST['usersDNI']),
             'usersPwd' => trim($_POST['usersPwd']),
             'pwdRepeat' => trim($_POST['usersPwd-repeat'])
         ];
-
+        
         if( empty($data['usersName'])
             || empty($data['usersEmail'])
             || empty($data['usersCUI'])
             || empty($data['usersPwd'])
+            || empty($data['usersDNI'])
             || empty($data['pwdRepeat'])){
             flash("register", "Please fill out all inputs");
             redirect("../views/signup.php");
         }
 
-        if(!preg_match("/^[a-zA-Z0-9]*$/", $data['usersUid'])){
-            flash("register", "Invalid username");
+        if(!preg_match("/^[0-9]{8}$/", $data['usersCUI'])){
+            flash("register", "Invalid CUI");
+            redirect("../views/signup.php");
+        }
+        if(!preg_match("/^[0-9]{8}$/", $data['usersDNI'])){
+            flash("register", "Invalid DNI");
             redirect("../views/signup.php");
         }
 
@@ -53,7 +59,7 @@ class Users {
 
         if ($this->userModel->register($data))
         {
-            redirect("../views/template.php");
+            redirect("../views/___index.php");
         }
         else {
             die("Something went wrong");
