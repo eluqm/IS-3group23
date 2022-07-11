@@ -15,7 +15,7 @@
 }
 
 .publicar_pregunta select{
-    width: 150%;
+    width: 88%;
     height: 40px;
     font-family: 'Poppins';
     font-size: 5mm;
@@ -30,24 +30,28 @@
     height: 100px;
 }
 
+.publicar_pregunta form{
+    width: 70%;
+    align-items:flex-end;
+}
+
 
 .publicar_pregunta form p{
     font-size: 5mm;
     font-family: 'Poppins';
     font-size: 22px;
 
-    float: left;
 }
 
 .publicar_pregunta form p.boton{
-    padding-left: 100px;
+    padding-left: 6%;
     align-items: center;
 }
 
 
 .publicar_pregunta form button{
     font-size: 22px;
-    width: 350%;
+    width: 80%;
     height: 60px;
     border-radius: 7PX;
     background-color: #177DE8;
@@ -57,11 +61,6 @@
     color: white;
     border-color: #177DE8;
     
-}
-
-
-.publicar_pregunta form p:last-child {
-    clear: both;
 }
 
   
@@ -75,7 +74,7 @@
 
 .publicar_pregunta form input{
     display:inline-block;
-    width: 150%;
+    width: 88%;
     height: 40px;
     border-radius: 5px;
     display: block;
@@ -85,7 +84,7 @@
 
 .publicar_pregunta form textarea{
     border-radius: 5px;
-    width: 150%;
+    width: 88%;
     height: 300px;
     font-size: 5mm;
     padding: 10px;
@@ -111,7 +110,7 @@
 }
    
 #lateral {
-    padding-left: 50px; 
+    padding-left: 30px; 
     width: 50%;  /* Este será el ancho que tendrá tu columna */
     float:right; /* Aquí determinas de lado quieres quede esta "columna" */
 }

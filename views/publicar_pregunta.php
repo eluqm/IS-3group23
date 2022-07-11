@@ -32,7 +32,7 @@
                     <p>
                     <label for="">T&iacute;tulo</label>
                     <input type="text">
-                    </p>
+                    </p><br/>
 
                     <p>
                     <label for="">Tema</label>
@@ -41,29 +41,29 @@
                     <option>Avión</option>
                     <option>Tren</option>
                     </select>
-                    </p>
+                    </p><br/>
 
                     <p>
                     <label for="">Horario Disponible</label>
                     <input type="time" value="12:00:00" max="22:30:00" min="7:00:00" step="1">
-                    </p>
+                    </p><br/>
 
                     <p>
                     <label for="">Fecha L&iacute;mite</label>
                     <input type="date">
-                    </p>
+                    </p><br/>
                 </div>
                     
                 <div id="principal">
                     <p>
                     <label for="">Curso</label>
                     <input type="text">
-                    </p>
+                    </p><br/>
 
                     <p class="input-file-wrapper">
                     <label class="descp" for="">Descripcion</label>
                     <textarea name="" id="" cols="30" rows="7"></textarea>
-                    </p>
+                    </p><br/>
 
                     <p class="boton">
                     <button>PREGUNTAR</button>
