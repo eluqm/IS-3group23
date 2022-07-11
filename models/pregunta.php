@@ -101,4 +101,30 @@ class Pregunta {
         return 0;
     }
 
+    public function findQuestionById($id) {
+        $this->db->query('SELECT * FROM pregunta WHERE id = :id');
+        $this->db->bind(':id', $id);
+
+        $row = $this->db->single();
+
+        if($this->db->rowCount() > 0){
+            return $row;
+        }else{
+            return false;
+        }
+    }
+
+    // editar pregunta
+    public function edit($data) {
+        $this->db->query('UPDATE pregunta SET titulo=:titulo, descripcion=:descripcion WHERE id=:id');
+        $this->db->bind(':titulo', $data['titulo']);
+        $this->db->bind(':descripcion', $data['descripcion']);
+        $this->db->bind(':id', $data['id']);
+
+        if($this->db->execute())
+            return true;
+            
+        return false;
+    }
+
 }
