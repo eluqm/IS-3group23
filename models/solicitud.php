@@ -23,6 +23,19 @@ class Solicitud {
         }
         return 0;
     }
-
+    /*
+        0 => Pendiente
+        1 => Aceptada
+        2 => Denegada
+    */
+    public function getSolicitudedeRevisionDePreguntaPorEstado($ESTADO){
+        $this->db->query("SELECT r.* , p.titulo , p.descripcion FROM solicitud_revision_pregunta r INNER JOIN pregunta p ON r.id_pregunta = p.id WHERE r.estado=:estado");
+        $this->db->bind(':estado', $ESTADO);
+        $row = $this->db->resultSet();
+        if($this->db->rowCount() > 0){
+            return $row; 
+        }
+        return 0;
+    }
 
 }

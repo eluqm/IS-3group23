@@ -38,8 +38,8 @@
             <section class="main__contenido">
                 <div class="main__contenido__header">
                     <div class="main__contenido__header__row-1">
-                        <a id="selected">SOLICITUD DE REGISTRO</a>
-                        <a>REPORTES</a>
+                        <a href="../controllers/adminController.php?action=solicitudRegistro&solicitud=pendiente" id="selected">SOLICITUD DE REGISTRO</a>
+                        <a href="../controllers/adminController.php?action=solicitudRevisionPregunta&solicitud=pendiente">REPORTES</a>
                     </div>
                     <div class="main__contenido__header__row-2">
                         <a href="../controllers/adminController.php?action=solicitudRegistro&solicitud=pendiente" id="a_pendiente">PENDIENTES</a>

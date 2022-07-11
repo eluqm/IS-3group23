@@ -14,10 +14,9 @@
     <body>
         <style>
             <?php include __DIR__.'/css/general_style.css';?>
-            <?php include __DIR__.'/css/admin__inicio.css';?>
+            <?php include __DIR__.'/css/admin__solicitudes.css'?>
             <?php include __DIR__.'/components/pregunta.css';?>
             <?php include __DIR__.'/components/nav_bar.css';?>
-            <?php include __DIR__.'/components/lista_cursos.css';?>
             .logo-icon {background-image: url('./../views/icons/logo.png');}
             .eye-icon {background-image: url('./../views/icons/eye.png');}
             .edit-icon {background-image: url('./../views/icons/edit.png');}
@@ -34,65 +33,72 @@
             ?>
         </header>
 
+
         <main class="main-usando-navbar">
 
             <section class="main__contenido">
                 <div class="main__contenido__header">
-                    <button autofocus>TODO</button>
-                    <button>ABIERTAS</button>
-                    <button>CERRADAS</button>
+                    <div class="main__contenido__header__row-1">
+                        <a href="../controllers/adminController.php?action=solicitudRegistro&solicitud=pendiente">SOLICITUD DE REGISTRO</a>
+                        <a href="../controllers/adminController.php?action=solicitudRevisionPregunta&solicitud=pendiente" id="selected">REPORTES</a>
+                    </div>
+                    <div class="main__contenido__header__row-2">
+                        <a href="../controllers/adminController.php?action=solicitudRevisionPregunta&solicitud=pendiente" id="a_pendiente">PENDIENTES</a>
+                        <a href="../controllers/adminController.php?action=solicitudRevisionPregunta&solicitud=aceptada" id="a_aceptada">ACEPTADAS</a>
+                        <a href="../controllers/adminController.php?action=solicitudRevisionPregunta&solicitud=denegada" id="a_denegada">DENEGADAS</a>
+                    </div>
                 </div>
-
                 <div class="main__contenido__q-list">
-
                 <!-- Traer de la base de datos -->
-                <?php if (isset($datos) && $datos!=0): ?>
-                <?php foreach ($datos as $dato) { ?>
+                <?php if (isset($solicitud_registro) && $solicitud_registro!=0): ?>
+                <?php foreach ($solicitud_registro as $dato) { ?>
                         <div class="pregunta">
                             <div class="pregunta__contenido">
                                 <div class="pregunta__contenido__info">
-                                    <p><?php echo $dato->nombre_curso;?> > <?php echo $dato->tema;?> | <?php echo $dato->fecha_publicacion;?></p>
-                                    <p class="pregunta__contenido__status"> Estado: 
-                                        <?php if ($dato->estado == 0): ?> 
-                                            Abierto
-                                        <?php else: ?>
-                                            Cerrado
-                                        <?php endif; ?>
-                                    </p>
+                                    <p><?php echo $dato->fecha_creacion;?></p>
                                 </div>
-                                <h2><?php echo $dato->titulo;?></h2>
-                                <p><?php echo $dato->descripcion;?></p>
+                                <h2><?php echo $dato->nombre;?></h2>
+                                <h2><?php echo $dato->dni;?></h2>
+                                <p><?php echo $dato->correo_electronico;?></p>
                             </div>
-                            <div class="pregunta__actions">
-                                <a href="#"><span class="pregunta-icon eye-icon"></span></a>
-
-                                <?php if ($dato->estado == 0 && $dato->cui_usuario != $_SESSION['usersCUI']): ?> 
-                                <a href="#"><span class="pregunta-icon checkmark-icon"></span></a>
-                                <?php else: ?>
-                                <div><span class="pregunta-icon"></span></div>
-                                <?php endif;?>
-
-                                <?php if ($dato->cui_usuario == $_SESSION['usersCUI']&& $dato->estado == 0): ?> 
-                                <a href="#"><span class="pregunta-icon edit-icon"></span></a>
-                                <?php elseif($_SESSION['admin']==1): ?>
-                                <a href="#"><span class="pregunta-icon x-mark-icon"></span></a>
-                                <?php else: ?>
-                                <div><span class="pregunta-icon"></span></div>
-                                <?php endif;?>
-
-                                <?php if ($dato->cui_usuario == $_SESSION['usersCUI']): ?> 
-                                <a href="#"><span class="pregunta-icon trash-icon"></span></a>
-                                <?php else: ?>
-                                <a href="#"><span class="pregunta-icon flag-icon"></span></a>
-                                <?php endif;?>
+                            <div class="pregunta__actions">              
+                                <?php if ($tipo_solicitud == 0): ?>                    
+                                    <a href="#"><span class="pregunta-icon checkmark-icon"></span></a>
+                                    <div><span class="pregunta-icon"></span></div>
+                                    <div><span class="pregunta-icon"></span></div>
+                                    <a href="#"><span class="pregunta-icon checkmark-icon"></span></a>
+                                <?php elseif ($tipo_solicitud == 1): ?> 
+                                    <div><span class="pregunta-icon"></span></div>
+                                    <div><span class="pregunta-icon"></span></div>
+                                    <div><span class="pregunta-icon"></span></div>
+                                    <div><span class="pregunta-icon"></span></div>
+                                <?php elseif ($tipo_solicitud == 2): ?> 
+                                    <div><span class="pregunta-icon"></span></div>
+                                    <div><span class="pregunta-icon"></span></div>
+                                    <div><span class="pregunta-icon"></span></div>
+                                    <div><span class="pregunta-icon"></span></div>
+                                <?php endif; ?>
                             </div>
                         </div>                    
                 <?php } ?>
                 <?php else: ?>
-                    <p>No hay preguntas :)</p>
+                    <p>No hay solicitudes</p>
                 <?php endif; ?>
                 </div>
             </section>
         </main>
+        <script>
+            function toggledisplay_preguntas(){
+                //var preguntas = document.getElementById("a_pendiente");
+                if(<?php echo $tipo_solicitud?> == 0)
+                    document.getElementById("a_pendiente").style.backgroundColor = 'var(--color_principal)';
+                else if(<?php echo $tipo_solicitud?> == 1)
+                    document.getElementById("a_aceptada").style.backgroundColor = 'var(--color_principal)';
+                    else if(<?php echo $tipo_solicitud?> == 2)
+                    document.getElementById("a_denegada").style.backgroundColor = 'var(--color_principal)';
+            }
+
+            window.addEventListener("load",function() { toggledisplay_preguntas() });
+        </script>
     </body>
 </html>
