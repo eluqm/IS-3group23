@@ -140,7 +140,7 @@ class Pregunta {
     }
 
     public function findQuestionById($id) {
-        $this->db->query('SELECT * FROM pregunta WHERE id = :id');
+        $this->db->query("SELECT pregunta.*, curso.nombre 'nombre_curso' FROM pregunta_no_rechazada INNER JOIN pregunta on pregunta_no_rechazada.id=pregunta.id  INNER JOIN curso ON curso.idcurso=pregunta.curso WHERE pregunta.id = :id");
         $this->db->bind(':id', $id);
 
         $row = $this->db->single();

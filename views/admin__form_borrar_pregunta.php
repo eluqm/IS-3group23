@@ -14,16 +14,24 @@
     </head>
     <body>
         <h2>Eliminar Pregunta</h2>
-        <form class="admin__form__delete_pregunta" method="POST" action="../controllers/adminController.php">
-            <input name="action" value="eliminar_pregunta">
-            <input name="id_pregunta" value="<?php echo $datos_pregunta->id?>">
-            <?php echo $datos_pregunta->id?>
-            
+        <form method="POST" action="../controllers/adminController.php">
+            <input type="hidden" name="action" value="eliminar_pregunta">
+            <input type="hidden" name="id_pregunta" value="<?php echo $datos_pregunta->id?>">
+            <p><?php echo $datos_pregunta->nombre_curso;?> > <?php echo $datos_pregunta->tema;?> | <?php echo $datos_pregunta->fecha_publicacion;?></p>
+            <p> Estado: 
+                <?php if ($datos_pregunta->estado == 0): ?> 
+                    Abierto
+                <?php else: ?>
+                    Cerrado
+                <?php endif; ?>
+            </p>
+            </div>
+            <p>Titulo: <?php echo $datos_pregunta->titulo;?></p>
+            <p>Descripcion: <?php echo $datos_pregunta->descripcion;?></p>
             <label id="razon" name="razon">Razon:</label>
-            <textarea id="razon" name="razon"></textarea>
-
-            <button>Eliminar</button>
-            <button>Cancelar</button>
+            <textarea id="razon" name="razon" placeholder="Motivo de su denuncia"></textarea>
+            <button type="submit">Eliminar</button>
+            <a href="../controllers/inicioController.php">Cancelar</a>
         </form>
         
         <script src="" async defer></script>
