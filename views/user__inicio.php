@@ -82,7 +82,7 @@
                                 <?php if ($dato->cui_usuario == $_SESSION['usersCUI']&& $dato->estado == 0): ?> 
                                 <a href="#"><span class="pregunta-icon edit-icon"></span></a>
                                 <?php elseif($_SESSION['admin']==1): ?>
-                                <a href="#"><span class="pregunta-icon x-mark-icon"></span></a>
+                                <a href="../controllers/adminController.php?action=goTo_formulario_eliminar&id_pregunta=<?php echo $dato->id;?>"><span class="pregunta-icon x-mark-icon"></span></a>
                                 <?php else: ?>
                                 <div><span class="pregunta-icon"></span></div>
                                 <?php endif;?>
