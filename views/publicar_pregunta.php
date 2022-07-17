@@ -20,6 +20,7 @@
     <body>
         <header>
             <?php
+            if(!isset($_SESSION['usersCUI'])){session_start();}
             include 'components/nav_bar.php';
             ?>
         </header>
