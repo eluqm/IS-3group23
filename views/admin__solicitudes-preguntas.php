@@ -51,36 +51,70 @@
                 <div class="main__contenido__q-list">
                 <!-- Traer de la base de datos -->
                 <?php if (isset($solicitud_registro) && $solicitud_registro!=0): ?>
-                <?php foreach ($solicitud_registro as $dato) { ?>
-                        <div class="pregunta">
+                    <?php if ($tipo_solicitud == 0): ?>    
+                        <?php foreach ($solicitud_registro as $dato) { ?>
+                            <div class="pregunta">
                             <div class="pregunta__contenido">
-                                <div class="pregunta__contenido__info">
-                                    <p><?php echo $dato->fecha_creacion;?></p>
+                                    <div class="pregunta__contenido__info">
+                                        <p><?php echo $dato->nombre;?> > <?php echo $dato->tema;?> | <?php echo $dato->fecha_publicacion;?></p>
+                                    </div>
+                                    <h2><?php echo $dato->titulo;?></h2>
+                                    <p><?php echo $dato->descripcion;?></p>
+                                    <hr>
+                                    <p><span>Fecha: </span><?php echo $dato->fecha_creacion;?></p>
+                                    <p><span>Razon: </span> <?php echo $dato->razon;?></p>
                                 </div>
-                                <h2><?php echo $dato->nombre;?></h2>
-                                <h2><?php echo $dato->dni;?></h2>
-                                <p><?php echo $dato->correo_electronico;?></p>
-                            </div>
-                            <div class="pregunta__actions">              
-                                <?php if ($tipo_solicitud == 0): ?>                    
-                                    <a href="#"><span class="pregunta-icon checkmark-icon"></span></a>
-                                    <div><span class="pregunta-icon"></span></div>
-                                    <div><span class="pregunta-icon"></span></div>
-                                    <a href="#"><span class="pregunta-icon checkmark-icon"></span></a>
-                                <?php elseif ($tipo_solicitud == 1): ?> 
-                                    <div><span class="pregunta-icon"></span></div>
-                                    <div><span class="pregunta-icon"></span></div>
-                                    <div><span class="pregunta-icon"></span></div>
-                                    <div><span class="pregunta-icon"></span></div>
-                                <?php elseif ($tipo_solicitud == 2): ?> 
-                                    <div><span class="pregunta-icon"></span></div>
-                                    <div><span class="pregunta-icon"></span></div>
-                                    <div><span class="pregunta-icon"></span></div>
-                                    <div><span class="pregunta-icon"></span></div>
-                                <?php endif; ?>
-                            </div>
-                        </div>                    
-                <?php } ?>
+                                <div class="pregunta__actions">                        
+                                    <a href="#"><span class="pregunta-icon eye-icon"></span></a> 
+                                    <a href="#"><span class="pregunta-icon trash-icon"></span></a>
+                                </div>
+                            </div>                    
+                        <?php } ?>
+                    <?php elseif ($tipo_solicitud == 1): ?> 
+                        <?php foreach ($solicitud_registro as $dato) { ?>
+                            <div class="pregunta">
+                                <div class="pregunta__contenido">
+                                    <div class="pregunta__contenido__info">
+                                        <p><?php echo $dato->nombre;?> > <?php echo $dato->tema;?> | <?php echo $dato->fecha_publicacion;?></p>
+                                    </div>
+                                    <h2><?php echo $dato->titulo;?></h2>
+                                    <p><?php echo $dato->descripcion;?></p>
+                                    <hr>
+                                    <p><span>Fecha: </span><?php echo $dato->fecha_creacion;?></p>
+                                    <p><span>Razon: </span> <?php echo $dato->razon;?></p>
+                                    <hr>
+                                    <p><span>Fecha: </span><?php echo $dato->fecha_solucion;?></p>
+                                    <p><span>Administrador: </span><?php echo $dato->cui_admin;?></p>
+                                    <p><span>Nota: </span><?php echo $dato->admin_nota;?></p>
+                                </div>
+                            </div>                    
+                        <?php } ?>
+                    <?php elseif ($tipo_solicitud == 2): ?> 
+                        <?php foreach ($solicitud_registro as $dato) { ?>
+                            <div class="pregunta">
+                                <div class="pregunta__contenido">
+                                    <div class="pregunta__contenido__info">
+                                        <p><?php echo $dato->nombre;?> > <?php echo $dato->tema;?> | <?php echo $dato->fecha_publicacion;?></p>
+                                    </div>
+                                    <h2><?php echo $dato->titulo;?></h2>
+                                    <p><?php echo $dato->descripcion;?></p>
+                                    <hr>
+                                    <p><span>Fecha: </span><?php echo $dato->fecha_creacion;?></p>
+                                    <p><span>Razon: </span> <?php echo $dato->razon;?></p>
+                                    <hr>
+                                    <p><span>Fecha: </span><?php echo $dato->fecha_solucion;?></p>
+                                    <p><span>Administrador: </span><?php echo $dato->cui_admin;?></p>
+                                    <p><span>Nota: </span><?php echo $dato->admin_nota;?></p>
+                                </div>
+                                <div class="pregunta__actions">
+                                        <a href="#"><span class="pregunta-icon eye-icon"></span></a> 
+                                        <div><span class="pregunta-icon"></span></div>
+                                        <div><span class="pregunta-icon"></span></div>
+                                        <div><span class="pregunta-icon"></span></div>
+                                </div>
+                            </div>                    
+                        <?php } ?>
+                    <?php endif; ?>
                 <?php else: ?>
                     <p>No hay solicitudes</p>
                 <?php endif; ?>
