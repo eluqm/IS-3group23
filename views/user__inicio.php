@@ -90,7 +90,7 @@
                                 <?php if ($dato->cui_usuario == $_SESSION['usersCUI']): ?> 
                                 <a href="#"><span class="pregunta-icon trash-icon"></span></a>
                                 <?php else: ?>
-                                <a href="#"><span class="pregunta-icon flag-icon"></span></a>
+                                <a href="../controllers/solicitudController.php?action=go_to_formulario_revision&id_pregunta=<?php echo $dato->id;?>"><span class="pregunta-icon flag-icon"></span></a>
                                 <?php endif;?>
                             </div>
                         </div>                    
