@@ -27,34 +27,46 @@
             <h1>Programar Clase</h1>
             <br/><br/><br/><br/>
             <form action="">
+
+
                 <p>
-                <label for="">Curso</label>
-                <select name="transporte">
-                <option>Coche</option>
-                <option>Avión</option>
-                <option>Tren</option>
+                    <label for="">Curso</label>
+                    <select name="curso">
+                    <?php
+                        include '../models/curso.php';
+                        $curso_display=new Curso;
+                        $data_cursos=$curso_display->get_all();
+                        while ($i<20) {
+                            $i++;
+                            echo '<option value="'.$data_cursos[$i]->nombre.'">'.$data_cursos[$i]->nombre.'</option>';
+                        }
+                    ?>
                 </select>
                 </p><br/>
 
+
                 <p>
-                <label for="">Fecha</label>
-                <input type="date">
+                    <label for="">Fecha L&iacute;mite</label>
+                    <input type="datetime-local" value="2022-17-07T00:00:00" name="fecha">
                 </p><br/>
+
                 <p>
                 <label for="">Meet</label>
-                <input type="url">
+                <input type="url" name="meet">
                 </p><br/>
 
                 <div class="fila">
                 <p class="bloque1">
                 <input type="checkbox">
                 </p>
+
                 <p class="bloque1">
-                <label for="">Sesi&oacute;n Privada</label>
+                <label name="privacidad" for="">Sesi&oacute;n Privada</label>
                 </p>
+
                 <p class="bloque2">
                 <label for="">Max. Estudiantes</label>
-                <input type="url">
+                <input name="max_estudiantes" type="url">
                 </p>
                 </div><br/><br/>
                 

@@ -63,7 +63,6 @@
                                 }
                             ?>
                         </select>
-                    </form>
                     </p><br/>
 
                     <p class="input-file-wrapper">

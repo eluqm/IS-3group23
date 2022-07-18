@@ -71,7 +71,7 @@
                                 <p><?php echo $dato->descripcion;?></p>
                             </div>
                             <div class="pregunta__actions">
-                                <a href="#"><span class="pregunta-icon eye-icon"></span></a>
+                                <a href="../controllers/pregunta.php?action=go_to_show_question&id_pregunta=<?php echo $dato->id;?>">"><span class="pregunta-icon eye-icon"></span></a>
 
                                 <?php if ($dato->estado == 0 && $dato->cui_usuario != $_SESSION['usersCUI']): ?> 
                                 <a href="#"><span class="pregunta-icon checkmark-icon"></span></a>
