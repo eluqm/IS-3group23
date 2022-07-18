@@ -23,10 +23,20 @@ class PreguntaController {
             'descripcion' => trim($_POST['descripcion']),
             'curso' => trim($_POST['curso']),
             'tema' => trim($_POST['tema']),
-            'fecha_publicacion' => date_default_timezone_get('America/Los_Angeles'),
-            'fecha_limite' => trim($_POST['fechaLim']),
-            'horDisp' => trim($_POST['horDisp'])
+            'cui' => $_SESSION['usersCUI'],
+            'fecha_limite' => $_POST['fecha_limite']
         ];
+        if( empty($data['titulo'])
+            || empty($data['descripcion'])
+            || empty($data['curso'])
+            || empty($data['tema'])
+            || empty($data['fecha_limite'])){
+            flash("publicar_pregunta", "Error Fill all the inputs");
+            redirect("../views/editar_pregunta.php");
+        }
+        
+        $curso_=$this->curso->search_id_course_by_name($data['curso']);
+        $data['curso']=$curso_[0]->idcurso;
 
         if($this->preguntaModel->register($data))
         {
@@ -63,14 +73,31 @@ class PreguntaController {
         }
 
     }
+    public function show_question()
+    {
+        $data_id=$_GET['id_pregunta'];
+        if(!isset($data_id)){
+            redirect('./inicioController.php');
+        }
+        else {
+            $data = $this->preguntaModel->findQuestionById($data_id);
+            if (!isset($data)) {
+                redirect('./inicioController.php');
+            }
+            else {
+                require_once("../views/pregunta.php");
+            }
+        }
+    }
 }
 
 $init = new PreguntaController;
 
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
-    switch($_POST['action']){
+    switch($_POST['type']){
         case 'store':
             $init->store();
+            break;
         default:
             redirect("../views/publicar_pregunta.php");
     }
@@ -79,6 +106,12 @@ else {
     switch($_GET['action']){
         case 'buscar_tema':
             $init->search_by_tema();
+            break;
+        case 'listar_cursos':
+            $init->search_by_tema();
+            break;
+        case 'go_to_show_question':
+            $init->show_question();
             break;
         default:
             redirect("../views/login.php");
