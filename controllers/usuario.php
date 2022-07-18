@@ -59,7 +59,7 @@ class Users {
 
         if ($this->userModel->register($data))
         {
-            redirect("../views/___index.php");
+            redirect("../controllers/inicioController.php");
         }
         else {
             die("Something went wrong");
