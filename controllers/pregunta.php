@@ -42,7 +42,7 @@ class PreguntaController {
         {
             $id_=$this->preguntaModel->find_id_by_tittle($data['titulo']);
             if ($this->preguntaModel->register_in_non_rejected($id_[0]->id)) {
-                redirect("./inicioController.php");
+                redirect("../index.php");
             }
         }
         else {
@@ -85,7 +85,7 @@ class PreguntaController {
         else {
             $data = $this->preguntaModel->findQuestionById($data_id);
             if (!isset($data)) {
-                redirect('./inicioController.php');
+                redirect('../index.php');
             }
             else {
                 require_once("../views/pregunta.php");
@@ -103,10 +103,90 @@ class PreguntaController {
             'max' => trim($_POST['max_estudiantes'])
         ];
         
+        if (empty($data['cui'])
+            || empty($data['id_pregunta'])
+            || empty($data['fecha'])
+            || empty($data['meet'])
+            || empty($data['max']))
+            {
+            flash("publicar_pregunta", "Error Fill all the inputs");
+            redirect("../views/publicar_pregunta.php");
+            }
+        if (empty($data['priv'])) {
+            $data['priv']=0;
+        }
+        else {
+            $data['priv']=1;
+        }
+
         if ($this->preguntaModel->edit_for_schedule($data)) {
             redirect("./inicioController.php");
         }
         else {
+            die("Something went wrong");
+        }
+    }
+    public function edit_question(){
+
+        $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+
+        $data = [
+            'id' => trim($_POST['id']),
+            'titulo' => trim($_POST['titulo']),
+            'descripcion' => trim($_POST['descripcion'])
+        ];
+
+        if($this->preguntaModel->findQuestionById_2($data['id'])){
+            
+            if ($this->preguntaModel->edit($data))
+            {
+                echo("se edito el registro existosamente");
+                redirect("../index.php");
+            }
+            else {
+                die("Something went wrong");
+        }
+
+        }else{
+            echo("no se encontro pregunta");
+            //redirect("../views/user__inicio.php");
+        }
+
+    }
+    public function delete_question(){
+
+        $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+
+        $id = trim($_POST['id']);
+        $borrar=trim($_POST["evento_borrar"]);
+        $cancelar=trim($_POST["evento_cancelar"]);
+
+        if($borrar!=null)
+        {
+            if($this->preguntaModel->findQuestionById_2($id))
+            {            
+                if($this->preguntaModel->delete($id))
+                {
+                    echo("se eliminó el registro existosamente");
+                }
+                else {
+                    die("Something went wrong");
+                }
+
+            }
+            else 
+            {
+                echo("no se encontró la pregunta");
+            }
+            redirect("../index.php");          
+        }
+        else if($cancelar!=null)
+        {
+            echo("se cancelo la operación");
+            redirect("../index.php");
+        }
+        else
+        {
             die("Something went wrong");
         }
     }
@@ -121,6 +201,12 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
             break;
         case 'schedule_class':
             $init->schedule_class();
+            break;
+        case 'edit_question':
+            $init->edit_question();
+            break;
+        case 'delete_question':
+            $init->delete_question();
             break;
         default:
             redirect("../controllers/inicioController.php");
