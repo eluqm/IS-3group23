@@ -28,10 +28,10 @@ BackEnd: PHP
 
 **Trello:** https://trello.com/invite/b/caSCHagM/4905f46ea8016a2aa74da6e0047c2e8c/tasti
 
-**Arquitectura:**
+## Arquitectura
 <img src="views/icons/arquitectura.jpeg" width="35%">
 
-**Modelo Entidad-Relacion:**
+## Modelo Entidad-Relacion
 <img src="database/ERR.png" width="70%">
 
 
