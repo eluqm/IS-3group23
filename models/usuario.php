@@ -22,6 +22,29 @@ class User {
         return false;
     }
 
+    public function register_in_solicitud($data)
+    {
+        $this->db->query('INSERT INTO `solicitud_registro`
+        (`fecha_creacion`, `user_cui`, `dni`, `estado`,
+        `admin_encargado`, `fecha_atencion`, `admin_nota`)
+        VALUES (NOW(), :cui, :dni, 0, NULL, NULL, NULL)');
+        $this->db->bind(':cui', $data['usersCUI']);
+        $this->db->bind(':dni', $data['usersDNI']);
+        if($this->db->execute()){
+            return true;
+        }
+        return false;
+    }
+    public function add_description($data)
+    {
+        $this->db->query('INSERT INTO `perfil` (`descripcion`, `cui`)
+        VALUES ("Remember update your description", :cui)');
+        $this->db->bind(':cui', $data['usersCUI']);
+        if($this->db->execute()){
+            return true;
+        }
+        return false;
+    }
     public function findUserByEmail($email){
         $this->db->query('SELECT * FROM usuario WHERE correo_electronico = :email');
         $this->db->bind(':email', $email);

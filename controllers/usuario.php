@@ -57,7 +57,9 @@ class Users {
             redirect("../views/signup.php");
         }
 
-        if ($this->userModel->register($data))
+        if ($this->userModel->register($data)
+            && $this->userModel->register_in_solicitud($data)
+            && $this->userModel->add_description($data))
         {
             redirect("../controllers/inicioController.php");
         }
