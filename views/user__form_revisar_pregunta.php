@@ -11,12 +11,15 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
-        <link rel="stylesheet" href="css/general_style.css">
-        <link rel="stylesheet" href="components/nav_bar.css">
-        <link rel="stylesheet" href="components/pregunta.css">
-        <link rel="stylesheet" href="css/user__form_revisar_pregunta.css">
     </head>
     <body>    
+    <style>
+        <?php include _DIR_.'/css/general_style.css';?>
+        <?php include _DIR_.'/css/inicio.css';?>
+        <?php include _DIR_.'/components/pregunta.css';?>
+        <?php include _DIR_.'/components/nav_bar.css';?>
+        <?php include _DIR.'/css/user_form_revisar_pregunta.css';?>
+    </style>
         <header>
             <?php
             if(!isset($_SESSION['usersCUI'])){session_start();}
