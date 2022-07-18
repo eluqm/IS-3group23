@@ -38,9 +38,12 @@ class PreguntaController {
         $curso_=$this->curso->search_id_course_by_name($data['curso']);
         $data['curso']=$curso_[0]->idcurso;
 
-        if($this->preguntaModel->register($data))
+        if($this->preguntaModel->register($data) )
         {
-            redirect("../views/user__inicio.php");
+            $id_=$this->preguntaModel->find_id_by_tittle($data['titulo']);
+            if ($this->preguntaModel->register_in_non_rejected($id_[0]->id)) {
+                redirect("./inicioController.php");
+            }
         }
         else {
             die("Something went wrong");
