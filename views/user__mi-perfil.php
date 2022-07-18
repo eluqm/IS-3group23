@@ -77,11 +77,16 @@
 
                                 <!-- editar pregunta -->
                                 <?php $id_ = $dato->id;?>
-                                <a href="../views/editar_pregunta.php?id=<?php echo $id_;?>"><span class="pregunta-icon edit-icon"></span></a> 
-
+                                <form action="../views/editar_pregunta.php" method="POST">
+                                    <input type="hidden" name="id" value=<?php echo $id_;?>/>
+                                    <a href=""><input type="submit" class="pregunta-icon edit-icon"/></a>
+                                </form>
                                 <!-- eliminar pregunta -->
-                                <a href="../views/eliminar_pregunta.php?id=<?php echo $id_;?>&titulo=<?php echo $dato->titulo;?>"><span class="pregunta-icon trash-icon"></span></a>
-
+                                <form action="../views/eliminar_pregunta.php" method="POST">
+                                    <input type="hidden" name="id" value=<?php echo $id_;?>/>
+                                    <input type="hidden" name="titulo" value=<?php echo $dato->titulo;?>/>
+                                    <a href=""><input type="submit" class="pregunta-icon trash-icon"/></a>
+                                </form>
                             </div>
                         </div>          
                 <?php } ?>
