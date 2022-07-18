@@ -115,6 +115,59 @@ insert into perfil (descripcion, cui) values ('Estudiante de 4to año, dispuesto
 insert into perfil (descripcion, cui) values ('Estudiante de 4to año, dispuesto a cooperar en tareas que exigen conocimientos de programación en php.', 20190742);
 insert into perfil (descripcion, cui) values ('Estudiante de 4to año, dispuesto a cooperar en tareas que exigen conocimientos de nada :).', 20190752);
 
+#SOLICITUD REGISTRO
+insert into solicitud_registro (id, fecha_creacion, user_cui, dni, estado, admin_encargado, fecha_atencion, admin_nota) values (1, '2021-11-11 09:56:45', 20202995, 49441272, 1, 20190752, '2021-04-05 04:54:16', 'conforme');
+insert into solicitud_registro (id, fecha_creacion, user_cui, dni, estado, admin_encargado, fecha_atencion, admin_nota) values (2, '2021-02-21 02:57:05', 20218181, 36145109, 1, 20190742, '2021-04-03 17:00:03', 'conforme');
+insert into solicitud_registro (id, fecha_creacion, user_cui, dni, estado) values (3, '2021-08-26 22:37:13', 20183901, 54149709, 0);
+insert into solicitud_registro (id, fecha_creacion, user_cui, dni, estado, admin_encargado, fecha_atencion, admin_nota) values (4, '2021-08-18 14:44:21', 20204889, 65484374, 1, 20190742, '2022-02-03 02:18:39', 'conforme');
+insert into solicitud_registro (id, fecha_creacion, user_cui, dni, estado) values (5, '2021-10-14 08:12:42', 20210186, 69654239, 0);
+insert into solicitud_registro (id, fecha_creacion, user_cui, dni, estado, admin_encargado, fecha_atencion, admin_nota) values (6, '2022-01-04 01:28:17', 20187059, 61883411, 2, 20190760, '2021-08-31 01:05:04', 'conforme');
+insert into solicitud_registro (id, fecha_creacion, user_cui, dni, estado) values (7, '2021-09-07 12:25:16', 20204074, 56747303, 0);
+insert into solicitud_registro (id, fecha_creacion, user_cui, dni, estado, admin_encargado, fecha_atencion, admin_nota) values (8, '2021-05-08 14:50:49', 20179691, 33727873, 1, 20190742, '2021-12-24 12:21:15', 'conforme');
+insert into solicitud_registro (id, fecha_creacion, user_cui, dni, estado) values (9, '2021-04-29 15:06:56', 20205307, 49022321, 0);
+insert into solicitud_registro (id, fecha_creacion, user_cui, dni, estado) values (10, '2021-05-11 22:44:56', 20203719, 56378062, 0);
+insert into solicitud_registro (id, fecha_creacion, user_cui, dni, estado, admin_encargado, fecha_atencion, admin_nota) values (11, '2021-02-21 09:54:05', 20218610, 39452830, 1, 20190752, '2021-03-03 12:42:51', 'conforme');
+insert into solicitud_registro (id, fecha_creacion, user_cui, dni, estado) values (12, '2021-06-14 10:07:31', 20170645, 49694324, 0);
+insert into solicitud_registro (id, fecha_creacion, user_cui, dni, estado, admin_encargado, fecha_atencion, admin_nota) values (13, '2021-06-10 12:04:29', 20208254, 42293879, 2, 20190752, '2021-05-29 14:53:46', 'conforme');
+insert into solicitud_registro (id, fecha_creacion, user_cui, dni, estado) values (14, '2021-06-29 13:04:06', 20200436, 68120447, 0);
+insert into solicitud_registro (id, fecha_creacion, user_cui, dni, estado, admin_encargado, fecha_atencion, admin_nota) values (15, '2021-01-21 13:32:12', 20172138, 63678595, 2, 20190752, '2021-05-08 21:56:42', 'conforme');
+insert into solicitud_registro (id, fecha_creacion, user_cui, dni, estado, admin_encargado, fecha_atencion, admin_nota) values (16, '2021-05-04 19:34:55', 20211520, 48141522, 2, 20190752, '2021-10-29 05:39:05', 'conforme');
+insert into solicitud_registro (id, fecha_creacion, user_cui, dni, estado, admin_encargado, fecha_atencion, admin_nota) values (17, '2021-07-22 13:24:01', 20216150, 56499464, 2, 20190760, '2021-02-10 16:44:48', 'conforme');
+insert into solicitud_registro (id, fecha_creacion, user_cui, dni, estado, admin_encargado, fecha_atencion, admin_nota) values (18, '2021-12-16 14:03:33', 20197075, 46283401, 2, 20190742, '2022-02-10 02:40:01', 'conforme');
+insert into solicitud_registro (id, fecha_creacion, user_cui, dni, estado, admin_encargado, fecha_atencion, admin_nota) values (19, '2021-12-27 13:27:58', 20170573, 60258197, 1, 20190752, '2021-10-08 06:29:04', 'conforme');
+insert into solicitud_registro (id, fecha_creacion, user_cui, dni, estado) values (20, '2022-01-23 20:27:43', 20206554, 46062620, 0);
+insert into solicitud_registro (id, fecha_creacion, user_cui, dni, estado, admin_encargado, fecha_atencion, admin_nota) values (21, '2022-01-28 20:39:35', 20206090, 40014230, 1, 20190742, '2021-04-11 15:57:18', 'conforme');
+insert into solicitud_registro (id, fecha_creacion, user_cui, dni, estado, admin_encargado, fecha_atencion, admin_nota) values (22, '2021-05-01 04:56:35', 20205999, 51328481, 1, 20190752, '2021-11-08 12:31:29', 'conforme');
+insert into solicitud_registro (id, fecha_creacion, user_cui, dni, estado) values (23, '2021-02-01 14:04:51', 20219852, 63591043, 0);
+insert into solicitud_registro (id, fecha_creacion, user_cui, dni, estado) values (24, '2021-05-27 21:21:32', 20200126, 48859942, 0);
+insert into solicitud_registro (id, fecha_creacion, user_cui, dni, estado, admin_encargado, fecha_atencion, admin_nota) values (25, '2021-05-26 22:02:15', 20177708, 51086050, 2, 20190742, '2022-01-18 22:36:36', 'conforme');
+insert into solicitud_registro (id, fecha_creacion, user_cui, dni, estado) values (26, '2021-09-30 11:25:24', 20190748, 52852304, 0);
+insert into solicitud_registro (id, fecha_creacion, user_cui, dni, estado, admin_encargado, fecha_atencion, admin_nota) values (27, '2021-03-14 22:56:14', 20211733, 34093886, 2, 20190742, '2021-03-08 02:12:36', 'conforme');
+insert into solicitud_registro (id, fecha_creacion, user_cui, dni, estado) values (28, '2021-11-06 22:45:43', 20173426, 61440336, 0);
+insert into solicitud_registro (id, fecha_creacion, user_cui, dni, estado, admin_encargado, fecha_atencion, admin_nota) values (29, '2021-09-15 05:43:56', 20201264, 34643606, 1, 20190742, '2021-07-31 17:51:33', 'conforme');
+insert into solicitud_registro (id, fecha_creacion, user_cui, dni, estado, admin_encargado, fecha_atencion, admin_nota) values (30, '2021-10-14 22:33:08', 20170048, 33119051, 2, 20190752, '2021-05-12 10:05:43', 'conforme');
+insert into solicitud_registro (id, fecha_creacion, user_cui, dni, estado) values (31, '2021-06-05 09:43:35', 20176837, 35923472, 0);
+insert into solicitud_registro (id, fecha_creacion, user_cui, dni, estado, admin_encargado, fecha_atencion, admin_nota) values (32, '2021-01-24 16:42:45', 20206921, 60754271, 1, 20190752, '2022-02-03 19:15:04', 'conforme');
+insert into solicitud_registro (id, fecha_creacion, user_cui, dni, estado) values (33, '2022-01-27 09:34:33', 20199590, 29994557, 0);
+insert into solicitud_registro (id, fecha_creacion, user_cui, dni, estado, admin_encargado, fecha_atencion, admin_nota) values (34, '2021-05-03 16:59:15', 20179048, 44056375, 1, 20190752, '2021-06-25 06:45:59', 'conforme');
+insert into solicitud_registro (id, fecha_creacion, user_cui, dni, estado, admin_encargado, fecha_atencion, admin_nota) values (35, '2021-06-10 10:41:54', 20214937, 70851677, 1, 20190752, '2021-04-20 05:53:10', 'conforme');
+insert into solicitud_registro (id, fecha_creacion, user_cui, dni, estado) values (36, '2021-10-12 15:58:15', 20186176, 63048668, 0);
+insert into solicitud_registro (id, fecha_creacion, user_cui, dni, estado) values (37, '2021-07-17 09:52:32', 20188344, 30705431, 0);
+insert into solicitud_registro (id, fecha_creacion, user_cui, dni, estado, admin_encargado, fecha_atencion, admin_nota) values (38, '2021-10-29 17:55:37', 20208711, 31098368, 1, 20190752, '2021-12-08 23:20:56', 'conforme');
+insert into solicitud_registro (id, fecha_creacion, user_cui, dni, estado, admin_encargado, fecha_atencion, admin_nota) values (39, '2021-03-06 05:38:59', 20215513, 31519885, 1, 20190752, '2021-06-15 22:46:35', 'conforme');
+insert into solicitud_registro (id, fecha_creacion, user_cui, dni, estado) values (40, '2021-10-19 14:58:35', 20179730, 34273612, 0);
+insert into solicitud_registro (id, fecha_creacion, user_cui, dni, estado, admin_encargado, fecha_atencion, admin_nota) values (41, '2021-01-13 21:38:40', 20175226, 40233376, 1, 20190760, '2021-10-19 11:11:13', 'conforme');
+insert into solicitud_registro (id, fecha_creacion, user_cui, dni, estado, admin_encargado, fecha_atencion, admin_nota) values (42, '2021-01-24 07:18:20', 20207666, 39719701, 1, 20190760, '2021-02-22 08:58:05', 'conforme');
+insert into solicitud_registro (id, fecha_creacion, user_cui, dni, estado, admin_encargado, fecha_atencion, admin_nota) values (43, '2021-10-28 00:35:58', 20214645, 38136077, 1, 20190752, '2021-06-23 11:54:24', 'conforme');
+insert into solicitud_registro (id, fecha_creacion, user_cui, dni, estado, admin_encargado, fecha_atencion, admin_nota) values (44, '2021-12-25 12:09:43', 20199209, 66258445, 2, 20190760, '2021-08-01 23:01:56', 'conforme');
+insert into solicitud_registro (id, fecha_creacion, user_cui, dni, estado, admin_encargado, fecha_atencion, admin_nota) values (45, '2021-02-09 18:57:13', 20188082, 64272010, 2, 20190760, '2021-08-18 00:29:41', 'conforme');
+insert into solicitud_registro (id, fecha_creacion, user_cui, dni, estado, admin_encargado, fecha_atencion, admin_nota) values (46, '2022-01-14 11:04:46', 20217201, 33888043, 1, 20190752, '2021-09-12 21:59:25', 'conforme');
+insert into solicitud_registro (id, fecha_creacion, user_cui, dni, estado, admin_encargado, fecha_atencion, admin_nota) values (47, '2021-05-08 19:17:32', 20188652, 52176692, 2, 20190742, '2021-07-30 07:34:57', 'conforme');
+insert into solicitud_registro (id, fecha_creacion, user_cui, dni, estado) values (48, '2021-07-16 00:38:36', 20190821, 31923417, 0);
+insert into solicitud_registro (id, fecha_creacion, user_cui, dni, estado, admin_encargado, fecha_atencion, admin_nota) values (49, '2021-06-14 12:10:10', 20181079, 43291637, 1, 20190742, '2021-11-16 12:15:54', 'conforme');
+insert into solicitud_registro (id, fecha_creacion, user_cui, dni, estado) values (50, '2021-02-19 14:34:59', 20183785, 49467234, 0);
+
+
 #CURSO
 insert into curso (idcurso, nombre, anio, semestre) values (1701101, 'Razonamiento Logico Matematico', '1', '1');
 insert into curso (idcurso, nombre, anio, semestre) values (1701102, 'Metogologia del Trabajo Intelectual Universitario', '1', '1');
@@ -222,3 +275,8 @@ insert into pregunta_no_rechazada (id) values (7);
 insert into pregunta_no_rechazada (id) values (8);
 insert into pregunta_no_rechazada (id) values (9);
 insert into pregunta_no_rechazada (id) values (10);
+insert into pregunta_no_rechazada (id) values (11);
+insert into pregunta_no_rechazada (id) values (12);
+insert into pregunta_no_rechazada (id) values (13);
+insert into pregunta_no_rechazada (id) values (14);
+insert into pregunta_no_rechazada (id) values (15);
