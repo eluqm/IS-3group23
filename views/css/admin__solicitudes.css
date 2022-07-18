@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Overlock+SC&display=swap');
-
 main {
     width: 100%;
     justify-content: center;
@@ -16,9 +14,9 @@ main {
 }
 
 .main__contenido__header__row-2{
-    margin-bottom: 15px;
     display: flex;   
     gap:5px;
+    height: 40%;
 }
 
 .main__contenido__header__row-2 a {
@@ -31,15 +29,18 @@ main {
     width: calc( 200% / 3);
     display: flex;
     gap:5px;
+    height: 50%;
 }
 
 .main__contenido__header__row-1 a{
     width: 50%;
-    min-height: 3rem;
     border-radius: 10px 10px 0 0;
 }
 
-
+.main__contenido__header {
+    height: 5rem;
+    margin-bottom: 5px;
+}
 
 .main__contenido__header a{
     display: block;
@@ -52,7 +53,6 @@ main {
     text-align: center;
     font-size: 1rem;
     text-decoration: none;
-    font-family: 'Overlock SC';
     font-style: normal;
     font-weight: 400;
     line-height: 30px;
@@ -66,4 +66,23 @@ main {
     display: flex;
     flex-direction: column;
     gap: 10px;
+
+    overflow-y: scroll;
+    height: calc(100% - 5rem - 5px);
+    overscroll-behavior-y: contain;
+    scroll-snap-type: y proximity;  
+}
+
+.main__contenido__q-list::-webkit-scrollbar {
+    display: block;
+    width: 3px;
+}
+.main__contenido__q-list::-webkit-scrollbar-track {
+    background: none;
+}
+
+.main__contenido__q-list::-webkit-scrollbar-thumb {
+    display: block;
+    border-radius: 10px;
+    background: var(--color_gray);
 }
