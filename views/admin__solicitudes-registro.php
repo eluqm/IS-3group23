@@ -50,36 +50,78 @@
                 <div class="main__contenido__q-list">
                 <!-- Traer de la base de datos -->
                 <?php if (isset($solicitud_registro) && $solicitud_registro!=0): ?>
-                <?php foreach ($solicitud_registro as $dato) { ?>
-                        <div class="pregunta">
-                            <div class="pregunta__contenido">
-                                <div class="pregunta__contenido__info">
-                                    <p><?php echo $dato->fecha_creacion;?></p>
+                    <?php if ($tipo_solicitud == 0): ?>                    
+                        <?php foreach ($solicitud_registro as $dato) { ?>
+                            <div class="pregunta">
+                                <div class="pregunta__contenido">
+                                    <div class="pregunta__contenido__info">
+                                        <p><?php echo $dato->fecha_creacion;?></p>
+                                    </div>
+                                    <p>CUI:<?php echo $dato->cui;?></p>
+                                    <p>Nombre: <?php echo $dato->nombre;?></p>
+                                    <p>E-Mail:<?php echo $dato->correo_electronico;?></p>
+                                    <p>DNI: <?php echo $dato->dni;?></p>
                                 </div>
-                                <h2><?php echo $dato->nombre;?></h2>
-                                <h2><?php echo $dato->dni;?></h2>
-                                <p><?php echo $dato->correo_electronico;?></p>
-                            </div>
-                            <div class="pregunta__actions">              
-                                <?php if ($tipo_solicitud == 0): ?>                    
-                                    <a href="#"><span class="pregunta-icon checkmark-icon"></span></a>
+                                <div class="pregunta__actions">              
+                                    <form action="../controllers/adminController.php" method="POST">
+                                        <input hidden name="action" value="solicitud_registro_procesada">
+                                        <input hidden name="id_solicitud" value="<?php echo $dato->id?>">
+                                        <input hidden name="estado" value=1>
+                                        <input hidden name="cui_new_user" value="<?php echo $dato->cui;?>">
+                                        <button type="submit"><span class="pregunta-icon checkmark-icon"></span></button>   
+                                    </form>
                                     <div><span class="pregunta-icon"></span></div>
                                     <div><span class="pregunta-icon"></span></div>
-                                    <a href="#"><span class="pregunta-icon checkmark-icon"></span></a>
-                                <?php elseif ($tipo_solicitud == 1): ?> 
-                                    <div><span class="pregunta-icon"></span></div>
-                                    <div><span class="pregunta-icon"></span></div>
-                                    <div><span class="pregunta-icon"></span></div>
-                                    <div><span class="pregunta-icon"></span></div>
-                                <?php elseif ($tipo_solicitud == 2): ?> 
-                                    <div><span class="pregunta-icon"></span></div>
-                                    <div><span class="pregunta-icon"></span></div>
-                                    <div><span class="pregunta-icon"></span></div>
-                                    <div><span class="pregunta-icon"></span></div>
-                                <?php endif; ?>
-                            </div>
-                        </div>                    
-                <?php } ?>
+                                    <form action="../controllers/adminController.php" method="POST">
+                                        <input hidden name="action" value="goTo_formulario_denegar_registro">
+                                        <input hidden name="id_solicitud_registro" value="<?php echo $dato->id;?>">
+                                        <button type="submit"><span class="pregunta-icon trash-icon"></span></button>   
+                                    </form>
+                                </div>
+                            </div>                    
+                        <?php } ?>
+                    <?php elseif ($tipo_solicitud == 1): ?> 
+                        <?php foreach ($solicitud_registro as $dato) { ?>
+                            <div class="pregunta">
+                                <div class="pregunta__contenido">
+                                    <div class="pregunta__contenido__info">
+                                        <p><?php echo $dato->fecha_creacion;?></p>
+                                    </div>
+                                    <p>CUI:<?php echo $dato->cui;?></p>
+                                    <p>Nombre: <?php echo $dato->nombre;?></p>
+                                    <p>E-Mail:<?php echo $dato->correo_electronico;?></p>
+                                    <p>DNI: <?php echo $dato->dni;?></p>
+                                    <hr>
+                                    <p><?php echo $dato->fecha_atencion;?></p>
+                                    <p>Administrador: <?php echo $dato->admin_nombre;?></p>
+                                </div>
+                                <div class="pregunta__actions" style="background-color:#8AD091;"> 
+                                    <div><span class="pregunta-icon"></span></div> 
+                                </div>                 
+                            </div>   
+                        <?php } ?>
+                    <?php elseif ($tipo_solicitud == 2): ?> 
+                        <?php foreach ($solicitud_registro as $dato) { ?>
+                            <div class="pregunta">
+                                <div class="pregunta__contenido">
+                                    <div class="pregunta__contenido__info">
+                                        <p><?php echo $dato->fecha_creacion;?></p>
+                                    </div>
+                                    <p>CUI:<?php echo $dato->cui;?></p>
+                                    <p>Nombre: <?php echo $dato->nombre;?></p>
+                                    <p>E-Mail:<?php echo $dato->correo_electronico;?></p>
+                                    <p>DNI: <?php echo $dato->dni;?></p>
+                                    <hr>
+                                    <p><?php echo $dato->fecha_atencion;?></p>
+                                    <p>Administrador: <?php echo $dato->admin_nombre;?></p>
+                                    <p>Nota: <?php echo $dato->admin_nota;?></p>
+                                </div>
+                                <div class="pregunta__actions" style="background-color:#CB7165;"> 
+                                    <div><span class="pregunta-icon"></span></div> 
+                                </div>                 
+                            </div>   
+                        <?php } ?>
+                    <?php endif;?>
                 <?php else: ?>
                     <p>No hay solicitudes</p>
                 <?php endif; ?>

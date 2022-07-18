@@ -15,7 +15,12 @@ class Solicitud {
         2 => Denegada
     */
     public function getSolicitudedeRegistroPorEstado($ESTADO){
-        $this->db->query("SELECT r.fecha_creacion,u.cui,u.nombre,u.correo_electronico,r.dni FROM SOLICITUD_REGISTRO r INNER JOIN USUARIO u ON u.cui = r.user_cui WHERE r.estado=:estado");
+        if($ESTADO==0){
+            $this->db->query("SELECT r.id, r.fecha_creacion,u.cui,u.nombre,u.correo_electronico,r.dni FROM SOLICITUD_REGISTRO r INNER JOIN USUARIO u ON u.cui = r.user_cui  WHERE r.estado=:estado");
+        }
+        else {
+            $this->db->query("SELECT r.id, r.fecha_creacion,u.cui,u.nombre,u.correo_electronico,r.dni, r.admin_nota, r.fecha_atencion, a.nombre 'admin_nombre' FROM SOLICITUD_REGISTRO r INNER JOIN USUARIO u ON u.cui = r.user_cui INNER JOIN USUARIO a ON r.admin_encargado = a.cui  WHERE r.estado=:estado");
+        }
         $this->db->bind(':estado', $ESTADO);
         $row = $this->db->resultSet();
         if($this->db->rowCount() > 0){
@@ -48,6 +53,17 @@ class Solicitud {
             return true;
         }
         return false;
+    }
+
+    public function search_SolicitudRegistro_by_ID($ID){
+        $this->db->query("SELECT r.id, r.fecha_creacion,u.cui,u.nombre,u.correo_electronico,r.dni FROM SOLICITUD_REGISTRO r INNER JOIN USUARIO u ON u.cui = r.user_cui WHERE r.id=:id");
+        $this->db->bind(':id', $ID);
+        $row = $this->db->single();
+        if($this->db->rowCount() > 0){
+            return $row;
+        }else{
+            return 0;
+        }
     }
     
     public function solicitud_eliminacion_denegada($data){
@@ -97,4 +113,28 @@ class Solicitud {
         }
     }
 
+    /*
+        data['estado'] = 1 -> Aceptada 
+        data['estado'] = 2 -> Denegada
+    */
+    public function solicitud_registro_procesar($data){
+        $this->db->query("UPDATE solicitud_registro SET estado=:estado, admin_encargado=:cui_admin ,admin_nota=:admin_nota,fecha_atencion=:fecha_solucion WHERE id=:id_solicitud;");
+        $this->db->bind(':estado', $data['estado']);
+        $this->db->bind(':id_solicitud', $data['id_solicitud']);
+        $this->db->bind(':cui_admin', $data['cui_admin']);
+        $this->db->bind(':admin_nota', $data['razon']);
+        $this->db->bind(':fecha_solucion', $data['fecha']);
+        if($this->db->execute()){
+            if($data['estado']==1){
+                $this->db->query("UPDATE usuario SET estado_cuenta=1 WHERE cui=:cui_new_user;");
+                $this->db->bind(':cui_new_user', $data['cui_new_user']);
+                if($this->db->execute()){
+                    return true;
+                }
+                return false;
+            }
+            return true;
+        }
+        return false;
+    }
 }

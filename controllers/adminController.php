@@ -71,6 +71,16 @@ class AdminController {
 
     }
 
+    public function go_to_formulario_denegar_registro(){
+        $this->verificar_sesion();
+        if(!isset($_POST['id_solicitud_registro'])){
+            redirect("../index.php");
+        }
+        $datos_registro = $this->solicitud->search_SolicitudRegistro_by_ID($_POST['id_solicitud_registro']);
+        require_once("../views/admin__form_denegar_registro.php");
+
+    }
+
     public function solicitud_eliminacion_aceptada(){
         $this->verificar_sesion();
         $data['id_pregunta']=$_POST['id_pregunta'];
@@ -109,6 +119,23 @@ class AdminController {
         redirect("../index.php");        
     }
 
+    public function solicitud_registro_procesada(){
+        $this->verificar_sesion();
+        $data['estado']=$_POST['estado'];
+        $data['cui_new_user']=$_POST['cui_new_user'];
+        $data['id_solicitud']=$_POST['id_solicitud'];
+        $data['cui_admin']=$_SESSION['usersCUI'];
+        if($_POST['estado']==1){
+            $data['razon']="Conforme";
+        }else {
+            $data['razon']=$_POST['razon'];
+        }
+        date_default_timezone_set("America/Lima");
+        $data['fecha']=date('Y-m-d H:i:s');
+        $this->solicitud->solicitud_registro_procesar($data);
+        redirect("../index.php");  
+    }
+
     public function verificar_sesion(){
         //session_start();
         if(!isset($_SESSION['usersCUI']) || $_SESSION['admin']!=1){
@@ -129,6 +156,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         case 'goTo_formulario_eliminar':
             $init->go_to_formulario_eliminar();
             break;
+        case 'goTo_formulario_denegar_registro':
+                $init->go_to_formulario_denegar_registro();
+                break;
         case 'eliminar_pregunta':
             $init->eliminar_pregunta();
             break;
@@ -137,6 +167,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
             break;
         case 'solicitud_eliminacion_denegada':
             $init->solicitud_eliminacion_denegada();
+            break;
+        case 'solicitud_registro_procesada':
+            $init->solicitud_registro_procesada();
             break;
         default:
             redirect("../index.php");  
