@@ -18,10 +18,11 @@ class Pregunta {
         $this->db->bind(':tema', $data['tema']);
         $this->db->bind(':cui', $data['cui']);
         $this->db->bind(':fecha_limite', $data['fecha_limite']);
-
+        
         if($this->db->execute())
+        {
             return true;
-            
+        }
         return false;
     }
 
@@ -30,6 +31,45 @@ class Pregunta {
         0 => open
         1 => closed
     */
+    public function register_in_non_rejected($data)
+    {
+        $this->db->query('INSERT INTO pregunta_no_rechazada (id)
+        VALUES (:id)');
+        $this->db->bind(':id', $data);
+        if ($this->db->execute()) {
+            return true;
+        }
+        return false;
+    }
+        
+    // no cambiar esta funcion pls Malnacidos >:V
+    public function findQuestionById_2($id) {
+        $this->db->query('SELECT * FROM pregunta WHERE id = :id');
+        $this->db->bind(':id', $id);
+
+        $row = $this->db->single();
+
+        if($this->db->rowCount() > 0){
+            return $row;
+        }else{
+            return false;
+        }
+    }
+
+    public function find_id_by_tittle($tittle)
+    {
+        $this->db->query('SELECT pregunta.id from pregunta
+        WHERE pregunta.titulo=:tittle');
+        $this->db->bind(':tittle', $tittle);
+        $row = $this->db->resultSet();
+        if ($this->db->rowCount()>0) {
+            return $row;
+        }
+        else {
+            return 0;
+        }
+    }
+
     public function get_estado_for_query($ESTADO){
         if($ESTADO=='all'){
             return -1;
@@ -140,20 +180,6 @@ class Pregunta {
 
     public function findQuestionById($id) {
         $this->db->query("SELECT pregunta.*, curso.nombre 'nombre_curso' FROM pregunta_no_rechazada INNER JOIN pregunta on pregunta_no_rechazada.id=pregunta.id  INNER JOIN curso ON curso.idcurso=pregunta.curso WHERE pregunta.id = :id");
-        $this->db->bind(':id', $id);
-
-        $row = $this->db->single();
-
-        if($this->db->rowCount() > 0){
-            return $row;
-        }else{
-            return false;
-        }
-    }
-
-    // no cambiar esta funcion plz
-    public function findQuestionById_2($id) {
-        $this->db->query('SELECT * FROM pregunta WHERE id = :id');
         $this->db->bind(':id', $id);
 
         $row = $this->db->single();
