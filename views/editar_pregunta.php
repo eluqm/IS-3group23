@@ -37,6 +37,7 @@
         </p><br/>
 
         <input type="submit" value="Enviar ahora"/>
+        <a href="../controllers/inicioController.php">Cancelar</a>
         </form>
 </body>
 </html>

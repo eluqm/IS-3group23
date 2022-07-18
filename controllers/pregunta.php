@@ -199,9 +199,18 @@ class PreguntaController {
             'cui'=>$_SESSION['usersCUI']
         ];
         $data_cursos=$this->curso->get_all();
-        if ($this->preguntaModel->find_question_by_id_user($data)) {
-            require_once "../views/editar_pregunta.php";
+        $datos = $this->preguntaModel->findQuestionById_2($data['id_pregunta']);
+        if(!$datos){
+            echo("no se encontro pregunta");
+            redirect("../index.php");
         }
+        else if($datos->cui_usuario==$_SESSION['usersCUI']){
+            require_once("../views/editar_pregunta.php");
+        }
+        else {
+            redirect("../index.php");
+        }
+        
     }
 }
 
@@ -236,7 +245,7 @@ else {
         case 'go_to_show_question':
             $init->show_question();
             break;
-            
+
         case 'go_to_edit_question':
             $init->go_to_edit_question();
             break;

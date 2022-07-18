@@ -66,12 +66,23 @@
                 <p class="info">Disponibilidad:</p>
                 <p class="info"><?php echo $data->disponibilidad;?></p>
                 <br/>
-                
+                <?php 
+                if ($data->cui_usuario==$_SESSION['usersCUI']) {
+                    echo '
+                    <p class="info">Estamos Esperando por tuy tutor ^w^</p>';
+                }
+                ?>
             </div>
             </div>
-            <a href="../views/programar_clase.php?id_pregunta=<?php echo $data->id;?>"><button class="aside__button-log-out">
-                ENSE&Ntilde;AR
-            </button></a>
+            <?php 
+                if ($data->cui_usuario!=$_SESSION['usersCUI']) {
+                    echo '
+                    <a href="../views/programar_clase.php?id_pregunta=<?php echo $data->id;?>"><button class="aside__button-log-out">
+                    ENSE&Ntilde;AR
+                    </button></a>
+                    ';
+                }
+            ?>
 
         </aside>
 
