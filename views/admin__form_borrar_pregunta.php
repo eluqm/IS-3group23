@@ -15,8 +15,8 @@
     <body>
         <h2>Eliminar Pregunta</h2>
         <form method="POST" action="../controllers/adminController.php">
-            <input type="hidden" name="action" value="eliminar_pregunta">
-            <input type="hidden" name="id_pregunta" value="<?php echo $datos_pregunta->id?>">
+            <input hidden name="action" value="<?php if($action_solicitud==0): echo 'solicitud_eliminacion_aceptada'; elseif($action_solicitud==1): echo 'eliminar_pregunta'; elseif($action_solicitud==2): echo 'solicitud_eliminacion_denegada'; endif;?>">
+            <input hidden name="id_pregunta" value="<?php echo $datos_pregunta->id?>">
             <p><?php echo $datos_pregunta->nombre_curso;?> > <?php echo $datos_pregunta->tema;?> | <?php echo $datos_pregunta->fecha_publicacion;?></p>
             <p> Estado: 
                 <?php if ($datos_pregunta->estado == 0): ?> 

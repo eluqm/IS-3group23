@@ -57,16 +57,40 @@ class AdminController {
 
     public function go_to_formulario_eliminar(){
         $this->verificar_sesion();
-        if(!isset($_GET['id_pregunta'])){
-            redirect("../views/login.php");
+        if(!isset($_POST['id_pregunta']) || !isset($_POST['modo'])){
+            redirect("../index.php");
         }
-        $datos_pregunta = $this->pregunta->findQuestionById($_GET['id_pregunta']);
+        /*
+        0 -> aceptar solicitud de eliminacion
+        1 -> eliminar sin solicitud
+        2 -> ignorar solicitud de eliminacion
+        */
+        $action_solicitud = $_POST['modo'];
+        $datos_pregunta = $this->pregunta->findQuestionById($_POST['id_pregunta']);
         require_once("../views/admin__form_borrar_pregunta.php");
 
     }
 
-    public function solicitud_eliminacion_aceptada($data){
+    public function solicitud_eliminacion_aceptada(){
         $this->verificar_sesion();
+        $data['id_pregunta']=$_POST['id_pregunta'];
+        $data['cui_usuario']=$_SESSION['usersCUI'];
+        $data['descripcion']=$_POST['razon'];
+        date_default_timezone_set("America/Lima");
+        $data['fecha_creacion']=date('Y-m-d H:i:s');
+        $this->solicitud->solicitud_eliminacion_aceptar($data);
+        redirect("../index.php");  
+    }
+
+    public function solicitud_eliminacion_denegada(){
+        $this->verificar_sesion();
+        $data['id_pregunta']=$_POST['id_pregunta'];
+        $data['cui_usuario']=$_SESSION['usersCUI'];
+        $data['descripcion']=$_POST['razon'];
+        date_default_timezone_set("America/Lima");
+        $data['fecha_creacion']=date('Y-m-d H:i:s');
+        $this->solicitud->solicitud_eliminacion_denegada($data);
+        redirect("../index.php");  
     }
 
     public function eliminar_pregunta(){
@@ -74,7 +98,8 @@ class AdminController {
         $data['id_pregunta']=$_POST['id_pregunta'];
         $data['cui_usuario']=$_SESSION['usersCUI'];
         $data['descripcion']=$_POST['razon'];
-        $data['fecha_creacion']=date_default_timezone_get();
+        date_default_timezone_set("America/Lima");
+        $data['fecha_creacion']=date('Y-m-d H:i:s');
 
         //verificar si no hay una solicitud con una misma pregunta
         if($this->solicitud->search_by_id_pregunta($data['id_pregunta'])==0){
@@ -101,11 +126,20 @@ $init = new AdminController;
 
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
     switch($_POST['action']){
+        case 'goTo_formulario_eliminar':
+            $init->go_to_formulario_eliminar();
+            break;
         case 'eliminar_pregunta':
             $init->eliminar_pregunta();
             break;
+        case 'solicitud_eliminacion_aceptada':
+            $init->solicitud_eliminacion_aceptada();
+            break;
+        case 'solicitud_eliminacion_denegada':
+            $init->solicitud_eliminacion_denegada();
+            break;
         default:
-            redirect("../views/login.php");
+            redirect("../index.php");  
     }
 } else 
 {
@@ -115,9 +149,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
             break;
         case 'solicitudRevisionPregunta':
             $init->solicitud_revision_pregunta($_GET['solicitud']);
-            break;
-        case 'goTo_formulario_eliminar':
-            $init->go_to_formulario_eliminar();
             break;
         default:
                 redirect("../views/login.php");

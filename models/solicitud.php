@@ -49,6 +49,19 @@ class Solicitud {
         }
         return false;
     }
+    
+    public function solicitud_eliminacion_denegada($data){
+        $this->db->query("UPDATE solicitud_revision_pregunta SET estado=2, cui_admin=:cui_admin ,admin_nota=:admin_nota,fecha_solucion=:fecha_solucion WHERE id_pregunta=:id_pregunta;");
+        $this->db->bind(':id_pregunta', $data['id_pregunta']);
+        $this->db->bind(':cui_admin', $data['cui_usuario']);
+        $this->db->bind(':admin_nota', $data['descripcion']);
+        $this->db->bind(':fecha_solucion', $data['fecha_creacion']);
+        if($this->db->execute()){
+            return true;
+        }
+        return false;
+    }
+
 
     public function solicitud_eliminacion_aceptar($data){
         $this->db->query("UPDATE solicitud_revision_pregunta SET estado= 1, cui_admin=:cui_admin ,admin_nota=:admin_nota,fecha_solucion=:fecha_solucion WHERE id_pregunta=:id_pregunta;");

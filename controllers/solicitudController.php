@@ -9,7 +9,6 @@ class SolicitudController {
     private $pregunta;
     
     public function __construct(){
-        $this->curso=new Curso();
         $this->solicitud=new Solicitud();
         $this->pregunta=new Pregunta();
     }

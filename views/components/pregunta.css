@@ -41,7 +41,9 @@
     border-radius: 0 10px 10px 0;
 }
 
-.pregunta__actions a {
+.pregunta__actions a,
+.pregunta__actions button
+ {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -53,7 +55,8 @@
     border: none;
 }
 
-.pregunta__actions a:hover {
+.pregunta__actions a:hover,
+.pregunta__actions button:hover {
     background-color: var(--color_gray);
 }
 

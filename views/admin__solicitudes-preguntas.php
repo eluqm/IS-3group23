@@ -66,7 +66,18 @@
                                 </div>
                                 <div class="pregunta__actions">                        
                                     <a href="#"><span class="pregunta-icon eye-icon"></span></a> 
-                                    <a href="#"><span class="pregunta-icon trash-icon"></span></a>
+                                    <form action="../controllers/adminController.php" method="POST">
+                                        <input hidden name="action" value="goTo_formulario_eliminar">
+                                        <input hidden name="modo" value="0">
+                                        <input hidden name="id_pregunta" value="<?php echo $dato->id_pregunta;?>">
+                                        <button><span class="pregunta-icon checkmark-icon"></span></button>
+                                    </form>
+                                    <form action="../controllers/adminController.php" method="POST">
+                                        <input hidden name="action" value="goTo_formulario_eliminar">
+                                        <input hidden name="modo" value="2">
+                                        <input hidden name="id_pregunta" value="<?php echo $dato->id_pregunta;?>">
+                                        <button><span class="pregunta-icon trash-icon"></span></button>
+                                    </form>
                                 </div>
                             </div>                    
                         <?php } ?>
@@ -131,7 +142,6 @@
                     else if(<?php echo $tipo_solicitud?> == 2)
                     document.getElementById("a_denegada").style.backgroundColor = 'var(--color_principal)';
             }
-
             window.addEventListener("load",function() { toggledisplay_preguntas() });
         </script>
     </body>
