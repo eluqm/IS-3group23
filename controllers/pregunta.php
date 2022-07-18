@@ -24,13 +24,15 @@ class PreguntaController {
             'curso' => trim($_POST['curso']),
             'tema' => trim($_POST['tema']),
             'cui' => $_SESSION['usersCUI'],
-            'fecha_limite' => $_POST['fecha_limite']
+            'fecha_limite' => $_POST['fecha_limite'],
+            'disponibilidad' => $_POST['disponibilidad']
         ];
         if( empty($data['titulo'])
             || empty($data['descripcion'])
             || empty($data['curso'])
             || empty($data['tema'])
-            || empty($data['fecha_limite'])){
+            || empty($data['fecha_limite'])
+            || empty($data['disponibilidad'])){
             flash("publicar_pregunta", "Error Fill all the inputs");
             redirect("../views/publicar_pregunta.php");
         }
@@ -133,8 +135,15 @@ class PreguntaController {
         $data = [
             'id' => trim($_POST['id']),
             'titulo' => trim($_POST['titulo']),
-            'descripcion' => trim($_POST['descripcion'])
+            'descripcion' => trim($_POST['descripcion']),
+            'curso' => trim($_POST['curso']),
+            'tema' => trim($_POST['tema']),
+            'disponibilidad' => trim($_POST['disponibilidad']),
+            'fecha_limite' => trim($_POST['fecha_limite'])
         ];
+
+        $curso_=$this->curso->search_id_course_by_name($data['curso']);
+        $data['curso']=$curso_[0]->idcurso;
 
         if($this->preguntaModel->findQuestionById_2($data['id'])){
             
@@ -190,6 +199,16 @@ class PreguntaController {
             die("Something went wrong");
         }
     }
+    public function go_to_edit_question(){
+        $data=[
+            'id_pregunta'=>$_GET['id'],
+            'cui'=>$_SESSION['usersCUI']
+        ];
+        $data_cursos=$this->curso->get_all();
+        if ($this->preguntaModel->find_question_by_id_user($data)) {
+            require_once "../views/editar_pregunta.php";
+        }
+    }
 }
 
 $init = new PreguntaController;
@@ -222,6 +241,9 @@ else {
             break;
         case 'go_to_show_question':
             $init->show_question();
+            break;
+        case 'go_to_edit_question':
+            $init->go_to_edit_question();
             break;
         default:
             redirect("../views/login.php");

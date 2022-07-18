@@ -72,15 +72,12 @@
                                 <p><?php echo $dato->descripcion;?></p>
                             </div class="main__contenido__q-list">
                             <div class="pregunta__actions">
-                                <a href="#"><span class="pregunta-icon eye-icon"></span></a>
+                                <a href="../controllers/pregunta.php?action=go_to_show_question&id_pregunta=<?php echo $dato->id;?>"><span class="pregunta-icon eye-icon"></span></a>
                                 <div><span class="pregunta-icon"></span></div>      
 
                                 <!-- editar pregunta -->
                                 <?php $id_ = $dato->id;?>
-                                <form action="../views/editar_pregunta.php" method="POST">
-                                    <input type="hidden" name="id" value=<?php echo $id_;?>/>
-                                    <a href=""><input type="submit" class="pregunta-icon edit-icon"/></a>
-                                </form>
+                                <a href="../controllers/pregunta.php?action=go_to_edit_question&id=<?php echo $id_;?>"><span class="pregunta-icon edit-icon"></span></a>
                                 <!-- eliminar pregunta -->
                                 <form action="../views/eliminar_pregunta.php" method="POST">
                                     <input type="hidden" name="id" value=<?php echo $id_;?>/>
@@ -114,7 +111,7 @@
                                 <p><?php echo $dato->descripcion;?></p>
                             </div class="main__contenido__q-list">
                             <div class="pregunta__actions">
-                                <a href="#"><span class="pregunta-icon eye-icon"></span></a>
+                                <a href="../controllers/pregunta.php?action=go_to_show_question&id_pregunta=<?php echo $dato->id;?>"><span class="pregunta-icon eye-icon"></span></a>
                                 <div><span class="pregunta-icon"></span></div>
                                 <div><span class="pregunta-icon"></span></div>
                                 <div><span class="pregunta-icon"></span></div>

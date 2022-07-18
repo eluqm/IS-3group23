@@ -37,9 +37,10 @@
                         include '../models/curso.php';
                         $curso_display=new Curso;
                         $data_cursos=$curso_display->get_all();
-                        while ($i<20) {
-                            $i++;
+                        $i=0;
+                        while ($data_cursos[$i]->nombre!=$data_cursos[$i+1]->nombre) {
                             echo '<option value="'.$data_cursos[$i]->nombre.'">'.$data_cursos[$i]->nombre.'</option>';
+                            $i++;
                         }
                     ?>
                 </select>
@@ -47,8 +48,8 @@
 
 
                 <p>
-                <label for="">Fecha L&iacute;mite</label>
-                <input type="datetime-local" value="2022-17-07T00:00:00" name="fecha">
+                <label for="">Fecha de Reunion</label>
+                <input type="datetime-local" name="fecha">
                 </p><br/>
 
                 <p>

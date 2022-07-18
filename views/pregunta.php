@@ -35,7 +35,7 @@
             <div class="main__contenido__q-list">
             <div class="main_pregunta">
             <div class="pregunta__contenido">
-                <p class="fecha">22/22/22</p>
+                <p class="fecha">Fecha Limite: <?php echo $data->fecha_limite;?></p>
                 <h2><?php echo $data->titulo;?></h2>
                 <br/><hr><br/>
                 <p class="parrafo"><?php echo $data->descripcion;?></p>

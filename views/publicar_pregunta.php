@@ -42,8 +42,13 @@
                     </p><br/>
 
                     <p>
+                    <label for="">Disponibilidad</label>
+                    <input type="text" name="disponibilidad">
+                    </p><br/>
+
+                    <p>
                     <label for="">Fecha L&iacute;mite</label>
-                    <input type="datetime-local" value="2022-07-17T00:00:00" name="fecha_limite">
+                    <input type="datetime-local" name="fecha_limite">
                     </p><br/>
                 </div>
                     
@@ -57,9 +62,10 @@
                                 include '../models/curso.php';
                                 $curso_display=new Curso;
                                 $data_cursos=$curso_display->get_all();
-                                while ($i<50) {
-                                    $i++;
+                                $i=0;
+                                while ($data_cursos[$i]->nombre!=$data_cursos[$i+1]->nombre) {
                                     echo '<option value="'.$data_cursos[$i]->nombre.'">'.$data_cursos[$i]->nombre.'</option>';
+                                    $i++;
                                 }
                             ?>
                         </select>
