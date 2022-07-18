@@ -9,10 +9,11 @@
     <h1> Borrar pregunta </h1>
     <br><br>
 
-        <form name="form_eliminar_pregunta" action="../controllers/eliminar_pregunta.php" method="post">
+        <form name="form_eliminar_pregunta" action="../controllers/pregunta.php" method="post">
         Va a eliminar su pregunta: <b><?php echo $_GET["titulo"];?></b><br><br>. 
         ¿Está seguro?<br><br>
-
+        <input name="type" type="hidden" value="delete_question"/>  
+        <!-- id -->
         <input name="id" type="hidden" value=<?php echo $_GET["id"];?> />
 
         <!--<input type="submit" value="Confirmar"/>-->
