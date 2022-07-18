@@ -32,13 +32,13 @@ class PreguntaController {
             || empty($data['tema'])
             || empty($data['fecha_limite'])){
             flash("publicar_pregunta", "Error Fill all the inputs");
-            redirect("../views/editar_pregunta.php");
+            redirect("../views/publicar_pregunta.php");
         }
         
         $curso_=$this->curso->search_id_course_by_name($data['curso']);
         $data['curso']=$curso_[0]->idcurso;
 
-        if($this->preguntaModel->register($data) )
+        if($this->preguntaModel->register($data))
         {
             $id_=$this->preguntaModel->find_id_by_tittle($data['titulo']);
             if ($this->preguntaModel->register_in_non_rejected($id_[0]->id)) {
@@ -92,6 +92,24 @@ class PreguntaController {
             }
         }
     }
+    public function schedule_class()
+    {
+        $data = [
+            'cui' => $_SESSION['usersCUI'],
+            'id_pregunta' => trim($_POST['id']),
+            'fecha' => trim($_POST['fecha']),
+            'meet' => trim($_POST['meet']),
+            'priv' => trim($_POST['privacidad_']),
+            'max' => trim($_POST['max_estudiantes'])
+        ];
+        
+        if ($this->preguntaModel->edit_for_schedule($data)) {
+            redirect("./inicioController.php");
+        }
+        else {
+            die("Something went wrong");
+        }
+    }
 }
 
 $init = new PreguntaController;
@@ -101,8 +119,11 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         case 'store':
             $init->store();
             break;
+        case 'schedule_class':
+            $init->schedule_class();
+            break;
         default:
-            redirect("../views/publicar_pregunta.php");
+            redirect("../controllers/inicioController.php");
     }
 }
 else {

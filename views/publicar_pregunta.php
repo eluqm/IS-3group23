@@ -43,7 +43,7 @@
 
                     <p>
                     <label for="">Fecha L&iacute;mite</label>
-                    <input type="datetime-local" value="2000-01-01T00:00:00" name="fecha_limite">
+                    <input type="datetime-local" value="2022-07-17T00:00:00" name="fecha_limite">
                     </p><br/>
                 </div>
                     
@@ -57,7 +57,7 @@
                                 include '../models/curso.php';
                                 $curso_display=new Curso;
                                 $data_cursos=$curso_display->get_all();
-                                while ($i<20) {
+                                while ($i<50) {
                                     $i++;
                                     echo '<option value="'.$data_cursos[$i]->nombre.'">'.$data_cursos[$i]->nombre.'</option>';
                                 }

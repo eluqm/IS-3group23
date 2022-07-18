@@ -19,6 +19,7 @@
     <body>
         <header>
             <?php
+            if(!isset($_SESSION['usersCUI'])){session_start();}
             include 'components/nav_bar.php';
             ?>
         </header>
@@ -26,9 +27,9 @@
             <div class="programar_clase">
             <h1>Programar Clase</h1>
             <br/><br/><br/><br/>
-            <form action="">
-
-
+            <form class="inputs-container" method="post" action="../controllers/pregunta.php">
+                <input type="hidden" name="type" value="schedule_class">
+                <input name="id" type="hidden" value=<?php echo $_GET["id_pregunta"];?> />  <!-- id -->
                 <p>
                     <label for="">Curso</label>
                     <select name="curso">
@@ -46,8 +47,8 @@
 
 
                 <p>
-                    <label for="">Fecha L&iacute;mite</label>
-                    <input type="datetime-local" value="2022-17-07T00:00:00" name="fecha">
+                <label for="">Fecha L&iacute;mite</label>
+                <input type="datetime-local" value="2022-17-07T00:00:00" name="fecha">
                 </p><br/>
 
                 <p>
@@ -57,7 +58,7 @@
 
                 <div class="fila">
                 <p class="bloque1">
-                <input type="checkbox">
+                <input name="privacidad_" type="checkbox">
                 </p>
 
                 <p class="bloque1">
@@ -66,12 +67,13 @@
 
                 <p class="bloque2">
                 <label for="">Max. Estudiantes</label>
-                <input name="max_estudiantes" type="url">
+                <input name="max_estudiantes" type="number">
                 </p>
                 </div><br/><br/>
                 
+                
                 <p class="boton">
-                <button>PROGRAMAR</button>
+                <button class="btn" type="submit" name="submit">PROGRAMAR</button>
                 </p>
                     
          

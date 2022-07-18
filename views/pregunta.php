@@ -69,10 +69,10 @@
                 
             </div>
             </div>
-            <button class="aside__button-log-out">
+            <a href="../views/programar_clase.php?id_pregunta=<?php echo $data->id;?>"><button class="aside__button-log-out">
                 ENSE&Ntilde;AR
-            </button>
-            
+            </button></a>
+
         </aside>
 
     </main>
