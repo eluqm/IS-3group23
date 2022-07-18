@@ -151,6 +151,20 @@ class Pregunta {
         }
     }
 
+    // no cambiar esta funcion plz
+    public function findQuestionById_2($id) {
+        $this->db->query('SELECT * FROM pregunta WHERE id = :id');
+        $this->db->bind(':id', $id);
+
+        $row = $this->db->single();
+
+        if($this->db->rowCount() > 0){
+            return $row;
+        }else{
+            return false;
+        }
+    }
+
     // editar pregunta
     public function edit($data) {
         $this->db->query('UPDATE pregunta SET titulo=:titulo, descripcion=:descripcion WHERE id=:id');

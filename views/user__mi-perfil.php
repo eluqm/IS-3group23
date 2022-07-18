@@ -73,9 +73,15 @@
                             </div class="main__contenido__q-list">
                             <div class="pregunta__actions">
                                 <a href="#"><span class="pregunta-icon eye-icon"></span></a>
-                                <div><span class="pregunta-icon"></span></div>
-                                <a href="#"><span class="pregunta-icon edit-icon"></span></a>
-                                <a href="#"><span class="pregunta-icon trash-icon"></span></a>
+                                <div><span class="pregunta-icon"></span></div>      
+
+                                <!-- editar pregunta -->
+                                <?php $id_ = $dato->id;?>
+                                <a href="../views/editar_pregunta.php?id=<?php echo $id_;?>"><span class="pregunta-icon edit-icon"></span></a> 
+
+                                <!-- eliminar pregunta -->
+                                <a href="../views/eliminar_pregunta.php?id=<?php echo $id_;?>&titulo=<?php echo $dato->titulo;?>"><span class="pregunta-icon trash-icon"></span></a>
+
                             </div>
                         </div>          
                 <?php } ?>
