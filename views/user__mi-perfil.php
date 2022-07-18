@@ -10,6 +10,9 @@
         <title>Mi Perfil</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     </head>
     <body>
         <!--[if lt IE 7]>
@@ -80,7 +83,7 @@
                                 <a href="../views/editar_pregunta.php?id=<?php echo $id_;?>"><span class="pregunta-icon edit-icon"></span></a> 
 
                                 <!-- eliminar pregunta -->
-                                <a href="../views/eliminar_pregunta.php?id=<?php echo $id_;?>&titulo=<?php echo $dato->titulo;?>"><span class="pregunta-icon trash-icon"></span></a>
+                                <a href="../controllers/pregunta.php?action=go_to_formulario_borrar_pregunta&id_pregunta=<?php echo $dato->id;?>"><span class="pregunta-icon trash-icon"></span></a>
 
                             </div>
                         </div>          

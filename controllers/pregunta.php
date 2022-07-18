@@ -153,42 +153,36 @@ class PreguntaController {
         }
 
     }
-    public function delete_question(){
 
-        $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
-
-        $id = trim($_POST['id']);
-        $borrar=trim($_POST["evento_borrar"]);
-        $cancelar=trim($_POST["evento_cancelar"]);
-
-        if($borrar!=null)
-        {
-            if($this->preguntaModel->findQuestionById_2($id))
-            {            
-                if($this->preguntaModel->delete($id))
-                {
-                    echo("se eliminó el registro existosamente");
-                }
-                else {
-                    die("Something went wrong");
-                }
-
-            }
-            else 
-            {
-                echo("no se encontró la pregunta");
-            }
-            redirect("../index.php");          
+    public function goTo_formulario_eliminar_pregunta() {
+        if(!isset($_GET['id_pregunta'])){
+            redirect("../index.php");  
         }
-        else if($cancelar!=null)
-        {
-            echo("se cancelo la operación");
+        $datos = $this->preguntaModel->findQuestionById_2($_GET['id_pregunta']);
+        if(!$datos){
+            echo("no se encontro pregunta");
             redirect("../index.php");
         }
-        else
-        {
+        else if($datos->cui_usuario==$_SESSION['usersCUI']){
+            require_once("../views/eliminar_pregunta.php");
+        }
+        else {
+            redirect("../index.php");
+        }
+    }
+
+    public function borrar_pregunta(){
+        $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+
+        $id = trim($_POST['id_pregunta']);
+    
+        if($this->preguntaModel->delete($id)){
+            echo "se eliminó el registro existosamente";
+        }
+        else{
             die("Something went wrong");
         }
+        redirect("../index.php");          
     }
 }
 
@@ -205,8 +199,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         case 'edit_question':
             $init->edit_question();
             break;
-        case 'delete_question':
-            $init->delete_question();
+        case 'eliminar_pregunta':
+            $init->borrar_pregunta();
             break;
         default:
             redirect("../controllers/inicioController.php");
@@ -223,6 +217,9 @@ else {
         case 'go_to_show_question':
             $init->show_question();
             break;
+        case 'go_to_formulario_borrar_pregunta':
+                $init->goTo_formulario_eliminar_pregunta();
+                break;
         default:
             redirect("../views/login.php");
     }
