@@ -7,32 +7,50 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Tasti| Crear solicitud de revisi&oacute;n</title>
+        <title>Crear solicitud de revisi&oacute;n</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
+        <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+        <link rel="stylesheet" href="css/general_style.css">
+        <link rel="stylesheet" href="components/nav_bar.css">
+        <link rel="stylesheet" href="components/pregunta.css">
+        <link rel="stylesheet" href="css/user__form_revisar_pregunta.css">
     </head>
-    <body>
-        <h2>Solicitar revision de pregunta</h2>
+    <body>    
+        <header>
+            <?php
+            if(!isset($_SESSION['usersCUI'])){session_start();}
+            include 'components/nav_bar.php';
+            ?>
+        </header>
+
+    <main class="main-usando-navbar ">
+        <div class="revisar_pregunta">
+        <h1>Solicitar revision de pregunta</h1>
+        
         <form method="POST" action="../controllers/solicitudController.php">
             <input type="hidden" name="action" value="crear_solicitud_revision">
             <input type="hidden" name="id_pregunta" value="<?php echo $datos_pregunta->id?>">
-            <p><?php echo $datos_pregunta->nombre_curso;?> > <?php echo $datos_pregunta->tema;?> | <?php echo $datos_pregunta->fecha_publicacion;?></p>
-            <p> Estado: 
-                <?php if ($datos_pregunta->estado == 0): ?> 
-                    Abierto
+            <p><?php echo $datos_pregunta->nombre_curso; ?>><?php echo $datos_pregunta->tema;?> | <?php echo $datos_pregunta->fecha_publicacion;?></p>
+            <p> Estado: <?php if ($datos_pregunta->estado == 0): ?> 
+                   Abierto
                 <?php else: ?>
                     Cerrado
-                <?php endif; ?>
-            </p>
-            </div>
-            <p>Titulo: <?php echo $datos_pregunta->titulo;?></p>
-            <p>Descripcion: <?php echo $datos_pregunta->descripcion;?></p>
+                <?php endif; ?></p><br/>
+            <p>Titulo: <?php echo $datos_pregunta->titulo;?></p><br/>
+            <p>Descripcion: <?php echo $datos_pregunta->descripcion;?></p><br/>
             <label id="razon" name="razon">Razon:</label>
             <textarea id="razon" name="razon" placeholder="Motivo de su denuncia"></textarea>
+            <br/><br/>
             <button type="submit">Enviar</button>
-            <a href="../controllers/inicioController.php">Cancelar</a>
+            <div class="boton">
+            <a href="../controllers/inicioController.php"> <p class="boton">Cancelar</p></a>
+            </div>
+            
         </form>
+
+        </div>
+    </main>
         
         <script src="" async defer></script>
     </body>

@@ -80,8 +80,10 @@
 
                                 <!-- editar pregunta -->
                                 <?php $id_ = $dato->id;?>
-                                <a href="../views/editar_pregunta.php?id=<?php echo $id_;?>"><span class="pregunta-icon edit-icon"></span></a> 
-
+                                <form action="../views/editar_pregunta.php" method="POST">
+                                    <input type="hidden" name="id" value=<?php echo $id_;?>/>
+                                    <a href=""><input type="submit" class="pregunta-icon edit-icon"/></a>
+                                </form>
                                 <!-- eliminar pregunta -->
                                 <a href="../controllers/pregunta.php?action=go_to_formulario_borrar_pregunta&id_pregunta=<?php echo $dato->id;?>"><span class="pregunta-icon trash-icon"></span></a>
 

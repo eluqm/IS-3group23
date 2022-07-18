@@ -2,7 +2,7 @@
 <html lang="es">
 
 <head>
-
+    <title>Tasti | Mi Perfil > Eliminar pregunta</title>
 </head>
 
 <body>
