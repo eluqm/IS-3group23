@@ -14,11 +14,11 @@
     </head>
     <body>    
     <style>
-        <?php include _DIR_.'/css/general_style.css';?>
-        <?php include _DIR_.'/css/inicio.css';?>
-        <?php include _DIR_.'/components/pregunta.css';?>
-        <?php include _DIR_.'/components/nav_bar.css';?>
-        <?php include _DIR.'/css/user_form_revisar_pregunta.css';?>
+        <?php include __DIR__.'/css/general_style.css';?>
+        <?php include __DIR__.'/css/inicio.css';?>
+        <?php include __DIR__.'/components/pregunta.css';?>
+        <?php include __DIR__.'/components/nav_bar.css';?>
+        <?php include __DIR__.'/css/user_form_revisar_pregunta.css';?>
     </style>
         <header>
             <?php
