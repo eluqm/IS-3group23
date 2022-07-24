@@ -83,12 +83,20 @@ class Users {
             $loggedInUser = $this->userModel->login($data['email'], $data['usersPwd']);
             
             if($loggedInUser){
-                $this->createUserSession($loggedInUser);
-            }else{
+                if($loggedInUser->estado_cuenta == 0){
+                    flash("login", "Cuenta no habilitada");
+                    redirect("../views/login.php");                
+                }
+                else {
+                    $this->createUserSession($loggedInUser);
+                }
+            }
+            else{
                 flash("login", "Password Incorrect");
                 redirect("../views/login.php");
             }
-        }else{
+        }
+        else{
             flash("login", "No user found");
             redirect("../views/login.php");
         }
