@@ -94,6 +94,9 @@ class PreguntaController {
                 redirect('../index.php');
             }
             else {
+                if($data->reunion_privada == 0){
+                    $is_participante = $this->is_participante_reunion_publica($data_id,$_SESSION['usersCUI']);
+                }
                 require_once("../views/pregunta.php");
             }
         }
@@ -126,12 +129,12 @@ class PreguntaController {
             $data['max']=1;
         }
 
-        if ($this->preguntaModel->edit_for_schedule($data)) {
+        $pregunta_data = $this->preguntaModel->findQuestionById($_POST['id_pregunta']);
+        if($this->preguntaModel->edit_for_schedule($data) && $this->preguntaModel->agregar_participacion_usuario($_POST['id_pregunta'],$pregunta_data->cui_usuario)) {
             redirect("./inicioController.php");
         }
-        else {
-            die("Something went wrong");
-        }
+        die("Something went wrong");
+        redirect("./inicioController.php");
     }
     public function edit_question(){
 
@@ -232,7 +235,7 @@ class PreguntaController {
     }
 
     public function is_participante_reunion_publica($id_pregunta,$CUI_usuario){
-        
+        return $this->preguntaModel->is_participante_reunion_publica ($id_pregunta,$CUI_usuario);
     }
 
     public function participar_mentoria() {

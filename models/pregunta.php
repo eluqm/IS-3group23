@@ -308,6 +308,17 @@ class Pregunta {
         return false;
    }
 
+   public function is_participante_reunion_publica($id_pregunta,$cui_usuario){
+    $this->db->query("SELECT * FROM  `reunion_publica-participantes` rpp 
+    WHERE id_pregunta=:id_pregunta AND cui_participante=:cui_usuario");
+    $this->db->bind(':id_pregunta', $id_pregunta);
+    $this->db->bind(':cui_usuario', $cui_usuario);
+
+    $row = $this->db->single();
+
+    return ($this->db->rowCount() > 0);
+}
+
     public function find_question_by_id_user($data)
     {
         $this->db->query('SELECT pregunta.* from pregunta
