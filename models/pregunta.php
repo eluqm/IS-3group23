@@ -257,6 +257,29 @@ class Pregunta {
         }
         return false;
     }
+
+    /*
+     $data['option']:
+        0 => Rechazar mentoria
+        1 => Aceptar mentoria
+    */
+    public function procesar_solicitud_mentoria($data){
+        if($data['option']==0){
+            $this->db->query('UPDATE pregunta SET estado = 0, cui_mentor = null, fecha_meet=null, link_meet=null, reunion_privada=null, max_participantes=null, cupos_disponibles=null
+            WHERE `pregunta`.`id` = :id_q');
+            $this->db->bind(':id_q', $data['id_pregunta']);
+        }
+        else{
+            $this->db->query('UPDATE pregunta SET estado = 1
+            WHERE `pregunta`.`id` = :id_q');
+            $this->db->bind(':id_q', $data['id_pregunta']);           
+        }
+        if($this->db->execute()){
+            return true;
+        }
+        return false;
+    }
+
     public function find_question_by_id_user($data)
     {
         $this->db->query('SELECT pregunta.* from pregunta

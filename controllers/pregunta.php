@@ -210,8 +210,21 @@ class PreguntaController {
         }
         else {
             redirect("../index.php");
+        } 
+    }
+
+    public function confirmar_mentoria(){
+        $data = [
+            'id_pregunta' => trim($_POST['id_pregunta']),
+            'option' => trim($_POST['confirmacion']),
+        ];
+        if($this->preguntaModel->procesar_solicitud_mentoria($data)){
+            echo "Confirmacion de mentoria procesada";
         }
-        
+        else{
+            die("Something went wrong");
+        }
+        redirect("../index.php");          
     }
 }
 
@@ -230,6 +243,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
             break;
         case 'eliminar_pregunta':
             $init->borrar_pregunta();
+            break;
+        case 'confirmar_mentoria':
+            $init->confirmar_mentoria();
             break;
         default:
             redirect("../controllers/inicioController.php");

@@ -98,10 +98,27 @@
                             <p>Paciencia ... Su pregunta todavia no ha sido tomada.</p>
                         <?php endif?>     
                     <?php elseif($data->estado==2):?>
+                        <hr>
+                        <p class="info">Tipo de clase:</p>
+                        <?php if($data->reunion_privada==1):?>
+                            <p>Privada</p>
+                        <?php else:?>
+                            <p>P&uacute;blica</p>
+                            <p>Capacidad:</p>
+                            <p><?php echo $data->max_participantes;?></p>
+                        <?php endif?>   
+                        <p class="info">Fecha:</p>
                         <?php if($data->cui_usuario==$_SESSION['usersCUI']):?>
-                            <form>
-                                <button>Confirmar reunion</button>
-                                <button>Rechazar reunion</button>
+                            <p class="info"><?php echo $data->fecha_meet;?></p>   
+                            <form action="../controllers/pregunta.php" method="POST">
+                                <input hidden name="type" value="confirmar_mentoria">
+                                <input hidden name="id_pregunta" value="<?php echo $data->id;?>">
+                                <label for="confirmacion">¿Aceptar mentor&iacute;a?</label>
+                                <select name="confirmacion" id="confirmacion">
+                                    <option value="1">Aceptar</option>
+                                    <option value="0">Denegar</option>
+                                </select>
+                                <button type="submit">Confirmar</button>
                             </form>
                         <?php else:?>   
                             <p>En espera de la confirmacion de la reunion</p>
