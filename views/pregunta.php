@@ -84,8 +84,12 @@
                             <p>P&uacute;blica</p>
                             <p class="info">Fecha:</p>
                             <p class="info"><?php echo $data->fecha_meet;?></p>
-                            <?php if($data->max_participantes<$data->cupos_disponibles):?>
-                                <a>PARTICIPAR</a>
+                            <?php if($data->cupos_disponibles>0):?>
+                                 <form action="../controllers/pregunta.php" method="POST">
+                                    <input hidden name="type" value="participar_mentoria">
+                                    <input hidden name="id_pregunta" value="<?php echo $data->id;?>">                                    
+                                    <button>PARTICIPAR</button>
+                                 </form>
                             <?php endif?>                            
                             <p class="info">Link del meet:</p>
                             <p class="info"><?php echo $data->link_meet;?></p>                             

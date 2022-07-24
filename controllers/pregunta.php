@@ -78,9 +78,8 @@ class PreguntaController {
         }
 
     }
-    public function show_question()
+    public function show_question($data_id)
     {
-        $data_id=$_GET['id_pregunta'];
         if(!isset($data_id)){
             redirect('./inicioController.php');
         }
@@ -231,6 +230,28 @@ class PreguntaController {
         }
         redirect("../index.php");          
     }
+
+    public function is_participante_reunion_publica($id_pregunta,$CUI_usuario){
+        
+    }
+
+    public function participar_mentoria() {
+        if(!isset($_POST['id_pregunta'])){
+            redirect("../index.php");  
+        }
+        if(isset($_SESSION['usersCUI'])){
+            //nota: verificar si hay cupos disponibles
+            $salida = $this->preguntaModel->agregar_participacion_usuario($_POST['id_pregunta'],$_SESSION['usersCUI']);
+            if($salida){
+                $salida = $this->preguntaModel->reunion_publica_reducir_cupos($_POST['id_pregunta']);
+            }
+            if($salida){
+               $this->show_question($_POST['id_pregunta']);
+            }
+        }
+        die("Something went wrong"); 
+        redirect("../index.php");
+    }
 }
 
 $init = new PreguntaController;
@@ -252,6 +273,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         case 'confirmar_mentoria':
             $init->confirmar_mentoria();
             break;
+        case 'participar_mentoria':
+            $init->participar_mentoria();
+            break;
         default:
             redirect("../controllers/inicioController.php");
     }
@@ -265,13 +289,16 @@ else {
             $init->search_by_tema();
             break;
         case 'go_to_show_question':
-            $init->show_question();
+            if(isset($_GET['id_pregunta'])){
+                $init->show_question($_GET['id_pregunta']);
+            }
+            else{
+                redirect("../index.php");
+            }
             break;
-
         case 'go_to_edit_question':
             $init->go_to_edit_question();
             break;
-
         case 'go_to_formulario_borrar_pregunta':
             $init->goTo_formulario_eliminar_pregunta();
             break;
