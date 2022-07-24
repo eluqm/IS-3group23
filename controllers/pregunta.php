@@ -85,8 +85,13 @@ class PreguntaController {
             redirect('./inicioController.php');
         }
         else {
-            $data = $this->preguntaModel->findQuestionById($data_id);
+            $data = $this->preguntaModel->findQuestionById_2($data_id);
             if (!isset($data)) {
+                flash("mostrar_pregunta", "Pregunta no encontrada");
+                redirect('../index.php');
+            }
+            elseif($this->preguntaModel->is_rechazada($data_id)) {
+                flash("mostrar_pregunta", "Pregunta no disponible");
                 redirect('../index.php');
             }
             else {

@@ -49,9 +49,8 @@ class Pregunta {
         return false;
     }
         
-    // no cambiar esta funcion pls Malnacidos >:V
     public function findQuestionById_2($id) {
-        $this->db->query('SELECT * FROM pregunta WHERE id = :id');
+        $this->db->query("SELECT * , curso.nombre 'nombre_curso'  FROM pregunta INNER JOIN curso ON curso.idcurso=pregunta.curso WHERE id = :id");
         $this->db->bind(':id', $id);
 
         $row = $this->db->single();
@@ -196,6 +195,15 @@ class Pregunta {
         }else{
             return false;
         }
+    }
+
+    public function is_rechazada($id) {
+        $this->db->query("SELECT * FROM pregunta_no_rechazada WHERE pregunta_no_rechazada.id = :id");
+        $this->db->bind(':id', $id);
+
+        $row = $this->db->single();
+
+        return !($this->db->rowCount() > 0);
     }
 
     // editar pregunta
