@@ -96,29 +96,30 @@ class PreguntaController {
     }
     public function schedule_class()
     {
+        //validar usuario
+        //validar pregunta abierta
         $data = [
             'cui' => $_SESSION['usersCUI'],
-            'id_pregunta' => trim($_POST['id']),
+            'id_pregunta' => trim($_POST['id_pregunta']),
             'fecha' => trim($_POST['fecha']),
             'meet' => trim($_POST['meet']),
-            'priv' => trim($_POST['privacidad_']),
-            'max' => trim($_POST['max_estudiantes'])
+            'priv' => trim($_POST['tipo_reunion']),
+            'max' => trim($_POST['max_participantes'])
         ];
         
         if (empty($data['cui'])
             || empty($data['id_pregunta'])
             || empty($data['fecha'])
-            || empty($data['meet'])
-            || empty($data['max']))
-            {
-            flash("publicar_pregunta", "Error Fill all the inputs");
-            redirect("../views/publicar_pregunta.php");
-            }
+            || empty($data['meet'])){
+            flash("programar_clase", "Error Fill all the inputs");
+            redirect("../views/programar_clase.php");
+        }
         if (empty($data['priv'])) {
             $data['priv']=0;
         }
         else {
             $data['priv']=1;
+            $data['max']=1;
         }
 
         if ($this->preguntaModel->edit_for_schedule($data)) {

@@ -1,6 +1,12 @@
 <?php
 require_once __DIR__.'/../config/conexion.php';
 
+/*
+estado:
+0 => open
+1 => closed
+2 =>  not confirmed meeting
+*/
 class Pregunta {
 
     private $db;
@@ -235,10 +241,9 @@ class Pregunta {
         return false;
     }
 
-    public function edit_for_schedule($data)
-    {
+    public function edit_for_schedule($data){
         $this->db->query(
-            'UPDATE pregunta SET estado = 1, cui_mentor = :cui, fecha_meet=:fecha, link_meet=:meet, reunion_privada=:priv, max_participantes=:maxp, cupos_disponibles=:maxp-1
+            'UPDATE pregunta SET estado = 2, cui_mentor = :cui, fecha_meet=:fecha, link_meet=:meet, reunion_privada=:priv, max_participantes=:maxp, cupos_disponibles=:maxp-1
             WHERE `pregunta`.`id` = :id_q');
         $this->db->bind(':id_q', $data['id_pregunta']);
         $this->db->bind(':cui', $data['cui']);

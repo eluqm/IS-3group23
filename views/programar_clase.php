@@ -19,8 +19,8 @@
     <body>
         <header>
             <?php
-            if(!isset($_SESSION['usersCUI'])){session_start();}
-            include 'components/nav_bar.php';
+                if(!isset($_SESSION['usersCUI'])){session_start();}
+                include 'components/nav_bar.php';
             ?>
         </header>
     <main class="main-usando-navbar ">
@@ -29,61 +29,47 @@
             <br/><br/><br/><br/>
             <form class="inputs-container" method="post" action="../controllers/pregunta.php">
                 <input type="hidden" name="type" value="schedule_class">
-                <input name="id" type="hidden" value=<?php echo $_GET["id_pregunta"];?> />  <!-- id -->
+                <input type="hidden" name="id_pregunta" value=<?php echo $_GET["id_pregunta"];?> />
                 <p>
-                    <label for="">Curso</label>
-                    <select name="curso">
-                    <?php
-                        include '../models/curso.php';
-                        $curso_display=new Curso;
-                        $data_cursos=$curso_display->get_all();
-                        $i=0;
-                        while ($data_cursos[$i]->nombre!=$data_cursos[$i+1]->nombre) {
-                            echo '<option value="'.$data_cursos[$i]->nombre.'">'.$data_cursos[$i]->nombre.'</option>';
-                            $i++;
-                        }
-                    ?>
-                </select>
-                </p><br/>
-
-
-                <p>
-                <label for="">Fecha de Reunion</label>
-                <input type="datetime-local" name="fecha">
+                <label for="fecha">Fecha de Reunion</label>
+                <input type="datetime-local" name="fecha" id="fecha">
                 </p><br/>
 
                 <p>
-                <label for="">Meet</label>
-                <input type="url" name="meet">
-                </p><br/>
-
-                <div class="fila">
-                <p class="bloque1">
-                <input name="privacidad_" type="checkbox">
+                <label for="meet">Meet</label>
+                <input type="url" id="meet" name="meet">
                 </p>
 
-                <p class="bloque1">
-                <label name="privacidad" for="">Sesi&oacute;n Privada</label>
-                </p>
+                <div class="fila">                   
+                    <input onchange="toggle_max_participantes()" id="tipo_reunion" name="tipo_reunion" type="checkbox">
+                    <label name="privacidad" for="tipo_reunion">Sesi&oacute;n Privada</label>
 
-                <p class="bloque2">
-                <label for="">Max. Estudiantes</label>
-                <input name="max_estudiantes" type="number">
-                </p>
-                </div><br/><br/>
-                
+                    <div>
+                        <label for="">Max. Estudiantes</label>
+                        <input id="max_participantes" name="max_participantes" type="number">
+                    </div>
+                </div>
                 
                 <p class="boton">
                 <button class="btn" type="submit" name="submit">PROGRAMAR</button>
                 </p>
-                    
-         
+
             </form>
             </div>
     </main>
-
-
-        <script src="" async defer></script>
+        <script>
+            function toggle_max_participantes(){
+                let input_number = document.getElementById("max_participantes");
+                let hidden = input_number.getAttribute("disabled");
+                if (hidden) {
+                    input_number.removeAttribute("disabled");
+                }
+                else {
+                    input_number.value="";
+                    input_number.setAttribute("disabled", "disabled");
+                }
+            }
+        </script>
     </body>
 
 </html>
