@@ -12,83 +12,104 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
     <body>
-    <style>
+        <style>
             <?php include __DIR__.'/css/general_style.css';?>
             <?php include __DIR__.'/components/nav_bar.css';?>
-
             <?php include __DIR__.'/css/pregunta.css';?>
             <?php include __DIR__.'/css/main_pregunta.css';?>
             <?php include __DIR__.'/components/pregunta.css';?>
-            
+            .logo-icon {background-image: url('./../views/icons/logo.png');}
+            .eye-icon {background-image: url('./../views/icons/eye.png');}
+            .edit-icon {background-image: url('./../views/icons/edit.png');}
+            .flag-icon {background-image: url('./../views/icons/flag.png');}
+            .checkmark-icon {background-image: url('./../views/icons/checkmark.png');}
+            .trash-icon {background-image: url('./../views/icons/delete.png');}
+            .x-mark-icon {background-image: url('./../views/icons/x-mark.png');}
+            .search-icon {background-image: url('./../views/icons/search.png');}
+            .admin-icon {background-image: url('./../views/icons/admin.png');}
         </style>
         <header>
             <?php
             include __DIR__.'../components/nav_bar.php';
             ?>
         </header>
-
-
-    
-    <main class="main-usando-navbar ">
-        
-        <section class="main__contenido"> 
-            <div class="main__contenido__q-list">
-            <div class="main_pregunta">
-            <div class="pregunta__contenido">
+        <main class="main-usando-navbar">
+            <section> 
                 <p class="fecha">Fecha Limite: <?php echo $data->fecha_limite;?></p>
                 <h2><?php echo $data->titulo;?></h2>
                 <br/><hr><br/>
                 <p class="parrafo"><?php echo $data->descripcion;?></p>
-            </div>
-            </div>
-            </div>
-        </section>
-
-        <aside>
-            <br/>
-            <div class="pregunta__contenido_info">
-                <p><?php echo $data->curso;?></p>
-                <a href="#"><span class="main_pregunta-icon edit-icon"></span></a>
-                <a href="#"><span class="main_pregunta-icon delete-icon"></span></a>
-            </div>
-
-            <div class="main_pregunta">
-            <div class="pregunta__contenido">
-                <p class="info">Curso:</p>
-                <p class="info"><?php echo $data->nombre_curso;?></p>
-                <br/>
-                <p class="info">Tema:</p>
-                <p class="info"><?php echo $data->tema;?></p>
-                <br/>
-                <p class="info">Usuario:</p>
-                <p class="info"><?php echo $data->cui_usuario;?></p>
-                <br/>
-                <p class="info">Disponibilidad:</p>
-                <p class="info"><?php echo $data->disponibilidad;?></p>
-                <br/>
-                <?php 
-                if ($data->cui_usuario==$_SESSION['usersCUI']) {
-                    echo '
-                    <p class="info">Estamos Esperando por tuy tutor ^w^</p>';
-                }
-                ?>
-            </div>
-            </div>
-            <?php 
-                if ($data->cui_usuario!=$_SESSION['usersCUI']) {
-                    echo '
-                    <a href="../views/programar_clase.php?id_pregunta=<?php echo $data->id;?>"><button class="aside__button-log-out">
-                    ENSE&Ntilde;AR
-                    </button></a>
-                    ';
-                }
-            ?>
-
-        </aside>
-
-    </main>
-
-
+            </section>
+            <aside>
+                <div>
+                    <p><?php echo $data->id;?></p>
+                    <?php if($data->cui_usuario==$_SESSION['usersCUI']):?>
+                        <a href="../controllers/pregunta.php?action=go_to_edit_question&id=<?php echo $data->id;?>"><span class="main_pregunta-icon edit-icon"></span></a>
+                        <a href="../controllers/pregunta.php?action=go_to_formulario_borrar_pregunta&id_pregunta=<?php echo $data->id;?>"><span class="main_pregunta-icon trash-icon"></span></a>
+                    <?php else:?>
+                        <?php if($_SESSION['admin']==1):?>
+                            <form action="../controllers/adminController.php" method="POST">
+                                <input hidden name="action" value="goTo_formulario_eliminar">
+                                <input hidden name="modo" value="1">
+                                <input hidden name="id_pregunta" value="<?php echo $data->id;?>">
+                                <button><span class="pregunta-icon x-mark-icon"></span></button>
+                            </form>
+                        <?php endif?>
+                        <a href="../controllers/solicitudController.php?action=go_to_formulario_revision&id_pregunta=<?php echo $data->id;?>"><span class="main_pregunta-icon flag-icon"></span></a>
+                    <?php endif?>
+                </div>
+                <div>
+                    <p class="info">Curso:</p>
+                    <p class="info"><?php echo $data->nombre_curso;?></p>
+                    <p class="info">Tema:</p>
+                    <p class="info"><?php echo $data->tema;?></p>
+                    <p class="info">Usuario:</p>
+                    <a href="../controllers/usuario.php?q=profile&cui=<?php echo $data->cui_usuario;?>" class="info"><?php echo $data->cui_usuario;?></a>
+                    <p class="info">Disponibilidad:</p>
+                    <p class="info"><?php echo $data->disponibilidad;?></p>
+                    <?php if($data->estado==1):?>
+                        <hr>
+                        <p class="info">Mentor:</p>
+                        <a href="../controllers/usuario.php?q=profile&cui=<?php echo $data->cui_mentor;?>" class="info"><?php echo $data->cui_mentor;?></a>
+                        <p class="info">Tipo de clase:</p>
+                        <?php if($data->reunion_privada==1):?>
+                            <p>Privada</p>
+                            <?php if($data->cui_usuario==$_SESSION['usersCUI']):?>
+                                <p class="info">Fecha:</p>
+                                <p class="info"><?php echo $data->fecha_meet;?></p>   
+                                <p class="info">Link del meet:</p>
+                                <p class="info"><?php echo $data->link_meet;?></p>     
+                            <?php endif?>
+                        <?php else:?>
+                            <p>P&uacute;blica</p>
+                            <p class="info">Fecha:</p>
+                            <p class="info"><?php echo $data->fecha_meet;?></p>
+                            <?php if($data->max_participantes<$data->cupos_disponibles):?>
+                                <a>PARTICIPAR</a>
+                            <?php endif?>                            
+                            <p class="info">Link del meet:</p>
+                            <p class="info"><?php echo $data->link_meet;?></p>                             
+                        <?php endif?>   
+                    <?php elseif($data->estado==0):?>
+                        <?php if($data->cui_usuario!=$_SESSION['usersCUI']):?>
+                            <!-- Nota:  Pasarlo a post -->
+                            <a href="../views/programar_clase.php?id_pregunta=<?php echo $data->id;?>">ENSE&Nacute;AR</a>  
+                        <?php else:?>   
+                            <p>Paciencia ... Su pregunta todavia no ha sido tomada.</p>
+                        <?php endif?>     
+                    <?php elseif($data->estado==2):?>
+                        <?php if($data->cui_usuario==$_SESSION['usersCUI']):?>
+                            <form>
+                                <button>Confirmar reunion</button>
+                                <button>Rechazar reunion</button>
+                            </form>
+                        <?php else:?>   
+                            <p>En espera de la confirmacion de la reunion</p>
+                        <?php endif?>             
+                    <?php endif?>   
+                </div>
+            </aside>
+        </main>
         <script src="" async defer></script>
     </body>
 
