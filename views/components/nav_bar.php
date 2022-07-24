@@ -12,7 +12,7 @@
         <?php if($_SESSION['admin']==1) : ?>
             <a href="../controllers/adminController.php?action=solicitudRegistro&solicitud=pendiente" class="nav-bar__administrador"><span class="admin-icon"></span></a>
         <?php endif; ?>
-        <a href="../controllers/usuario.php?q=profile" class="nav-bar__perfil__user-name">
+        <a href="../controllers/usuario.php?q=profile&cui=<?php echo $_SESSION['usersCUI'];?>" class="nav-bar__perfil__user-name">
             <span class="user-image"></span> 
             <p> <?php echo $_SESSION['usersEmail'];?></p>
         </a>

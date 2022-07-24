@@ -120,6 +120,22 @@ class Users {
         require_once('../views/user__mi-perfil.php');
         exit();
     }
+
+    public function getPerfil(){
+        if(!isset($_GET['cui'])){
+            $cui = $_SESSION['usersCUI'];
+        }
+        else {
+            $cui = $_GET['cui'];
+        }
+        $datos_perfil = $this->userModel->getProfile($cui); 
+        $datos_mi_pregunta = $this->userModel->getMisPreguntas($cui); 
+        $datos_mi_mentoria = $this->userModel->getMisMentorias($cui); 
+        $curso=new Curso();
+        $anios_registrados=$curso->get_anios();
+        require_once('../views/user__perfil.php');
+        exit();
+    }
 }
 
     $init = new Users;
@@ -142,7 +158,7 @@ class Users {
                 $init->logout();
                 break;
             case 'profile':
-                $init->getMiPerfil();
+                $init->getPerfil();
             default:
                 redirect("../views/login.php");
         }
