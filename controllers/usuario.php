@@ -144,6 +144,18 @@ class Users {
         require_once('../views/user__perfil.php');
         exit();
     }
+
+    public function actualizar_perfil(){
+        if(!isset($_SESSION['usersCUI'])){
+            redirect("../views/login.php");
+        }
+        $data = [
+            'descripcion' => $_POST['descripcion'],
+            'CUI' => $_SESSION['usersCUI']
+        ];
+        $this->userModel->update_perfil($data);
+        redirect("../controllers/usuario.php?q=profile");
+    }
 }
 
     $init = new Users;
@@ -155,6 +167,9 @@ class Users {
                 break;
             case 'login':
                 $init->login();
+                break;
+            case 'actualizar_perfil':
+                $init->actualizar_perfil();
                 break;
             default:
                 redirect("../views/login.php");

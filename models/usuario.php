@@ -116,5 +116,14 @@ class User {
         }
         return 0;
     }
-
+    
+    public function update_perfil($data){
+        $this->db->query("UPDATE perfil SET descripcion=:descripcion WHERE cui=:CUI");
+        $this->db->bind(':descripcion', $data['descripcion']);
+        $this->db->bind(':CUI', $data['CUI']);
+        if($this->db->execute()){
+            return true;
+        }
+        return false;            
+    }
 }

@@ -45,8 +45,11 @@
                 </div>
                 <h2><?php echo $datos_perfil->nombre;?></h2>
                 <?php if($cui==$_SESSION['usersCUI']):?>
-                    <textarea onchange="perfil_guardar_cambios()" class="aside__user-info__description"><?php echo $datos_perfil->descripcion;?></textarea>
-                    <button id="button__guardar_cambios" hidden>Guardar cambios</button>
+                    <form method="POST" action="../controllers/usuario.php">
+                        <input hidden name="type" value="actualizar_perfil">
+                        <textarea onchange="perfil_guardar_cambios()" class="aside__user-info__description" name="descripcion"><?php echo $datos_perfil->descripcion;?></textarea>
+                        <button hidden id="button__guardar_cambios">Guardar cambios</button>
+                    </form>
                     <a href="../controllers/usuario.php?q=outlog" class="aside__button-log-out">
                         Cerrar Sesi&oacute;n
                     </a>
