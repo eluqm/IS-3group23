@@ -136,6 +136,13 @@
                             <p>En espera de la confirmacion de la reunion</p>
                         <?php endif?>             
                     <?php endif?>   
+                    <?php if($data->cui_mentor==$_SESSION['usersCUI']):?>
+                        <form action="../controllers/pregunta.php" method="POST">
+                            <input hidden name="type" value="cancelar_mentoria">
+                            <input hidden name="id_pregunta" value="<?php echo $data->id;?>">                                    
+                            <button>CANCELAR MENTORIA</button>
+                        </form>
+                    <?php endif?>   
                 </div>
             </aside>
         </main>

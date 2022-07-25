@@ -272,6 +272,24 @@ class PreguntaController {
         die("Something went wrong"); 
         redirect("../index.php");
     }
+
+    public function cancelar_mentoria() {
+        if(!isset($_POST['id_pregunta'])){
+            redirect("../index.php");  
+        }
+        $data = [
+            'id_pregunta' => trim($_POST['id_pregunta']),
+            'option' => 0
+        ];
+        if(isset($_SESSION['usersCUI'])){
+            if($this->preguntaModel->procesar_solicitud_mentoria($data)){
+                $pregunta_data = $this->preguntaModel->findQuestionById($_POST['id_pregunta']);
+                $this->preguntaModel->eliminar_participacion_usuario($_POST['id_pregunta'],$pregunta_data->cui_usuario);
+                $this->show_question($_POST['id_pregunta']);
+            }
+        }
+        redirect("../index.php");
+    }
 }
 
 $init = new PreguntaController;
@@ -298,6 +316,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
             break;
         case 'no_participar_mentoria':
             $init->no_participar_mentoria();
+            break;
+        case 'cancelar_mentoria':
+            $init->cancelar_mentoria();
             break;
         default:
             redirect("../controllers/inicioController.php");
