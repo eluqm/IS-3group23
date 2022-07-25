@@ -82,11 +82,18 @@
                             <?php endif?>
                         <?php else:?>
                             <p>P&uacute;blica</p>
+                            <p class="info">Cupos disponibles:</p>
+                            <p class="info"><?php echo $data->cupos_disponibles;?></p>     
                             <p class="info">Fecha:</p>
                             <p class="info"><?php echo $data->fecha_meet;?></p>     
                             <?php if($is_participante):?>
                                 <p class="info">Link del meet:</p>
                                 <p class="info"><?php echo $data->link_meet;?></p>
+                                <form action="../controllers/pregunta.php" method="POST">
+                                    <input hidden name="type" value="no_participar_mentoria">
+                                    <input hidden name="id_pregunta" value="<?php echo $data->id;?>">                                    
+                                    <button>NO PARTICIPAR</button>
+                                 </form>                               
                             <?php elseif($data->cupos_disponibles>0):?>
                                  <form action="../controllers/pregunta.php" method="POST">
                                     <input hidden name="type" value="participar_mentoria">

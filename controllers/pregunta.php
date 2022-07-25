@@ -255,6 +255,23 @@ class PreguntaController {
         die("Something went wrong"); 
         redirect("../index.php");
     }
+
+    public function no_participar_mentoria() {
+        if(!isset($_POST['id_pregunta'])){
+            redirect("../index.php");  
+        }
+        if(isset($_SESSION['usersCUI'])){
+            $salida = $this->preguntaModel->eliminar_participacion_usuario($_POST['id_pregunta'],$_SESSION['usersCUI']);
+            if($salida){
+                $salida = $this->preguntaModel->reunion_publica_aumentar_cupo($_POST['id_pregunta']);
+            }
+            if($salida){
+               $this->show_question($_POST['id_pregunta']);
+            }
+        }
+        die("Something went wrong"); 
+        redirect("../index.php");
+    }
 }
 
 $init = new PreguntaController;
@@ -278,6 +295,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
             break;
         case 'participar_mentoria':
             $init->participar_mentoria();
+            break;
+        case 'no_participar_mentoria':
+            $init->no_participar_mentoria();
             break;
         default:
             redirect("../controllers/inicioController.php");

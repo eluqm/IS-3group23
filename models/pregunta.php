@@ -298,6 +298,26 @@ class Pregunta {
         return false;
     }
 
+    public function reunion_publica_aumentar_cupo($id_pregunta){
+        $this->db->query("UPDATE pregunta SET cupos_disponibles = cupos_disponibles+1
+        WHERE pregunta.id = :id_pregunta");
+        $this->db->bind(':id_pregunta', $id_pregunta);
+        if($this->db->execute()){
+            return true;
+        }
+        return false;
+    }
+
+    public function eliminar_participacion_usuario($id_pregunta,$cui_usuario){
+        $this->db->query("DELETE FROM `reunion_publica-participantes` WHERE id_pregunta=:id_pregunta AND cui_participante=:cui_usuario");
+        $this->db->bind(':id_pregunta', $id_pregunta);
+        $this->db->bind(':cui_usuario', $cui_usuario);
+        if($this->db->execute()){
+            return true;
+        }
+        return false;
+   }
+
     public function agregar_participacion_usuario($id_pregunta,$cui_usuario){
         $this->db->query("INSERT INTO `reunion_publica-participantes` VALUES (:id_pregunta,:cui_usuario)");
         $this->db->bind(':id_pregunta', $id_pregunta);
