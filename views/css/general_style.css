@@ -1,9 +1,9 @@
 :root {
     --header-height: 70px;
-    --color_principal: #E3CAA5;
+    --color_principal: #ECECEC;
     --color_fondo: #FFFFFF;
-    --color_enfasis: #AD8B73;
-    --color_light_gray: #FFFBE9;
+    --color_enfasis: #177DE8;
+    --color_light_gray: #C9DAEC;
     --color_gray: rgba(137, 137, 137, 0.14);
     --text__normal-size: 1.2rem;
 }
@@ -20,5 +20,5 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     font-size: 62.5%;
-    background-color: #AD8B73;
+    background-color: white;
 }
