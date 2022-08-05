@@ -2,7 +2,7 @@
 body {
     height: 100vh;
     font-family: 'Itim';
-    background-color: #AD8B73;
+    background-color: #EAF6F6;
     margin: 0 auto;
 }
 
@@ -14,7 +14,7 @@ body {
     display: flex;
     justify-content: space-between;
     overflow: hidden;
-    background-color: #FFFBE9;
+    background-color: white;
 }
 
 .image-container {
@@ -29,7 +29,7 @@ body {
     font-size: 2.25rem;
     font-weight: 600;
     letter-spacing: 1px;
-    color: #AD8B73;
+    color: #177DE8;
     font-family: 'Sigmar One';
     text-align: center;
 }
@@ -74,13 +74,13 @@ body {
     padding-left: 20px;
     font-weight: 600;
     box-sizing: border-box;
-    background-color: #E3CAA5;
+    background-color: #ECECEC;
 }
 
 .btn {
     text-transform: uppercase;
     color: white;
-    background-color: #AD8B73;
+    background-color: #177DE8;
     cursor: pointer;
 }
 
@@ -92,7 +92,7 @@ body {
 }
 
 .a {
-    color: #AD8B73;
+    color: #177DE8;
     font-weight: 400;
     cursor: pointer;
     align-items: center;
