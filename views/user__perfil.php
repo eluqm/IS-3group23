@@ -20,7 +20,7 @@
         <![endif]-->
         <style>
             <?php include __DIR__.'/css/general_style.css';?>
-            <?php include __DIR__.'/css/user__mi-perfil.css';?>
+            <?php include __DIR__.'/css/user__perfil.css';?>
             <?php include __DIR__.'/components/pregunta.css';?>
             <?php include __DIR__.'/components/nav_bar.css';?>
             .logo-icon {background-image: url('./../views/icons/logo.png');}

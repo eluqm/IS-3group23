@@ -1,7 +1,7 @@
 .lista-cursos {
     border-radius: 10px;
     width: 30%;
-    background-color: var(--color_principal);
+    background-color: var(--color_light_gray);
     max-width: 270px;
 
 }
@@ -26,7 +26,7 @@
     width: 100%;
     text-align: center;
     border-radius: 10px 10px 0 0;
-    background-color: var(--color_principal);
+    background-color: var(--color_light_gray);
 }
 
 .lista-cursos__contenedor-cursos {

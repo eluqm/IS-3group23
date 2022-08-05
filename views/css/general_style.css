@@ -1,9 +1,9 @@
 :root {
     --header-height: 70px;
-    --color_principal: #ECECEC;
+    --color_principal: #C9DAEC;
     --color_fondo: #FFFFFF;
     --color_enfasis: #177DE8;
-    --color_light_gray: #C9DAEC;
+    --color_light_gray: #ECECEC;
     --color_gray: rgba(137, 137, 137, 0.14);
     --text__normal-size: 1.2rem;
 }

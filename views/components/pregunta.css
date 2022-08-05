@@ -1,6 +1,6 @@
 .pregunta {
     display: flex;
-    background-color: var(--color_principal);
+    background-color: var(--color_light_gray);
     border-radius: 10px;
     width: 100%;
     height: auto;
@@ -37,7 +37,7 @@
     flex-direction: column;
     width: 40px;
     height: inherit;
-    background-color: var(--color_light_gray);
+    background-color: var(--color_principal);
     border-radius: 0 10px 10px 0;
 }
 
