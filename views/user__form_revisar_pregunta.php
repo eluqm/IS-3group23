@@ -10,48 +10,43 @@
         <title>Crear solicitud de revisi&oacute;n</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
     </head>
     <body>    
     <style>
         <?php include __DIR__.'/css/general_style.css';?>
-        <?php include __DIR__.'/css/inicio.css';?>
+        <?php include __DIR__.'/css/forms.css';?>
         <?php include __DIR__.'/components/pregunta.css';?>
         <?php include __DIR__.'/components/nav_bar.css';?>
-        <?php include __DIR__.'/css/user_form_revisar_pregunta.css';?>
+        .logo-icon {background-image: url('./../views/icons/logo.png');}
+        .search-icon {background-image: url('./../views/icons/search.png');}
+        .admin-icon {background-image: url('./../views/icons/admin.png');}
     </style>
         <header>
             <?php
             if(!isset($_SESSION['usersCUI'])){session_start();}
-            include 'components/nav_bar.php';
+            include __DIR__.'../components/nav_bar.php';
             ?>
         </header>
 
     <main class="main-usando-navbar ">
-        <div class="revisar_pregunta">
+        <div class="formulario">
         <h1>Solicitar revision de pregunta</h1>
-        
         <form method="POST" action="../controllers/solicitudController.php">
             <input type="hidden" name="action" value="crear_solicitud_revision">
             <input type="hidden" name="id_pregunta" value="<?php echo $datos_pregunta->id?>">
-            <p><?php echo $datos_pregunta->nombre_curso; ?>><?php echo $datos_pregunta->tema;?> | <?php echo $datos_pregunta->fecha_publicacion;?></p>
-            <p> Estado: <?php if ($datos_pregunta->estado == 0): ?> 
-                   Abierto
-                <?php else: ?>
-                    Cerrado
-                <?php endif; ?></p><br/>
-            <p>Titulo: <?php echo $datos_pregunta->titulo;?></p><br/>
-            <p>Descripcion: <?php echo $datos_pregunta->descripcion;?></p><br/>
-            <label id="razon" name="razon">Razon:</label>
-            <textarea id="razon" name="razon" placeholder="Motivo de su denuncia"></textarea>
-            <br/><br/>
-            <button type="submit">Enviar</button>
-            <div class="boton">
-            <a href="../controllers/inicioController.php"> <p class="boton">Cancelar</p></a>
+            <div class="pregunta__info">
+                <p><?php echo $datos_pregunta->nombre_curso; ?>><?php echo $datos_pregunta->tema;?> | <?php echo $datos_pregunta->fecha_publicacion;?></p>
+                <h2><?php echo $datos_pregunta->titulo;?></h2><br/>
+                <p><?php echo $datos_pregunta->descripcion;?></p><br/>
             </div>
-            
+            <hr>
+            <textarea id="razon" name="razon" placeholder="Motivo de su denuncia"></textarea>
+            <br/>
+            <div class="button-box">
+                <button class="button button_aceptar" type="submit">Enviar</button>
+                <a class="button button_cancelar" href="../controllers/inicioController.php">Cancelar</a>
+            </div>
         </form>
-
         </div>
     </main>
         
