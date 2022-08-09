@@ -79,8 +79,10 @@
                                 <div><span class="pregunta-icon"></span></div>
                                 <?php endif;?>
 
+                                <!-- editar pregunta -->
                                 <?php if ($dato->cui_usuario == $_SESSION['usersCUI']&& $dato->estado == 0): ?> 
-                                <a href="#"><span class="pregunta-icon edit-icon"></span></a>
+                                <?php $id_ = $dato->id;?>
+                                <a href="../controllers/pregunta.php?action=go_to_edit_question&id=<?php echo $id_;?>"><span class="pregunta-icon edit-icon"></span></a>
                                 <?php elseif($_SESSION['admin']==1): ?>
                                     <form action="../controllers/adminController.php" method="POST">
                                         <input hidden name="action" value="goTo_formulario_eliminar">
