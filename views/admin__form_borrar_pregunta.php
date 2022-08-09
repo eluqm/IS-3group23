@@ -13,27 +13,42 @@
         <link rel="stylesheet" href="">
     </head>
     <body>
-        <h2>Eliminar Pregunta</h2>
-        <form method="POST" action="../controllers/adminController.php">
-            <input hidden name="action" value="<?php if($action_solicitud==0): echo 'solicitud_eliminacion_aceptada'; elseif($action_solicitud==1): echo 'eliminar_pregunta'; elseif($action_solicitud==2): echo 'solicitud_eliminacion_denegada'; endif;?>">
-            <input hidden name="id_pregunta" value="<?php echo $datos_pregunta->id?>">
-            <p><?php echo $datos_pregunta->nombre_curso;?> > <?php echo $datos_pregunta->tema;?> | <?php echo $datos_pregunta->fecha_publicacion;?></p>
-            <p> Estado: 
-                <?php if ($datos_pregunta->estado == 0): ?> 
-                    Abierto
-                <?php else: ?>
-                    Cerrado
-                <?php endif; ?>
-            </p>
+        <style>
+            <?php include __DIR__.'/css/general_style.css';?>
+            <?php include __DIR__.'/css/forms.css';?>
+            <?php include __DIR__.'/components/pregunta.css';?>
+            <?php include __DIR__.'/components/nav_bar.css';?>
+            .logo-icon {background-image: url('./../views/icons/logo.png');}
+            .search-icon {background-image: url('./../views/icons/search.png');}
+            .admin-icon {background-image: url('./../views/icons/admin.png');}
+        </style>
+        <header>
+            <?php
+            if(!isset($_SESSION['usersCUI'])){session_start();}
+            include __DIR__.'../components/nav_bar.php';
+            ?>
+        </header>
+        <main class="main-usando-navbar">
+            <div class="formulario">
+            <h1>Eliminar Pregunta</h1>
+            <form method="POST" action="../controllers/adminController.php">
+                <input hidden name="action" value="<?php if($action_solicitud==0): echo 'solicitud_eliminacion_aceptada'; elseif($action_solicitud==1): echo 'eliminar_pregunta'; elseif($action_solicitud==2): echo 'solicitud_eliminacion_denegada'; endif;?>">
+                <input hidden name="id_pregunta" value="<?php echo $datos_pregunta->id?>">
+                <p><?php echo $datos_pregunta->nombre_curso;?> > <?php echo $datos_pregunta->tema;?> | <?php echo $datos_pregunta->fecha_publicacion;?></p>
+                <div class="pregunta__info">
+                <h2><?php echo $datos_pregunta->titulo;?></h2>
+                <p><?php echo $datos_pregunta->descripcion;?></p>
+                </div>
+                <hr>
+                <textarea id="razon" name="razon" placeholder="Motivo de su denuncia"></textarea>
+                <br/>
+                <div class="button-box">
+                    <button class="button button_aceptar" type="submit">Eliminar</button>
+                    <a class="button button_cancelar" href="../controllers/inicioController.php">Cancelar</a>
+                </div>
+            </form>
             </div>
-            <p>Titulo: <?php echo $datos_pregunta->titulo;?></p>
-            <p>Descripcion: <?php echo $datos_pregunta->descripcion;?></p>
-            <label id="razon" name="razon">Razon:</label>
-            <textarea id="razon" name="razon" placeholder="Motivo de su denuncia"></textarea>
-            <button type="submit">Eliminar</button>
-            <a href="../controllers/inicioController.php">Cancelar</a>
-        </form>
-        
+        </main>
         <script src="" async defer></script>
     </body>
 </html>
