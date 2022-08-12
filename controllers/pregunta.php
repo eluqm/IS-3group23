@@ -181,7 +181,7 @@ class PreguntaController {
             redirect("../index.php");
         }
         else if($datos->cui_usuario==$_SESSION['usersCUI']){
-            require_once("../views/eliminar_pregunta.php");
+            require_once("../views/user__form_eliminar_pregunta.php");
         }
         else {
             redirect("../index.php");
