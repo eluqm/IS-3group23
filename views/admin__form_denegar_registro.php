@@ -7,27 +7,49 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Tasti| Administrador > Formulario</title>
+        <title>Administrador > Denegar registro</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="">
     </head>
     <body>
-        <h2>Denegar Registro</h2>
-        <form method="POST" action="../controllers/adminController.php">
-            <input hidden name="action" value="solicitud_registro_procesada">
-            <input hidden name="estado" value=2>
-            <input hidden name="id_solicitud" value="<?php echo $datos_registro->id?>">
-            <p>CUI:<?php echo $datos_registro->cui;?></p>
-            <p>Nombre: <?php echo $datos_registro->nombre;?></p>
-            <p>E-Mail:<?php echo $datos_registro->correo_electronico;?></p>
-            <p>DNI: <?php echo $datos_registro->dni;?></p>
-            <label id="razon" name="razon">Razon:</label>
-            <textarea id="razon" name="razon" placeholder="Motivo"></textarea>
-            <button type="submit">Eliminar</button>
-            <a href="../controllers/inicioController.php">Cancelar</a>
-        </form>
-        
+        <style>
+            <?php include __DIR__.'/css/general_style.css';?>
+            <?php include __DIR__.'/css/forms.css';?>
+            <?php include __DIR__.'/components/nav_bar.css';?>
+            .logo-icon {background-image: url('./../views/icons/logo.png');}
+            .search-icon {background-image: url('./../views/icons/search.png');}
+            .admin-icon {background-image: url('./../views/icons/admin.png');}
+        </style>
+        <header>
+            <?php
+            if(!isset($_SESSION['usersCUI'])){session_start();}
+            include __DIR__.'../components/nav_bar.php';
+            ?>
+        </header>
+        <main class="main-usando-navbar">
+            <div class="formulario">
+            <h1>Denegar Registro</h1>
+            <form method="POST" action="../controllers/adminController.php">
+                <input hidden name="action" value="solicitud_registro_procesada">
+                <input hidden name="estado" value=2>
+                <input hidden name="id_solicitud" value="<?php echo $datos_registro->id?>">
+                <div class="pregunta__info">
+                    <p><span style="font-weight: bolder;">CUI:</span> <?php echo $datos_registro->cui;?></p>
+                    <p><span style="font-weight: bolder;">Nombre:</span> <?php echo $datos_registro->nombre;?></p>
+                    <p><span style="font-weight: bolder;">E-Mail:</span> <?php echo $datos_registro->correo_electronico;?></p>
+                    <p><span style="font-weight: bolder;">DNI:</span> <?php echo $datos_registro->dni;?></p>
+                </div>
+                <hr>
+                <textarea id="razon" name="razon" placeholder="Motivo para denegar registro"></textarea>
+                <br/>
+                <div class="button-box">
+                    <button class="button button_aceptar" type="submit">Enviar</button>
+                    <a class="button button_cancelar" href="../controllers/inicioController.php">Cancelar</a>
+                </div>
+            </form>
+            </div>
+        </main>
         <script src="" async defer></script>
     </body>
 </html>

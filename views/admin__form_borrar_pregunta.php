@@ -7,7 +7,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Tasti| Administrador > Formulario</title>
+        <title>Administrador > Borrar pregunta</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="">
@@ -16,7 +16,6 @@
         <style>
             <?php include __DIR__.'/css/general_style.css';?>
             <?php include __DIR__.'/css/forms.css';?>
-            <?php include __DIR__.'/components/pregunta.css';?>
             <?php include __DIR__.'/components/nav_bar.css';?>
             .logo-icon {background-image: url('./../views/icons/logo.png');}
             .search-icon {background-image: url('./../views/icons/search.png');}
@@ -34,10 +33,10 @@
             <form method="POST" action="../controllers/adminController.php">
                 <input hidden name="action" value="<?php if($action_solicitud==0): echo 'solicitud_eliminacion_aceptada'; elseif($action_solicitud==1): echo 'eliminar_pregunta'; elseif($action_solicitud==2): echo 'solicitud_eliminacion_denegada'; endif;?>">
                 <input hidden name="id_pregunta" value="<?php echo $datos_pregunta->id?>">
-                <p><?php echo $datos_pregunta->nombre_curso;?> > <?php echo $datos_pregunta->tema;?> | <?php echo $datos_pregunta->fecha_publicacion;?></p>
                 <div class="pregunta__info">
-                <h2><?php echo $datos_pregunta->titulo;?></h2>
-                <p><?php echo $datos_pregunta->descripcion;?></p>
+                    <p><?php echo $datos_pregunta->nombre_curso;?> > <?php echo $datos_pregunta->tema;?> | <?php echo $datos_pregunta->fecha_publicacion;?></p>
+                    <h2><?php echo $datos_pregunta->titulo;?></h2>
+                    <p><?php echo $datos_pregunta->descripcion;?></p>
                 </div>
                 <hr>
                 <textarea id="razon" name="razon" placeholder="Motivo de su denuncia"></textarea>
