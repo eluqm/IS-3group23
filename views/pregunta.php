@@ -113,11 +113,13 @@
                                     <p>Link del meet:</p>
                                     <p><?php echo $data->link_meet;?></p>
                                 </div>
-                                <form action="../controllers/pregunta.php" method="POST">
-                                    <input hidden name="type" value="no_participar_mentoria">
-                                    <input hidden name="id_pregunta" value="<?php echo $data->id;?>">                                    
-                                    <button class="button-blue">NO PARTICIPAR</button>
-                                 </form>                               
+                                <?php if($data->cui_usuario!=$_SESSION['usersCUI']):?>
+                                    <form action="../controllers/pregunta.php" method="POST">
+                                        <input hidden name="type" value="no_participar_mentoria">
+                                        <input hidden name="id_pregunta" value="<?php echo $data->id;?>">                                    
+                                        <button class="button-blue">NO PARTICIPAR</button>
+                                    </form>        
+                                <?php endif?>                         
                             <?php elseif($data->cupos_disponibles>0):?>
                                  <form action="../controllers/pregunta.php" method="POST">
                                     <input hidden name="type" value="participar_mentoria">
@@ -168,7 +170,7 @@
                                     <button class="button-blue" type="submit">Confirmar</button>
                                 </form>
                         <?php else:?>   
-                            <p>En espera de la confirmacion de la reunion</p>
+                            <p>En espera de la confirmacion de la reuni&oacute;n</p>
                         <?php endif?>             
                     <?php endif?>   
                     <?php if($data->cui_mentor==$_SESSION['usersCUI']):?>
