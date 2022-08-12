@@ -16,9 +16,7 @@
             <?php include __DIR__.'/css/general_style.css';?>
             <?php include __DIR__.'/components/nav_bar.css';?>
             <?php include __DIR__.'/css/main_pregunta.css';?>
-            <?php include __DIR__.'/components/pregunta.css';?>
             .logo-icon {background-image: url('./../views/icons/logo.png');}
-            .eye-icon {background-image: url('./../views/icons/eye.png');}
             .edit-icon {background-image: url('./../views/icons/edit.png');}
             .flag-icon {background-image: url('./../views/icons/flag.png');}
             .checkmark-icon {background-image: url('./../views/icons/checkmark.png');}
@@ -39,7 +37,8 @@
                 <br/><hr><br/>
                 <p class="parrafo"><?php echo $data->descripcion;?></p>
             </section>
-            <aside class="main__pregunta__info">
+            <aside>
+                <div class="main__pregunta__info">
                 <div class="main__pregunta__info__actions">
                     <p>ID: <?php echo $data->id;?></p>
                     <div>
@@ -52,7 +51,7 @@
                                     <input hidden name="action" value="goTo_formulario_eliminar">
                                     <input hidden name="modo" value="1">
                                     <input hidden name="id_pregunta" value="<?php echo $data->id;?>">
-                                    <button><span class="pregunta-icon x-mark-icon"></span></button>
+                                    <button><span class="main_pregunta-icon x-mark-icon"></span></button>
                                 </form>
                             <?php endif?>
                             <a href="../controllers/solicitudController.php?action=go_to_formulario_revision&id_pregunta=<?php echo $data->id;?>"><span class="main_pregunta-icon flag-icon"></span></a>
@@ -180,6 +179,7 @@
                             <button class="button-blue">CANCELAR MENTORIA</button>
                         </form>
                     <?php endif?>   
+                </div>
                 </div>
             </aside>
         </main>
