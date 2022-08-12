@@ -14,49 +14,48 @@
         <link href='https://fonts.googleapis.com/css?family=Overlock SC' rel='stylesheet'>
         <link rel="stylesheet" href="css/general_style.css">
         <link rel="stylesheet" href="components/nav_bar.css">
-        <link rel="stylesheet" href="css/programar_clase.css">
     </head>
     <body>
+        <style>
+            <?php include __DIR__.'/css/programar_clase.css';?>
+        </style>
         <header>
             <?php
                 if(!isset($_SESSION['usersCUI'])){session_start();}
                 include 'components/nav_bar.php';
             ?>
         </header>
-    <main class="main-usando-navbar ">
-            <div class="programar_clase">
-            <h1>Programar Clase</h1>
-            <br/><br/><br/><br/>
-            <form class="inputs-container" method="post" action="../controllers/pregunta.php">
+        <main>
+            <form class="formulario" method="POST" action="../controllers/pregunta.php">
+                <h1>Programar Clase</h1>
                 <input type="hidden" name="type" value="schedule_class">
                 <input type="hidden" name="id_pregunta" value=<?php echo $_GET["id_pregunta"];?> />
-                <p>
+                
                 <label for="fecha">Fecha de Reunion</label>
-                <input type="datetime-local" name="fecha" id="fecha">
-                </p><br/>
-
-                <p>
+                <br/>
+                <input class="input-text" type="datetime-local" name="fecha" id="fecha">
+                <br/><br/>
                 <label for="meet">Meet</label>
-                <input type="url" id="meet" name="meet">
-                </p>
-
-                <div class="fila">                   
-                    <input onchange="toggle_max_participantes()" id="tipo_reunion" name="tipo_reunion" type="checkbox">
-                    <label name="privacidad" for="tipo_reunion">Sesi&oacute;n Privada</label>
-
-                    <div>
-                        <label for="">Max. Estudiantes</label>
-                        <input id="max_participantes" name="max_participantes" type="number">
+                <br/>
+                <input class="input-text" type="url" id="meet" name="meet">
+                <br/><br/>
+                <div class="form__tipo-reunion">      
+                    <div class="form__tipo-reunion__1">             
+                        <input class="input-checkbox" onchange="toggle_max_participantes()" id="tipo_reunion" name="tipo_reunion" type="checkbox">
+                        <label name="privacidad" for="tipo_reunion">Sesi&oacute;n Privada</label>
+                    </div>
+                    <div class="form__tipo-reunion__2">
+                        <label for="max_participantes">Max. Estudiantes</label>
+                        <br/>
+                        <input class="input-text" id="max_participantes" name="max_participantes" type="number" min="2" max="100" step="1">
                     </div>
                 </div>
-                
-                <p class="boton">
-                <button class="btn" type="submit" name="submit">PROGRAMAR</button>
-                </p>
-
+                <div class="button-box">
+                    <button class="button button_aceptar" type="submit" name="submit">Programar</button>
+                    <a class="button button_cancelar" href="../controllers/inicioController.php">Cancelar</a>
+                </div> 
             </form>
-            </div>
-    </main>
+        </main>
         <script>
             function toggle_max_participantes(){
                 let input_number = document.getElementById("max_participantes");
