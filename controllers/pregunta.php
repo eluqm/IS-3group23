@@ -136,37 +136,56 @@ class PreguntaController {
         die("Something went wrong");
         redirect("./inicioController.php");
     }
+
     public function edit_question(){
 
         $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
-        $data = [
-            'id' => trim($_POST['id']),
-            'titulo' => trim($_POST['titulo']),
-            'descripcion' => trim($_POST['descripcion']),
-            'curso' => trim($_POST['curso']),
-            'tema' => trim($_POST['tema']),
-            'disponibilidad' => trim($_POST['disponibilidad']),
-            'fecha_limite' => trim($_POST['fecha_limite'])
-        ];
+        if(isset($_POST['id']) && !empty($_POST['id']) &&
+            isset($_POST['titulo']) && !empty($_POST['titulo']) &&
+            isset($_POST['descripcion']) && !empty($_POST['descripcion']) &&
+            isset($_POST['curso']) && !empty($_POST['curso']) &&
+            isset($_POST['tema']) && !empty($_POST['tema']) &&
+            isset($_POST['disponibilidad']) && !empty($_POST['disponibilidad']) &&
+            isset($_POST['fecha_limite']) && !empty($_POST['fecha_limite'])
+        ){
 
-        $curso_=$this->curso->search_id_course_by_name($data['curso']);
-        $data['curso']=$curso_[0]->idcurso;
+            $data = [
+                'id' => trim($_POST['id']),
+                'titulo' => trim($_POST['titulo']),
+                'descripcion' => trim($_POST['descripcion']),
+                'curso' => trim($_POST['curso']),
+                'tema' => trim($_POST['tema']),
+                'disponibilidad' => trim($_POST['disponibilidad']),
+                'fecha_limite' => trim($_POST['fecha_limite'])
+            ];
 
-        if($this->preguntaModel->findQuestionById_2($data['id'])){
-            
-            if ($this->preguntaModel->edit($data))
-            {
-                echo("se edito el registro existosamente");
-                redirect("../index.php");
+            $curso_=$this->curso->search_id_course_by_name($data['curso']);
+            $data['curso']=$curso_[0]->idcurso;
+
+            if($this->preguntaModel->findQuestionById_2($data['id'])){
+                
+                if ($this->preguntaModel->edit($data))
+                {
+                    echo("se edito el registro existosamente");
+                    redirect("../index.php");
+                }
+                else {
+                    die("Something went wrong");
             }
-            else {
-                die("Something went wrong");
-        }
 
-        }else{
-            echo("no se encontro pregunta");
-            //redirect("../views/user__inicio.php");
+            }else{
+                echo("no se encontro pregunta");
+                //redirect("../views/user__inicio.php");
+            }
+        } 
+        else
+        {
+            $mensaje = "Debe llenar todos los campos del formulario";
+            echo "<script languaje='Javascript'>";
+            echo "alert('$mensaje');";
+            echo "history.back();";
+            echo "</script>";
         }
 
     }
