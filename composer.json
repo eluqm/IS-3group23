@@ -1,0 +1,14 @@
+{
+    "require-dev": {
+        "phpunit/phpunit": "7",
+        "phpunit/dbunit": "^4.0"
+    },
+    "autoload":{
+        
+        "psr-4":{
+          "IS3group3\\":"models/",
+          "IS3group3\\Config\\":"config/",
+          "IS3group3\\Tests\\":"tests/"
+        }
+    }
+}
