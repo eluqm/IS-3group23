@@ -7,7 +7,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Mi Perfil</title>
+        <title>Perfil</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -40,15 +40,21 @@
             <aside>
                 <div class="aside__user-info__profile-img">
                     <div id="dummy"></div>
-                    <span>
+                    <span style="background-image: url('./../views/user_profiles/<?php echo $datos_perfil->name_img;?>');">
                     </span>
+                    <button onclick="toggledisplay_uploadimg()"><span class="pregunta-icon edit-icon"></span></button>
                 </div>
+                <form id="form__subir_img" hidden action="../controllers/usuario.php" method="post" enctype="multipart/form-data">
+                    <input hidden name="type" value="subir_imagen">
+                    <input type="file" name="fileToUpload" id="fileToUpload">
+                    <button type="submit" class="button-form" name="submit">Subir</button>
+                </form>
                 <h2><?php echo $datos_perfil->nombre;?></h2>
                 <?php if($cui==$_SESSION['usersCUI']):?>
                     <form method="POST" action="../controllers/usuario.php">
                         <input hidden name="type" value="actualizar_perfil">
                         <textarea onchange="perfil_guardar_cambios()" class="aside__user-info__description" name="descripcion"><?php echo $datos_perfil->descripcion;?></textarea>
-                        <button hidden id="button__guardar_cambios">Guardar cambios</button>
+                        <button type="submit" hidden class="button-form" id="button__guardar_cambios">Guardar cambios</button>
                     </form>
                     <a href="../controllers/usuario.php?q=outlog" class="aside__button-log-out">
                         Cerrar Sesi&oacute;n
@@ -153,6 +159,10 @@
                 }
                 document.getElementById("button__mis_mentorias").style.backgroundColor = 'var(--color_principal)';
                 document.getElementById("button__mis_preguntas").style.backgroundColor = 'var(--color_light_gray)';
+            }
+
+            function toggledisplay_uploadimg(){
+                document.getElementById("form__subir_img").removeAttribute("hidden");
             }
 
             function perfil_guardar_cambios(){

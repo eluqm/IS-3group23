@@ -37,8 +37,8 @@ class User {
     }
     public function add_description($data)
     {
-        $this->db->query('INSERT INTO `perfil` (`descripcion`, `cui`)
-        VALUES ("Remember update your description", :cui)');
+        $this->db->query('INSERT INTO `perfil` (`descripcion`, `cui`, `name_img` )
+        VALUES ("Remember update your description", :cui, "default-profile.jpg")');
         $this->db->bind(':cui', $data['usersCUI']);
         if($this->db->execute()){
             return true;
@@ -86,7 +86,7 @@ class User {
     }
 
     public function getProfile($CUI){
-        $this->db->query('SELECT perfil.descripcion, usuario.nombre FROM perfil INNER JOIN usuario ON usuario.cui=perfil.cui WHERE usuario.cui=:CUI');
+        $this->db->query('SELECT perfil.descripcion, perfil.name_img, usuario.nombre FROM perfil INNER JOIN usuario ON usuario.cui=perfil.cui WHERE usuario.cui=:CUI');
         $this->db->bind(':CUI', $CUI);
         
         $row = $this->db->single();
@@ -120,6 +120,16 @@ class User {
     public function update_perfil($data){
         $this->db->query("UPDATE perfil SET descripcion=:descripcion WHERE cui=:CUI");
         $this->db->bind(':descripcion', $data['descripcion']);
+        $this->db->bind(':CUI', $data['CUI']);
+        if($this->db->execute()){
+            return true;
+        }
+        return false;            
+    }
+
+    public function update_perfil_image($data){
+        $this->db->query("UPDATE perfil SET name_img=:img_name WHERE cui=:CUI");
+        $this->db->bind(':img_name', $data['img_name']);
         $this->db->bind(':CUI', $data['CUI']);
         if($this->db->execute()){
             return true;

@@ -38,12 +38,26 @@ aside {
     margin-top: 100%;
 }
 
-.aside__user-info__description {
-    width: 80%;
-    max-width: 80%;
-    height: 100px;
-    display: block;
+aside form {
+    width: 100%;
 }
+
+.aside__user-info__description {
+    display: block;
+    width: 90%;
+    min-width: 90%;
+    max-width: 90%;
+    height: 100px;
+    min-height: 100px;
+    max-height: 300px;
+    margin: 20px auto;
+}
+
+.button-form {
+    width: 70%;
+    margin-left: 15%;
+}
+
 
 .aside__button-log-out {
     width: 100%;
@@ -64,7 +78,10 @@ aside {
     bottom: 0;
     left: 0;
     right: 0;
-    background-color: silver/* show me! */
+    background-color: silver;
+    background-repeat:no-repeat;
+    background-position: center;
+    background-size: cover;
 }
 
 .main__contenido__q-list {
