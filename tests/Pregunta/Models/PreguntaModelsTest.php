@@ -1,6 +1,6 @@
 <?php
-namespace IS3group3\Tests\pregunta\mappers\PreguntaModelsTest;
-use IS3group3\Tests\pregunta\DatabaseTestCase;
+namespace IS3group3\Tests\Pregunta\Models;
+use IS3group3\Tests\Pregunta\DatabaseTestCase;
 
 class PreguntaModelsTest extends DatabaseTestCase
 {

@@ -1,3 +1,5 @@
 test.php
 controllers/pregunta_git.php
 vendor
+config/conexionDatabase.php
+config/conexionDatabaseAdapter.php
