@@ -62,6 +62,8 @@
                                     <p class="pregunta__contenido__status"> Estado: 
                                         <?php if ($dato->estado == 0): ?> 
                                             Abierto
+                                        <?php elseif ($dato->estado == 2): ?> 
+                                            Espera de confirmacion    
                                         <?php else: ?>
                                             Cerrado
                                         <?php endif; ?>
@@ -74,7 +76,7 @@
                                 <a href="../controllers/pregunta.php?action=go_to_show_question&id_pregunta=<?php echo $dato->id;?>"><span class="pregunta-icon eye-icon"></span></a>
 
                                 <?php if ($dato->estado == 0 && $dato->cui_usuario != $_SESSION['usersCUI']): ?> 
-                                <a href="#"><span class="pregunta-icon checkmark-icon"></span></a>
+                                <span class="pregunta-icon"></span>
                                 <?php else: ?>
                                 <div><span class="pregunta-icon"></span></div>
                                 <?php endif;?>
