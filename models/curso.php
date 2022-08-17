@@ -1,12 +1,14 @@
 <?php
-require_once '../config/conexion.php';
+namespace IS3group3\Models;
+
+use IS3group3\Config\Database;
 
 class Curso {
 
     private $db;
 
     public function __construct(){
-        $this->db = new database;
+        $this->db = new Database;
     }
 
     public function get_all(){

@@ -1,0 +1,26 @@
+<?xml version="1.0" ?>
+<dataset>
+    <pregunta id='1' titulo='¿why doest work this code?' descripcion='d1' curso='1702119' tema='t1' fecha_publicacion='2022-06-13 21:56:03' cui_usuario='20204889' disponibilidad='disp1' estado='0' fecha_limite='2022-08-03 22:19:45'/>
+    <pregunta id='2' titulo='video con olas debajo' descripcion='d2' curso='1702120' tema='t2' fecha_publicacion='2022-06-13 21:56:03' cui_usuario='20218610' disponibilidad='disp1' estado='0' fecha_limite='2022-08-03 22:19:45'/>
+    <pregunta id='3' titulo='FaceWp filtro de post por mes wordpress' descripcion='d2' curso='1702226' tema='t2' fecha_publicacion='2022-06-13 21:56:03' cui_usuario='20206090' disponibilidad='disp1' estado='0' fecha_limite='2022-08-03 22:19:45'/>
+    <pregunta id='4' titulo='Empty cart in ajax Woocommerce' descripcion='d2' curso='1702120' tema='t2' fecha_publicacion='2022-06-13 21:56:03' cui_usuario='20205999' disponibilidad='disp1' estado='0' fecha_limite='2022-08-03 22:19:45'/>
+    <pregunta id='5' titulo='Ocultar menu de navegación en wordpress en template con php' descripcion='d2' curso='1702119' tema='t2' fecha_publicacion='2022-06-13 21:56:03' cui_usuario='20201264' disponibilidad='disp1' estado='0' fecha_limite='2022-08-03 22:19:45'/>
+
+    <pregunta id='6' titulo='¿Cómo puedo seleccionar un Input en específico si tengo varios con el mismo nombre?' descripcion='d2' curso='1703130' tema='t2' fecha_publicacion='2022-06-13 21:56:03' cui_usuario='20206921' disponibilidad='disp1' estado='0' fecha_limite='2022-08-03 22:19:45'/>
+    <pregunta id='7' titulo='Nav bien distribuido con CSS' descripcion='d2' curso='1703132' tema='t2' fecha_publicacion='2022-06-13 21:56:03' cui_usuario='20202995' disponibilidad='disp1' estado='0' fecha_limite='2022-08-03 22:19:45'/>
+    <pregunta id='8' titulo='Como puedo ajustar el zoom a mi pagina web' descripcion='d2' curso='1703237' tema='t2' fecha_publicacion='2022-06-13 21:56:03' cui_usuario='20218181' disponibilidad='disp1' estado='0' fecha_limite='2022-08-03 22:19:45'/>
+    <pregunta id='9' titulo='Pasé Javascript a $_POST php, pero mysqli duplica la entrada' descripcion='d2' curso='1703237' tema='t2' fecha_publicacion='2022-06-13 21:56:03' cui_usuario='20214937' disponibilidad='disp1' estado='0' fecha_limite='2022-08-03 22:19:45'/>
+    <pregunta id='10' titulo='Acceder a todos los índices de mi Array de una consulta Con PHP Y MySQL' descripcion='d2' curso='1703130' tema='t2' fecha_publicacion='2022-06-13 21:56:03' cui_usuario='20208711' disponibilidad='disp1' estado='0' fecha_limite='2022-08-03 22:19:45'/>
+
+    <pregunta_rechazada id="1"/>
+    <pregunta_rechazada id="2"/>
+    <pregunta_rechazada id="3"/>
+    <pregunta_rechazada id="4"/>
+    <pregunta_rechazada id="5"/>
+
+    <pregunta_no_rechazada id="6"/>
+    <pregunta_no_rechazada id="7"/>
+    <pregunta_no_rechazada id="8"/>
+    <pregunta_no_rechazada id="9"/>
+    <pregunta_no_rechazada id="10"/>
+</dataset>
