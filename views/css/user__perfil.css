@@ -109,3 +109,13 @@ aside form {
     outline: 0;
     background-color: var(--color_principal);
 }
+
+.mensaje {
+    display: block;   
+    width: 90%;
+    margin: 15px auto 0 auto; 
+    color: tomato;
+    font-size: 0.8rem;
+    text-align: center;
+    font-weight: 500;
+}

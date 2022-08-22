@@ -75,7 +75,7 @@ class Users {
         ];
 
         if(empty($data['email']) || empty($data['usersPwd'])){
-            flash("login", "Please fill out all inputs");
+            flash("login", "Por favor llena todos los campos");
             redirect("../views/login.php");
         }
 
@@ -92,12 +92,12 @@ class Users {
                 }
             }
             else{
-                flash("login", "Password Incorrect");
+                flash("login", "Contraseña incorrecta");
                 redirect("../views/login.php");
             }
         }
         else{
-            flash("login", "No user found");
+            flash("login", "El usuario no existe");
             redirect("../views/login.php");
         }
     }
@@ -161,11 +161,16 @@ class Users {
         if(!isset($_SESSION['usersCUI'])){
             redirect("../views/login.php");
         }
+        $error = "none";
         $target_dir = "../views/user_profiles/";
         $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
         $uploadOk = 1;
         $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
         
+        if ($_FILES["fileToUpload"]["size"] == 0){
+            redirect("../controllers/usuario.php?q=profile");
+        }
+
         // Check if image file is a actual image or fake image
         if(isset($_POST["submit"])) {
           $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
@@ -173,6 +178,7 @@ class Users {
             echo "File is an image - " . $check["mime"] . ".";
             $uploadOk = 1;
           } else {
+            $error = "El archivo debe ser una imagen.";
             echo "File is not an image.";
             $uploadOk = 0;
           }
@@ -180,12 +186,14 @@ class Users {
         
         // Check if file already exists
         if (file_exists($target_file)) {
+            $error = "Cambie el nombre del archivo.";
           echo "Sorry, file already exists.";
           $uploadOk = 0;
         }
         
         // Check file size
         if ($_FILES["fileToUpload"]["size"] > 500000) {
+            $error = "El tamaño del archivo es muy grande. Max 500kb.";
           echo "Sorry, your file is too large.";
           $uploadOk = 0;
         }
@@ -193,12 +201,14 @@ class Users {
         // Allow certain file formats
         if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
         && $imageFileType != "gif" ) {
+            $error = "Formato no admitido, solo JPG, JPEG, PNG & GIF.";
           echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
           $uploadOk = 0;
         }
         
         if ($uploadOk == 0) {
           echo "Sorry, your file was not uploaded.";
+          flash("mensaje", $error);
 
         } else {
           if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
@@ -209,9 +219,11 @@ class Users {
             ];
             $this->userModel->update_perfil_image($data);
         } else {
+            flash("mensaje", "Disculpe, hubo un error al subir su imagen, inténtelo de nuevo.");
             echo "Sorry, there was an error uploading your file.";
           }
         }
+        
         redirect("../controllers/usuario.php?q=profile");
     }
 }

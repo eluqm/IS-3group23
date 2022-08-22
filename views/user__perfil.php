@@ -38,6 +38,7 @@
         </header>
         <main class="main-usando-navbar">
             <aside>
+                <span class="mensaje"><?php flash('mensaje')?></span>
                 <div class="aside__user-info__profile-img">
                     <div id="dummy"></div>
                     <span style="background-image: url('./../views/user_profiles/<?php echo $datos_perfil->name_img;?>');">
