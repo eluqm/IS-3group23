@@ -77,20 +77,20 @@ BackEnd: PHP
 **Usuario 4:** Santiago Vilca: Backend 
 **Usuario 5:** Dennis Pumaraime: Backend
 
-####Equipo / Software
+#### Equipo / Software
 El sistema debe funcionar como una aplicación web, con acceso mediante un ordenador. 
 
-####Cronograma
+#### Cronograma
 Fecha de inicio y fin de proyecto: 29 de Junio de 2020 - 12 de Agosto de 2022 
 Fecha de inicio y fin de pruebas: 13 de Agosto de 2022 - 20 de Agosto del 2022
 
-####Sitio de pruebas
+#### Sitio de pruebas
 El sistema no posee un local específico para las pruebas. Los mismos serán ejecutados en las máquinas de las personas involucradas. 
 
-####Criterios para considerar finalizada una prueba
+#### Criterios para considerar finalizada una prueba
 Una prueba será considerada como finalizada al llenar la columna del resultado de la prueba en el documento de casos de prueba, como “ejecutado con éxito”. 
 
-####Casos de Prueba
+#### Casos de Prueba
 <table border=0 cellpadding=0 cellspacing=0 width=581 style='border-collapse:
  collapse;table-layout:fixed;width:434pt'>
  <col width=83 span=7 style='width:62pt'>
