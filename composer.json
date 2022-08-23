@@ -1,18 +1,23 @@
 {
     "require" : {
-        "php": ">=7.3.0"
+        "php": ">=7.3.0",
+        "monolog/monolog": "1.25.*",
+        "phpunit/phpunit": "6.5.*",
+        "miladrahimi/phprouter": "5.*",
+        "pecee/simple-router": "4.3.7.2"
       },
 
-    "require-dev": {
-        "phpunit/phpunit": "~4.8",
-        "phpunit/dbunit": "~2"
-    },
     "autoload":{
         
         "psr-4":{
           "IS3group3\\Models\\":"models/",
           "Config\\":"config/",
           "IS3group3\\Tests\\":"tests/"
+        }
+    },
+    "config": {
+        "platform": {
+            "php": "7.3.0"
         }
     }
 }
