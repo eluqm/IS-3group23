@@ -1,6 +1,7 @@
 <?php
-require_once '../models/pregunta.php';
-require_once '../models/curso.php';
+
+require_once $GLOBALS['BASE_DIR'].'/models/pregunta.php';
+require_once $GLOBALS['BASE_DIR'].'/models/curso.php';
 
 class InicioController {
     private $pregunta;
@@ -12,7 +13,6 @@ class InicioController {
     }
 
     public function index(){
-        session_start();
         //lista de cursos por anio
         if(isset($_GET['anio'])){ 
             $q_anio=$_GET['anio'];
@@ -30,10 +30,10 @@ class InicioController {
         $anios_registrados=$this->curso->get_anios();
         //verificar si se inicio inicio sesion
         if(isset($_SESSION['usersCUI'])){
-            require_once("../views/user__inicio.php");
+            require_once($GLOBALS['BASE_DIR']."/views/user__inicio.php");
         }
         else{
-            require_once("../views/index__unsigned.php");
+            require_once($GLOBALS['BASE_DIR']."/views/index__unsigned.php");
         }
     }
 
@@ -68,7 +68,6 @@ class InicioController {
     }
 
     public function get_preguntas($ESTADO,$CURSO,$ANIO){
-        session_start();
         //obtener preguntas para la vista
         if($CURSO == 'all'){
             $datos=$this->get_by_estado_and_anio($ESTADO,$ANIO);
@@ -77,8 +76,8 @@ class InicioController {
             $datos=$this->get_by_curso($ESTADO,$CURSO);
         }
         //lista de cursos por anio para el componente lista_cursos
-        if(isset($_GET['anio'])){ 
-            $q_anio=$_GET['anio'];
+        if(isset($ANIO)){ 
+            $q_anio=$ANIO;
         }
         else{
             $q_anio=1; 
@@ -92,26 +91,10 @@ class InicioController {
         $anios_registrados=$this->curso->get_anios();
         //verificar si se inicio inicio sesion
         if(isset($_SESSION['usersCUI'])){
-            require_once("../views/user__inicio.php");
+            require_once($GLOBALS['BASE_DIR']."/views/user__inicio.php");
         }
         else{
-            require_once("../views/index__unsigned.php");
+            require_once($GLOBALS['BASE_DIR']."/views/index__unsigned.php");
         }
     }
 }
-
-$init = new InicioController;
-
-if(!isset($_GET['action']) || !isset($_GET['estado']) || !isset($_GET['curso']) || !isset($_GET['anio'])){
-    $init->index();
-}
-else{
-    switch($_GET['action']){
-        case 'get_preguntas':
-            $init->get_preguntas($_GET['estado'],$_GET['curso'],$_GET['anio']);
-            break;
-        default:
-            $init->index();
-    }
-}
-?>

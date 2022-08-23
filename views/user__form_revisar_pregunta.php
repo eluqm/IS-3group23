@@ -31,8 +31,7 @@
     <main class="main-usando-navbar ">
         <div class="formulario">
         <h1>Solicitar revision de pregunta</h1>
-        <form method="POST" action="../controllers/solicitudController.php">
-            <input type="hidden" name="action" value="crear_solicitud_revision">
+        <form method="POST" action="<?php echo url('post_crear_reporte_pregunta')?>">
             <input type="hidden" name="id_pregunta" value="<?php echo $datos_pregunta->id?>">
             <div class="pregunta__info">
                 <p><?php echo $datos_pregunta->nombre_curso; ?>><?php echo $datos_pregunta->tema;?> | <?php echo $datos_pregunta->fecha_publicacion;?></p>
@@ -44,12 +43,11 @@
             <br/>
             <div class="button-box">
                 <button class="button button_aceptar" type="submit">Enviar</button>
-                <a class="button button_cancelar" href="../controllers/inicioController.php">Cancelar</a>
+                <a class="button button_cancelar" href="<?php echo url('index')?>">Cancelar</a>
             </div>
         </form>
         </div>
     </main>
-        
         <script src="" async defer></script>
     </body>
 </html>

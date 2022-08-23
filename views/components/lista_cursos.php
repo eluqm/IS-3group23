@@ -16,7 +16,7 @@
                     <!-- Traer de la base de datos -->      
         <?php if (isset($lista_curso) && $lista_curso!=0):?>
         <?php foreach ($lista_curso as $dato) { ?>
-            <a class="lista-cursos__curso" <?php if($curso_actual == $dato->idcurso): echo 'style="background-color: var(--color_principal); font-weight: 500;"'; endif;?> href="./../controllers/inicioController.php?action=get_preguntas&estado=all&curso=<?php echo $dato->idcurso;?>&anio=<?php echo $q_anio;?>"><div style="background-color:<?php if($curso_actual == $dato->idcurso): echo "var(--color_enfasis);"; endif;?>"></div><span><?php echo $dato->nombre ?></span></a>
+            <a class="lista-cursos__curso" <?php if($curso_actual == $dato->idcurso): echo 'style="background-color: var(--color_principal); font-weight: 500;"'; endif;?> href="/TASTI/inicio/all/<?php echo $dato->idcurso;?>/<?php echo $q_anio;?>"><div style="background-color:<?php if($curso_actual == $dato->idcurso): echo "var(--color_enfasis);"; endif;?>"></div><span><?php echo $dato->nombre ?></span></a>
         <?php } ?>
         <?php else: ?>
             <p>No hay cursos agregados :)</p>
@@ -25,7 +25,8 @@
 </aside>
 
 <script>
-        function onSelectChange(){
-            document.getElementById('curso_por_anio').submit();
-        }
+    function onSelectChange(){
+        $anio_value = document.getElementById('anio').value;
+        location.href = "/TASTI/inicio/all/all/" + $anio_value;
+    }
 </script>

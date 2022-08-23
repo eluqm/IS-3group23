@@ -17,15 +17,15 @@
             <?php include __DIR__.'/css/admin__solicitudes.css'?>
             <?php include __DIR__.'/components/pregunta.css';?>
             <?php include __DIR__.'/components/nav_bar.css';?>
-            .logo-icon {background-image: url('./../views/icons/logo.png');}
-            .eye-icon {background-image: url('./../views/icons/eye.png');}
-            .edit-icon {background-image: url('./../views/icons/edit.png');}
+            .logo-icon {background-image: url('./icons/logo.png');}
+            .eye-icon {background-image: url('./views/icons/eye.png');}
+            .edit-icon {background-image: url('./views/icons/edit.png');}
             .flag-icon {background-image: url('./../views/icons/flag.png');}
             .checkmark-icon {background-image: url('./../views/icons/checkmark.png');}
             .trash-icon {background-image: url('./../views/icons/delete.png');}
             .x-mark-icon {background-image: url('./../views/icons/x-mark.png');}
             .search-icon {background-image: url('./../views/icons/search.png');}
-            .admin-icon {background-image: url('./../views/icons/admin.png');}
+            .admin-icon {background-image: url('./icons/admin.png');}
         </style>
         <header>
             <?php
@@ -39,13 +39,13 @@
             <section class="main__contenido">
                 <div class="main__contenido__header">
                     <div class="main__contenido__header__row-1">
-                        <a href="../controllers/adminController.php?action=solicitudRegistro&solicitud=pendiente">SOLICITUD DE REGISTRO</a>
-                        <a href="../controllers/adminController.php?action=solicitudRevisionPregunta&solicitud=pendiente" id="selected">REPORTES</a>
+                        <a href="/TASTI/administrador/solicitudes/pendiente">SOLICITUD DE REGISTRO</a>
+                        <a href="/TASTI/administrador/reportes/pendiente" id="selected">REPORTES</a>
                     </div>
                     <div class="main__contenido__header__row-2">
-                        <a href="../controllers/adminController.php?action=solicitudRevisionPregunta&solicitud=pendiente" id="a_pendiente">PENDIENTES</a>
-                        <a href="../controllers/adminController.php?action=solicitudRevisionPregunta&solicitud=aceptada" id="a_aceptada">ACEPTADAS</a>
-                        <a href="../controllers/adminController.php?action=solicitudRevisionPregunta&solicitud=denegada" id="a_denegada">DENEGADAS</a>
+                        <a href="/TASTI/administrador/reportes/pendiente" id="a_pendiente">PENDIENTES</a>
+                        <a href="/TASTI/administrador/reportes/aceptada" id="a_aceptada">ACEPTADAS</a>
+                        <a href="/TASTI/administrador/reportes/denegada" id="a_denegada">DENEGADAS</a>
                     </div>
                 </div>
                 <div class="main__contenido__q-list">

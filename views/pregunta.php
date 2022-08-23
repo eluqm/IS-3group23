@@ -69,7 +69,7 @@
                     </div>
                     <div class="main__pregunta__info__content__dato"> 
                         <p>Usuario:</p>
-                        <p><a href="../controllers/usuario.php?q=profile&cui=<?php echo $data->cui_usuario;?>"><?php echo $data->cui_usuario;?></a></p>
+                        <p><a href="/TASTI/perfil/<?php echo $data->cui_usuario;?>"><?php echo $data->cui_usuario;?></a></p>
                     </div>
                     <div class="main__pregunta__info__content__dato"> 
                         <p>Disponibilidad:</p>
@@ -139,7 +139,7 @@
                             <?php if($data->cui_usuario==$_SESSION['usersCUI']):?>
                                 <div class="main__pregunta__info__content__dato"> 
                                     <p>Mentor:</p>
-                                    <p><a href="../controllers/usuario.php?q=profile&cui=<?php echo $data->cui_mentor;?>"><?php echo $data->cui_mentor;?></a></p>
+                                    <p><a href="/TASTI/perfil/<?php echo $data->cui_mentor;?>"><?php echo $data->cui_mentor;?></a></p>
                                 </div>
                                 <div class="main__pregunta__info__content__dato"> 
                                     <p>Tipo de clase:</p>

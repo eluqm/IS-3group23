@@ -19,10 +19,10 @@
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
         <style>
-            <?php include __DIR__.'/css/general_style.css';?>
-            <?php include __DIR__.'/css/user__perfil.css';?>
-            <?php include __DIR__.'/components/pregunta.css';?>
-            <?php include __DIR__.'/components/nav_bar.css';?>
+            <?php include $GLOBALS['BASE_DIR'].'/views/css/general_style.css';?>
+            <?php include $GLOBALS['BASE_DIR'].'/views/css/user__perfil.css';?>
+            <?php include $GLOBALS['BASE_DIR'].'/views/components/pregunta.css';?>
+            <?php include $GLOBALS['BASE_DIR'].'/views/components/nav_bar.css';?>
             .logo-icon {background-image: url('./../views/icons/logo.png');}
             .eye-icon {background-image: url('./../views/icons/eye.png');}
             .edit-icon {background-image: url('./../views/icons/edit.png');}
@@ -45,19 +45,19 @@
                     </span>
                     <button onclick="toggledisplay_uploadimg()"><span class="pregunta-icon edit-icon"></span></button>
                 </div>
-                <form id="form__subir_img" hidden action="../controllers/usuario.php" method="post" enctype="multipart/form-data">
+                <form id="form__subir_img" hidden method="POST" action="/TASTI/miPerfil/actualizando_img" enctype="multipart/form-data">
                     <input hidden name="type" value="subir_imagen">
                     <input type="file" name="fileToUpload" id="fileToUpload">
                     <button type="submit" class="button-form" name="submit">Subir</button>
                 </form>
                 <h2><?php echo $datos_perfil->nombre;?></h2>
                 <?php if($cui==$_SESSION['usersCUI']):?>
-                    <form method="POST" action="../controllers/usuario.php">
+                    <form action="/TASTI/miPerfil/actualizando_descripcion" method="POST" enctype="multipart/form-data">
                         <input hidden name="type" value="actualizar_perfil">
                         <textarea onchange="perfil_guardar_cambios()" class="aside__user-info__description" name="descripcion"><?php echo $datos_perfil->descripcion;?></textarea>
                         <button type="submit" hidden class="button-form" id="button__guardar_cambios">Guardar cambios</button>
                     </form>
-                    <a href="../controllers/usuario.php?q=outlog" class="aside__button-log-out">
+                    <a href="/TASTI/logout" class="aside__button-log-out">
                         Cerrar Sesi&oacute;n
                     </a>
                 <?php else:?>
@@ -79,6 +79,8 @@
                                     <p class="pregunta__contenido__status"> Estado: 
                                         <?php if ($dato->estado == 0): ?> 
                                             Abierto
+                                        <?php elseif ($dato->estado == 2): ?>
+                                            En espera de confirmación
                                         <?php else: ?>
                                             Cerrado
                                         <?php endif; ?>
@@ -88,7 +90,7 @@
                                 <p><?php echo $dato->descripcion;?></p>
                             </div class="main__contenido__q-list">
                             <div class="pregunta__actions">
-                                <a href="../controllers/pregunta.php?action=go_to_show_question&id_pregunta=<?php echo $dato->id;?>"><span class="pregunta-icon eye-icon"></span></a>
+                                <a href="/TASTI/pregunta/<?php echo $dato->id;?>"><span class="pregunta-icon eye-icon"></span></a>
                                 <div><span class="pregunta-icon"></span></div>      
 
                                 <!-- editar pregunta -->
@@ -115,6 +117,8 @@
                                     <p class="pregunta__contenido__status"> Estado: 
                                         <?php if ($dato->estado == 0): ?> 
                                             Abierto
+                                        <?php elseif ($dato->estado == 2): ?>
+                                            En espera de confirmación
                                         <?php else: ?>
                                             Cerrado
                                         <?php endif; ?>
@@ -124,7 +128,7 @@
                                 <p><?php echo $dato->descripcion;?></p>
                             </div class="main__contenido__q-list">
                             <div class="pregunta__actions">
-                                <a href="../controllers/pregunta.php?action=go_to_show_question&id_pregunta=<?php echo $dato->id;?>"><span class="pregunta-icon eye-icon"></span></a>
+                                <a href="/TASTI/pregunta/<?php echo $dato->id;?>"><span class="pregunta-icon eye-icon"></span></a>
                                 <div><span class="pregunta-icon"></span></div>
                                 <div><span class="pregunta-icon"></span></div>
                                 <div><span class="pregunta-icon"></span></div>

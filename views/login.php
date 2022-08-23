@@ -1,22 +1,16 @@
-<?php 
-    session_start(); 
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="stylesheet" href="css/login.css">
     <title>Iniciar Sesion</title>
 </head>
 
-<?php 
-    include_once '../helpers/session_helper.php';
-?>
-
-<body>
+    <body>
+        <style>
+            <?php include $GLOBALS['BASE_DIR'].'/views/css/login.css';?>
+        </style>
     <div class="login-container">
         <div class="image-container">
             <img src="icons/logo.png" width="300" height="150px">
@@ -27,12 +21,11 @@
         <div class="login-info-container">
             <h1 class="title">Iniciar Sesión</h1>
             <?php flash('login') ?>
-            <form class="inputs-container" method="post" action="../controllers/usuario.php">
-                <input type="hidden" name="type" value="login">
+            <form class="inputs-container" method="POST" action="/TASTI/iniciando_sesion">
                 <input class="input" name="email" type="text" placeholder="Ingresar correo institucional">
                 <input class="input" type="password" name="usersPwd" placeholder="Ingresar contraseña">
                 <button class="btn" type="submit" name="submit">Iniciar Sesión</button>
-                <p>¿No tienes cuenta?<a class="a" href="signup.php">Registrate</a></p>
+                <p>¿No tienes cuenta?<a class="a" href="<?php echo url('signup');?>">Registrate</a></p>
                 <img src="icons/login.svg" width="300" height="400px">
             </form>
         </div>

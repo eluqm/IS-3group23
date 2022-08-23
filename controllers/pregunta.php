@@ -1,8 +1,8 @@
 <?php
 
-require_once '../models/pregunta.php';
-require_once '../models/curso.php';
-require_once '../helpers/session_helper.php';
+require_once $GLOBALS['BASE_DIR'].'/models/pregunta.php';
+require_once $GLOBALS['BASE_DIR'].'/models/curso.php';
+require_once $GLOBALS['BASE_DIR'].'/helpers/session_helper.php';
 
 class PreguntaController {
 
@@ -34,7 +34,7 @@ class PreguntaController {
             || empty($data['fecha_limite'])
             || empty($data['disponibilidad'])){
             flash("publicar_pregunta", "Error Fill all the inputs");
-            redirect("../views/publicar_pregunta.php");
+            redirect("/TASTI/publicar");
         }
         
         $curso_=$this->curso->search_id_course_by_name($data['curso']);
@@ -44,7 +44,7 @@ class PreguntaController {
         {
             $id_=$this->preguntaModel->find_id_by_tittle($data['titulo']);
             if ($this->preguntaModel->register_in_non_rejected($id_[0]->id)) {
-                redirect("../index.php");
+                redirect("/TASTI/");
             }
         }
         else {
@@ -52,32 +52,27 @@ class PreguntaController {
         }
 	}
 
-    public function search_by_tema(){
-        if(!isset($_GET['tema']) || $_GET['tema']==''){
-            redirect('./inicioController.php');    
+    public function search_by_tema($tema_actual,$estado_actual = NULL){
+
+        //variables para la vista
+        if($estado_actual){
+            $estado_actual = $this->preguntaModel->get_estado_for_query($estado_actual);
+        }
+        else{
+            $estado_actual = '-1';
+        }
+        //obtener preguntas para la vista
+        if($estado_actual == '-1'){
+            $preguntas_encontradas = $this->preguntaModel->get_all_by_tema($tema_actual);
         }
         else {
-            //variables para la vista
-            $tema_actual = $_GET['tema'];
-            if(isset($_GET['estado'])){
-                $estado_actual = $this->preguntaModel->get_estado_for_query($_GET['estado']);
-            }
-            else{
-                $estado_actual = '-1';
-            }
-            //obtener preguntas para la vista
-            if($estado_actual == '-1'){
-                $preguntas_encontradas = $this->preguntaModel->get_all_by_tema($tema_actual);
-            }
-            else {
-                $preguntas_encontradas = $this->preguntaModel->get_all_by_estado_and_tema($estado_actual,$tema_actual);
-            }
-            //anio registrados para el componente nav_bar
-            $anios_registrados=$this->curso->get_anios();
-            require_once("../views/pregunta__busqueda_by_tema.php");
+            $preguntas_encontradas = $this->preguntaModel->get_all_by_estado_and_tema($estado_actual,$tema_actual);
         }
-
+        //anio registrados para el componente nav_bar
+        $anios_registrados=$this->curso->get_anios();
+        require_once($GLOBALS['BASE_DIR'].'/views/pregunta__busqueda_by_tema.php');
     }
+
     public function show_question($data_id)
     {
         if(!isset($data_id)){
@@ -87,17 +82,17 @@ class PreguntaController {
             $data = $this->preguntaModel->findQuestionById_2($data_id);
             if (!isset($data)) {
                 flash("mostrar_pregunta", "Pregunta no encontrada");
-                redirect('../index.php');
+                redirect('/TASTI/');
             }
             elseif($this->preguntaModel->is_rechazada($data_id)) {
                 flash("mostrar_pregunta", "Pregunta no disponible");
-                redirect('../index.php');
+                redirect('/TASTI/');
             }
             else {
                 if($data->reunion_privada == 0){
                     $is_participante = $this->is_participante_reunion_publica($data_id,$_SESSION['usersCUI']);
                 }
-                require_once("../views/pregunta.php");
+                require_once($GLOBALS['BASE_DIR'].'/views/pregunta.php');
             }
         }
     }
@@ -310,14 +305,10 @@ class PreguntaController {
         redirect("../index.php");
     }
 }
-
-$init = new PreguntaController;
+/*
 
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
     switch($_POST['type']){
-        case 'store':
-            $init->store();
-            break;
         case 'schedule_class':
             $init->schedule_class();
             break;
@@ -345,19 +336,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 }
 else {
     switch($_GET['action']){
-        case 'buscar_tema':
-            $init->search_by_tema();
-            break;
         case 'listar_cursos':
             $init->search_by_tema();
-            break;
-        case 'go_to_show_question':
-            if(isset($_GET['id_pregunta'])){
-                $init->show_question($_GET['id_pregunta']);
-            }
-            else{
-                redirect("../index.php");
-            }
             break;
         case 'go_to_edit_question':
             $init->go_to_edit_question();
@@ -369,6 +349,6 @@ else {
             redirect("../views/login.php");
     }
 }
-
+*/
 
 ?>

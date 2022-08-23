@@ -38,13 +38,13 @@
             <section class="main__contenido">
                 <div class="main__contenido__header">
                     <div class="main__contenido__header__row-1">
-                        <a href="../controllers/adminController.php?action=solicitudRegistro&solicitud=pendiente" id="selected">SOLICITUD DE REGISTRO</a>
-                        <a href="../controllers/adminController.php?action=solicitudRevisionPregunta&solicitud=pendiente">REPORTES</a>
+                        <a href="/TASTI/administrador/solicitudes/pendiente" id="selected">SOLICITUD DE REGISTRO</a>
+                        <a href="/TASTI/administrador/reportes/pendiente">REPORTES</a>
                     </div>
                     <div class="main__contenido__header__row-2">
-                        <a href="../controllers/adminController.php?action=solicitudRegistro&solicitud=pendiente" id="a_pendiente">PENDIENTES</a>
-                        <a href="../controllers/adminController.php?action=solicitudRegistro&solicitud=aceptada" id="a_aceptada">ACEPTADAS</a>
-                        <a href="../controllers/adminController.php?action=solicitudRegistro&solicitud=denegada" id="a_denegada">DENEGADAS</a>
+                        <a href="/TASTI/administrador/solicitudes/pendiente" id="a_pendiente">PENDIENTES</a>
+                        <a href="/TASTI/administrador/solicitudes/aceptada" id="a_aceptada">ACEPTADAS</a>
+                        <a href="/TASTI/administrador/solicitudes/denegada" id="a_denegada">DENEGADAS</a>
                     </div>
                 </div>
                 <div class="main__contenido__q-list">

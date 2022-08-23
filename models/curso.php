@@ -1,5 +1,5 @@
 <?php
-require_once '../config/conexion.php';
+require_once $GLOBALS['BASE_DIR'].'/config/conexion.php';
 
 class Curso {
 

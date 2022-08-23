@@ -12,11 +12,13 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
         <link href='https://fonts.googleapis.com/css?family=Overlock SC' rel='stylesheet'>
-        <link rel="stylesheet" href="css/general_style.css">
-        <link rel="stylesheet" href="components/nav_bar.css">
-        <link rel="stylesheet" href="css/publicar_pregunta.css">
     </head>
     <body>
+        <style>
+            <?php include __DIR__.'/css/general_style.css';?>
+            <?php include __DIR__.'/css/publicar_pregunta.css';?>
+            <?php include __DIR__.'/components/nav_bar.css';?>
+        </style>
         <header>
             <?php
             if(!isset($_SESSION['usersCUI'])){session_start();}
@@ -27,7 +29,8 @@
             <div class="publicar_pregunta">
             <h1>Publicar Pregunta</h1>
             <br/>
-            <form class="inputs-container" method="post" action="../controllers/pregunta.php">
+            <form class="inputs-container" method="post" action="/TASTI/publicando">
+                <input type="hidden" name="csrf_token" value="<? csrf_token(); ?>">    
                 <input type="hidden" name="type" value="store">
                 <div id="lateral">
                     <p>

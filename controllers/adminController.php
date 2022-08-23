@@ -1,9 +1,7 @@
 <?php
-require_once '../helpers/session_helper.php';
-
-require_once '../models/pregunta.php';
-require_once '../models/curso.php';
-require_once '../models/solicitud.php';
+require_once $GLOBALS['BASE_DIR'].'/models/pregunta.php';
+require_once $GLOBALS['BASE_DIR'].'/models/curso.php';
+require_once $GLOBALS['BASE_DIR'].'/models/solicitud.php';
 class AdminController {
 
     private $curso;
@@ -28,7 +26,7 @@ class AdminController {
                 $tipo_solicitud=2;
                 break;
             default:
-                redirect("../views/login.php");
+                redirect("./adminController.php?action=solicitudRegistro&solicitud=pendiente");
                 break;
         }
         return $tipo_solicitud;
@@ -41,7 +39,7 @@ class AdminController {
         $anios_registrados=$this->curso->get_anios();
         //obtener las solicitudes
         $solicitud_registro = $this->solicitud->getSolicitudedeRegistroPorEstado($tipo_solicitud);
-        require_once("../views/admin__solicitudes-registro.php");
+        require_once($GLOBALS['BASE_DIR'].'/views/admin__solicitudes-registro.php');
     }
 
     public function solicitud_revision_pregunta($TIPO_SOLICITUD){
@@ -52,7 +50,7 @@ class AdminController {
         $anios_registrados=$this->curso->get_anios();
         //obtener las solicitudes
         $solicitud_registro =$this->solicitud->getSolicitudedeRevisionDePreguntaPorEstado($tipo_solicitud);
-        require_once("../views/admin__solicitudes-preguntas.php");
+        require_once($GLOBALS['BASE_DIR'].'/views/admin__solicitudes-preguntas.php');
     }
 
     public function go_to_formulario_eliminar(){
@@ -67,7 +65,7 @@ class AdminController {
         */
         $action_solicitud = $_POST['modo'];
         $datos_pregunta = $this->pregunta->findQuestionById($_POST['id_pregunta']);
-        require_once("../views/admin__form_borrar_pregunta.php");
+        require_once($GLOBALS['BASE_DIR'].'/views/admin__form_borrar_pregunta.php');
 
     }
 
@@ -89,7 +87,7 @@ class AdminController {
         date_default_timezone_set("America/Lima");
         $data['fecha_creacion']=date('Y-m-d H:i:s');
         $this->solicitud->solicitud_eliminacion_aceptar($data);
-        redirect("../index.php");  
+        redirect("./adminController.php?action=solicitudRevisionPregunta&solicitud=pendiente");
     }
 
     public function solicitud_eliminacion_denegada(){
@@ -100,7 +98,7 @@ class AdminController {
         date_default_timezone_set("America/Lima");
         $data['fecha_creacion']=date('Y-m-d H:i:s');
         $this->solicitud->solicitud_eliminacion_denegada($data);
-        redirect("../index.php");  
+        redirect("./adminController.php?action=solicitudRevisionPregunta&solicitud=pendiente");
     }
 
     public function eliminar_pregunta(){
@@ -116,7 +114,7 @@ class AdminController {
             $this->solicitud->store_solicitud_revision_pregunta($data);
             $this->solicitud->solicitud_eliminacion_aceptar($data);
         }
-        redirect("../index.php");        
+        redirect("./adminController.php?action=solicitudRevisionPregunta&solicitud=pendiente");    
     }
 
     public function solicitud_registro_procesada(){
@@ -133,7 +131,7 @@ class AdminController {
         date_default_timezone_set("America/Lima");
         $data['fecha']=date('Y-m-d H:i:s');
         $this->solicitud->solicitud_registro_procesar($data);
-        redirect("../index.php");  
+        redirect("./adminController.php?action=solicitudRegistro&solicitud=pendiente");
     }
 
     public function verificar_sesion(){
@@ -148,7 +146,7 @@ class AdminController {
     }
 
 }
-
+/*
 $init = new AdminController;
 
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
@@ -174,18 +172,5 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         default:
             redirect("../index.php");  
     }
-} else 
-{
-    switch($_GET['action']){
-        case 'solicitudRegistro':
-            $init->solicitud_registro($_GET['solicitud']);
-            break;
-        case 'solicitudRevisionPregunta':
-            $init->solicitud_revision_pregunta($_GET['solicitud']);
-            break;
-        default:
-                redirect("../views/login.php");
-    }
-}
-
+*/
 ?>

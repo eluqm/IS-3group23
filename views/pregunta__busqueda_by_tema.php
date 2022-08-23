@@ -39,9 +39,9 @@
                 <h2><span>Buscando tema: "</span><?php echo $tema_actual;?><span>"</span></h2>
                 <div class="main__contenido__header">
                     <div class="main__contenido__header__row-2">
-                        <a href="../controllers/pregunta.php?action=buscar_tema&estado=all&tema=<?php echo $tema_actual;?>" id="estado_all">TODO</a>
-                        <a href="../controllers/pregunta.php?action=buscar_tema&estado=open&tema=<?php echo $tema_actual;?>" id="estado_open">ABIERTAS</a>
-                        <a href="../controllers/pregunta.php?action=buscar_tema&estado=close&tema=<?php echo $tema_actual;?>" id="estado_closed">CERRADAS</a>
+                        <a href="/TASTI/buscar/<?php echo $tema_actual;?>/all" id="estado_all">TODO</a>
+                        <a href="/TASTI/buscar/<?php echo $tema_actual;?>/open" id="estado_open">ABIERTAS</a>
+                        <a href="/TASTI/buscar/<?php echo $tema_actual;?>/close" id="estado_closed">CERRADAS</a>
                     </div>
                 </div>
                 <div class="main__contenido__q-list">
