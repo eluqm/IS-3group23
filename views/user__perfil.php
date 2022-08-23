@@ -95,9 +95,9 @@
 
                                 <!-- editar pregunta -->
                                 <?php $id_ = $dato->id;?>
-                                <a href="../controllers/pregunta.php?action=go_to_edit_question&id=<?php echo $id_;?>"><span class="pregunta-icon edit-icon"></span></a>
+                                <a href="<?php echo url('editar_pregunta',['id_pregunta' => $dato->id]);?>"><span class="pregunta-icon edit-icon"></span></a>
                                 <!-- eliminar pregunta -->
-                                <a href="../controllers/pregunta.php?action=go_to_formulario_borrar_pregunta&id_pregunta=<?php echo $dato->id;?>"><span class="pregunta-icon trash-icon"></span></a>
+                                <a href="<?php echo url('borrar_pregunta',['id_pregunta' => $dato->id]);?>"><span class="pregunta-icon trash-icon"></span></a>
 
                             </div>
                         </div>          

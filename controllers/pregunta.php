@@ -34,7 +34,7 @@ class PreguntaController {
             || empty($data['fecha_limite'])
             || empty($data['disponibilidad'])){
             flash("publicar_pregunta", "Error Fill all the inputs");
-            redirect("/TASTI/publicar");
+            redirect(url('publicar_pregunta'));
         }
         
         $curso_=$this->curso->search_id_course_by_name($data['curso']);
@@ -44,7 +44,7 @@ class PreguntaController {
         {
             $id_=$this->preguntaModel->find_id_by_tittle($data['titulo']);
             if ($this->preguntaModel->register_in_non_rejected($id_[0]->id)) {
-                redirect("/TASTI/");
+                redirect(url('index'));
             }
         }
         else {
@@ -76,17 +76,17 @@ class PreguntaController {
     public function show_question($data_id)
     {
         if(!isset($data_id)){
-            redirect('./inicioController.php');
+            redirect(url('index'));
         }
         else {
             $data = $this->preguntaModel->findQuestionById_2($data_id);
             if (!isset($data)) {
                 flash("mostrar_pregunta", "Pregunta no encontrada");
-                redirect('/TASTI/');
+                redirect(url('index'));
             }
             elseif($this->preguntaModel->is_rechazada($data_id)) {
                 flash("mostrar_pregunta", "Pregunta no disponible");
-                redirect('/TASTI/');
+                redirect(url('index'));
             }
             else {
                 if($data->reunion_privada == 0){
@@ -114,7 +114,7 @@ class PreguntaController {
             || empty($data['fecha'])
             || empty($data['meet'])){
             flash("programar_clase", "Error Fill all the inputs");
-            redirect("../views/programar_clase.php");
+            redirect(url('crear_mentoria'));
         }
         if (empty($data['priv'])) {
             $data['priv']=0;
@@ -126,10 +126,10 @@ class PreguntaController {
 
         $pregunta_data = $this->preguntaModel->findQuestionById($_POST['id_pregunta']);
         if($this->preguntaModel->edit_for_schedule($data) && $this->preguntaModel->agregar_participacion_usuario($_POST['id_pregunta'],$pregunta_data->cui_usuario)) {
-            redirect("./inicioController.php");
+            redirect(url('pregunta_view',['id_pregunta' => $_POST['id_pregunta']]));
         }
         die("Something went wrong");
-        redirect("./inicioController.php");
+        redirect(url('pregunta_view',['id_pregunta' => $_POST['id_pregunta']]));
     }
 
     public function edit_question(){
@@ -163,7 +163,7 @@ class PreguntaController {
                 if ($this->preguntaModel->edit($data))
                 {
                     echo("se edito el registro existosamente");
-                    redirect("../index.php");
+                    redirect(url('pregunta_view',['id_pregunta' => $_POST['id']]));   
                 }
                 else {
                     die("Something went wrong");
@@ -171,7 +171,7 @@ class PreguntaController {
 
             }else{
                 echo("no se encontro pregunta");
-                //redirect("../views/user__inicio.php");
+                redirect(url('index'));
             }
         } 
         else
@@ -185,21 +185,24 @@ class PreguntaController {
 
     }
 
-    public function goTo_formulario_eliminar_pregunta() {
-        if(!isset($_GET['id_pregunta'])){
-            redirect("../index.php");  
-        }
-        $datos = $this->preguntaModel->findQuestionById_2($_GET['id_pregunta']);
+    public function goTo_formulario_eliminar_pregunta($id_pregunta) {
+        $data=[
+            'id_pregunta'=>$id_pregunta,
+            'cui'=>$_SESSION['usersCUI']
+        ];
+        $data_cursos=$this->curso->get_all();
+        $datos = $this->preguntaModel->findQuestionById_2($data['id_pregunta']);
         if(!$datos){
             echo("no se encontro pregunta");
-            redirect("../index.php");
+            redirect(url('index'));
         }
+        //verificando que la pregunta corresponde al usuario actual
         else if($datos->cui_usuario==$_SESSION['usersCUI']){
-            require_once("../views/user__form_eliminar_pregunta.php");
+            require_once($GLOBALS['BASE_DIR'].'/views/user__form_eliminar_pregunta.php');
         }
         else {
-            redirect("../index.php");
-        }
+            redirect(url('index'));
+        } 
     }
 
     public function borrar_pregunta(){
@@ -212,27 +215,35 @@ class PreguntaController {
         }
         else{
             die("Something went wrong");
+            
         }
-        redirect("../index.php");          
+        redirect(url('perfil'));     
     }
-    public function go_to_edit_question(){
+    public function go_to_edit_question($id_pregunta){
         $data=[
-            'id_pregunta'=>$_GET['id'],
+            'id_pregunta'=>$id_pregunta,
             'cui'=>$_SESSION['usersCUI']
         ];
         $data_cursos=$this->curso->get_all();
         $datos = $this->preguntaModel->findQuestionById_2($data['id_pregunta']);
         if(!$datos){
             echo("no se encontro pregunta");
-            redirect("../index.php");
+            redirect(url('index'));
         }
+        //verificando que la pregunta corresponde al usuario actual
         else if($datos->cui_usuario==$_SESSION['usersCUI']){
-            require_once("../views/editar_pregunta.php");
+            require_once($GLOBALS['BASE_DIR'].'/views/user__form_editar_pregunta.php');
         }
         else {
-            redirect("../index.php");
+            redirect(url('index'));
         } 
     }
+
+    public function go_to_programar_clase($id_pregunta){
+        //NOTA: comprobar que la pregunta no ha sido tomada
+        require_once($GLOBALS['BASE_DIR'].'/views/programar_clase.php');
+    }
+
 
     public function confirmar_mentoria(){
         $data = [
@@ -245,7 +256,7 @@ class PreguntaController {
         else{
             die("Something went wrong");
         }
-        redirect("../index.php");          
+        redirect(url('pregunta_view',['id_pregunta' => $_POST['id_pregunta']]));   
     }
 
     public function is_participante_reunion_publica($id_pregunta,$CUI_usuario){
@@ -254,7 +265,7 @@ class PreguntaController {
 
     public function participar_mentoria() {
         if(!isset($_POST['id_pregunta'])){
-            redirect("../index.php");  
+            redirect(url('index'));
         }
         if(isset($_SESSION['usersCUI'])){
             //nota: verificar si hay cupos disponibles
@@ -263,16 +274,16 @@ class PreguntaController {
                 $salida = $this->preguntaModel->reunion_publica_reducir_cupos($_POST['id_pregunta']);
             }
             if($salida){
-               $this->show_question($_POST['id_pregunta']);
+                redirect(url('pregunta_view',['id_pregunta' => $_POST['id_pregunta']]));
             }
         }
         die("Something went wrong"); 
-        redirect("../index.php");
+        redirect(url('pregunta_view',['id_pregunta' => $_POST['id_pregunta']]));
     }
 
     public function no_participar_mentoria() {
         if(!isset($_POST['id_pregunta'])){
-            redirect("../index.php");  
+            redirect(url('index'));
         }
         if(isset($_SESSION['usersCUI'])){
             $salida = $this->preguntaModel->eliminar_participacion_usuario($_POST['id_pregunta'],$_SESSION['usersCUI']);
@@ -280,16 +291,16 @@ class PreguntaController {
                 $salida = $this->preguntaModel->reunion_publica_aumentar_cupo($_POST['id_pregunta']);
             }
             if($salida){
-               $this->show_question($_POST['id_pregunta']);
+                redirect(url('pregunta_view',['id_pregunta' => $_POST['id_pregunta']]));
             }
         }
         die("Something went wrong"); 
-        redirect("../index.php");
+        redirect(url('pregunta_view',['id_pregunta' => $_POST['id_pregunta']]));
     }
 
     public function cancelar_mentoria() {
         if(!isset($_POST['id_pregunta'])){
-            redirect("../index.php");  
+            redirect(url('index'));  
         }
         $data = [
             'id_pregunta' => trim($_POST['id_pregunta']),
@@ -299,56 +310,10 @@ class PreguntaController {
             if($this->preguntaModel->procesar_solicitud_mentoria($data)){
                 $pregunta_data = $this->preguntaModel->findQuestionById($_POST['id_pregunta']);
                 $this->preguntaModel->eliminar_participacion_usuario($_POST['id_pregunta'],$pregunta_data->cui_usuario);
-                $this->show_question($_POST['id_pregunta']);
+                redirect(url('pregunta_view',['id_pregunta' => $_POST['id_pregunta']]));
             }
         }
-        redirect("../index.php");
+        redirect(url('pregunta_view',['id_pregunta' => $_POST['id_pregunta']]));
     }
 }
-/*
-
-if($_SERVER['REQUEST_METHOD'] == 'POST'){
-    switch($_POST['type']){
-        case 'schedule_class':
-            $init->schedule_class();
-            break;
-        case 'edit_question':
-            $init->edit_question();
-            break;
-        case 'eliminar_pregunta':
-            $init->borrar_pregunta();
-            break;
-        case 'confirmar_mentoria':
-            $init->confirmar_mentoria();
-            break;
-        case 'participar_mentoria':
-            $init->participar_mentoria();
-            break;
-        case 'no_participar_mentoria':
-            $init->no_participar_mentoria();
-            break;
-        case 'cancelar_mentoria':
-            $init->cancelar_mentoria();
-            break;
-        default:
-            redirect("../controllers/inicioController.php");
-    }
-}
-else {
-    switch($_GET['action']){
-        case 'listar_cursos':
-            $init->search_by_tema();
-            break;
-        case 'go_to_edit_question':
-            $init->go_to_edit_question();
-            break;
-        case 'go_to_formulario_borrar_pregunta':
-            $init->goTo_formulario_eliminar_pregunta();
-            break;
-        default:
-            redirect("../views/login.php");
-    }
-}
-*/
-
 ?>

@@ -38,7 +38,7 @@
         <div class = "publicar_pregunta">
             <h1> Editar pregunta </h1>
             <br/>
-            <form class="inputs-container" action="../controllers/pregunta.php" method="POST">
+            <form class="inputs-container" action="<?php echo url('post_editar_pregunta')?>" method="POST">
             <input name="type" type="hidden" value="edit_question"/>  <!-- id -->
             <input name="id" type="hidden" value=<?php echo $data['id_pregunta'];?> />  <!-- id -->
             <div id="lateral">
@@ -81,14 +81,14 @@
             
             <p class="input-file-wrapper">
             <label class="descp" for="">Descripcion</label>
-            <textarea name="descripcion"/> </textarea> <br/>
+            <textarea name="descripcion"> </textarea> <br/>
             </p>
 
             <p class="boton">
-            <button type="submit" value="Editar"/>Editar</button>
+            <button type="submit" value="Editar">Editar</button>
 
             <p class="boton">
-            <a href="../controllers/inicioController.php">Cancelar</a>
+            <a href="<?php echo url('pregunta_view',['id_pregunta' => $data['id_pregunta']]);?>">Cancelar</a>
         </div>
         </form>
     </div>    

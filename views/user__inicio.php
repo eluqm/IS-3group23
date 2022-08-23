@@ -85,10 +85,9 @@
                                 <div><span class="pregunta-icon"></span></div>
                                 <?php endif;?>
 
-                                <!-- editar pregunta -->
                                 <?php if ($dato->cui_usuario == $_SESSION['usersCUI']&& $dato->estado == 0): ?> 
                                 <?php $id_ = $dato->id;?>
-                                <a href="../controllers/pregunta.php?action=go_to_edit_question&id=<?php echo $id_;?>"><span class="pregunta-icon edit-icon"></span></a>
+                                <a href="<?php echo url('editar_pregunta',['id_pregunta' => $$dato->id]);?>"><span class="pregunta-icon edit-icon"></span></a>
                                 <?php elseif($_SESSION['admin']==1): ?>
                                     <form action="../controllers/adminController.php" method="POST">
                                         <input hidden name="action" value="goTo_formulario_eliminar">
@@ -101,7 +100,7 @@
                                 <?php endif;?>
 
                                 <?php if ($dato->cui_usuario == $_SESSION['usersCUI']): ?> 
-                                <a href="../controllers/pregunta.php?action=go_to_formulario_borrar_pregunta&id_pregunta=<?php echo $dato->id;?>"><span class="pregunta-icon trash-icon"></span></a>
+                                <a href="<?php echo url('borrar_pregunta',['id_pregunta' => $dato->id]);?>"><span class="pregunta-icon trash-icon"></span></a>
                                 <?php else: ?>
                                 <a href="<?php echo url('crear_reporte_pregunta',['id_pregunta' => $dato->id]);?>"><span class="pregunta-icon flag-icon"></span></a>
                                 <?php endif;?>

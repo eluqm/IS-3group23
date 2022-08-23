@@ -43,8 +43,8 @@
                     <p>ID: <?php echo $data->id;?></p>
                     <div>
                         <?php if($data->cui_usuario==$_SESSION['usersCUI']):?>
-                            <a href="../controllers/pregunta.php?action=go_to_edit_question&id=<?php echo $data->id;?>"><span class="main_pregunta-icon edit-icon"></span></a>
-                            <a href="../controllers/pregunta.php?action=go_to_formulario_borrar_pregunta&id_pregunta=<?php echo $data->id;?>"><span class="main_pregunta-icon trash-icon"></span></a>
+                            <a href="<?php echo url('editar_pregunta',['id_pregunta' => $data->id]);?>"><span class="main_pregunta-icon edit-icon"></span></a>
+                            <a href="<?php echo url('borrar_pregunta',['id_pregunta' => $data->id]);?>"><span class="main_pregunta-icon trash-icon"></span></a>
                         <?php else:?>
                             <?php if($_SESSION['admin']==1):?>
                                 <form action="../controllers/adminController.php" method="POST">
@@ -79,7 +79,7 @@
                         <hr>
                         <div class="main__pregunta__info__content__dato"> 
                             <p>Mentor:</p>
-                            <p><a href="../controllers/usuario.php?q=profile&cui=<?php echo $data->cui_mentor;?>"><?php echo $data->cui_mentor;?></a></p>
+                            <p><a href="/TASTI/perfil/<?php echo $data->cui_mentor;?>"><?php echo $data->cui_mentor;?></a></p>
                         </div>
                         <div class="main__pregunta__info__content__dato"> 
                             <p>Tipo de clase:</p>
@@ -113,15 +113,13 @@
                                     <p><?php echo $data->link_meet;?></p>
                                 </div>
                                 <?php if($data->cui_usuario!=$_SESSION['usersCUI']):?>
-                                    <form action="../controllers/pregunta.php" method="POST">
-                                        <input hidden name="type" value="no_participar_mentoria">
+                                    <form action="<?php echo url('post_no_participar_mentoria');?>" method="POST">
                                         <input hidden name="id_pregunta" value="<?php echo $data->id;?>">                                    
                                         <button class="button-blue">NO PARTICIPAR</button>
                                     </form>        
                                 <?php endif?>                         
                             <?php elseif($data->cupos_disponibles>0):?>
-                                 <form action="../controllers/pregunta.php" method="POST">
-                                    <input hidden name="type" value="participar_mentoria">
+                                 <form action="<?php echo url('post_participar_mentoria');?>" method="POST">
                                     <input hidden name="id_pregunta" value="<?php echo $data->id;?>">                                    
                                     <button class="button-blue">PARTICIPAR</button>
                                  </form>
@@ -129,8 +127,7 @@
                         <?php endif?>   
                     <?php elseif($data->estado==0):?>
                         <?php if($data->cui_usuario!=$_SESSION['usersCUI']):?>
-                            <!-- Nota:  Pasarlo a post -->
-                            <a class="button-blue" href="../views/programar_clase.php?id_pregunta=<?php echo $data->id;?>">ENSE&Nacute;AR</a>  
+                            <a class="button-blue" href="<?php echo url('crear_mentoria',['id_pregunta' => $data->id]);?>">ENSE&Nacute;AR</a>  
                         <?php else:?>   
                             <p>Paciencia ... Su pregunta todavia no ha sido tomada.</p>
                         <?php endif?>     
@@ -158,8 +155,7 @@
                                     <p>Fecha:</p>
                                     <p><?php echo $data->fecha_meet;?></p>   
                                 </div>
-                                <form action="../controllers/pregunta.php" method="POST">
-                                    <input hidden name="type" value="confirmar_mentoria">
+                                <form action="<?php echo url('post_confirmar_mentoria');?>" method="POST">
                                     <input hidden name="id_pregunta" value="<?php echo $data->id;?>">
                                     <label for="confirmacion">¿Aceptar mentor&iacute;a?</label>
                                     <select name="confirmacion" id="confirmacion">
@@ -173,8 +169,7 @@
                         <?php endif?>             
                     <?php endif?>   
                     <?php if($data->cui_mentor==$_SESSION['usersCUI']):?>
-                        <form action="../controllers/pregunta.php" method="POST">
-                            <input hidden name="type" value="cancelar_mentoria">
+                        <form action="<?php echo url('post_cancelar_mentoria',['id_pregunta' => $data->id]);?>" method="POST">
                             <input hidden name="id_pregunta" value="<?php echo $data->id;?>">                                    
                             <button class="button-blue">CANCELAR MENTORIA</button>
                         </form>

@@ -28,8 +28,7 @@
         <main class="main-usando-navbar">
             <div class="formulario">
             <h1>Eliminar pregunta</h1>
-            <form action="../controllers/pregunta.php" method="POST">
-                <input name="type" type="hidden" value="eliminar_pregunta"/>  
+            <form action="<?php echo url('post_borrar_pregunta');?>" method="POST">
                 <input name="id_pregunta" type="hidden" value="<?php echo $datos->id;?>"/>
                 <h3> Va a eliminar su pregunta:</h3>
                 <br/>
@@ -41,7 +40,7 @@
                 <br/>
                 <div class="button-box">
                     <input class="button button_aceptar" type="submit" value="Confirmar"/>
-                    <a class="button button_cancelar" href="../controllers/inicioController.php">Cancelar</a>
+                    <a class="button button_cancelar" href="<?php echo url('pregunta_view',['id_pregunta' => $datos->id]);?>">Cancelar</a>
                 </div>
             </form>
             </div>
