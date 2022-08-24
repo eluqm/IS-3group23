@@ -16,24 +16,17 @@
     </head>
     <body>
         <style>
-            <?php include __DIR__.'/css/general_style.css';?>
-            <?php include __DIR__.'/css/inicio.css';?>
-            <?php include __DIR__.'/components/pregunta.css';?>
-            <?php include __DIR__.'/components/nav_bar.css';?>
-            <?php include __DIR__.'/components/lista_cursos.css';?>
-            .logo-icon {background-image: url('./../views/icons/logo.png');}
-            .eye-icon {background-image: url('./../views/icons/eye.png');}
-            .edit-icon {background-image: url('./../views/icons/edit.png');}
-            .flag-icon {background-image: url('./../views/icons/flag.png');}
-            .checkmark-icon {background-image: url('./../views/icons/checkmark.png');}
-            .trash-icon {background-image: url('./../views/icons/delete.png');}
-            .x-mark-icon {background-image: url('./../views/icons/x-mark.png');}
-            .search-icon {background-image: url('./../views/icons/search.png');}
-            .admin-icon {background-image: url('./../views/icons/admin.png');}
+            <?php include $GLOBALS['BASE_DIR'].'/views/css/general_style.css';?>
+            <?php include $GLOBALS['BASE_DIR'].'/views/css/inicio.css';?>
+            <?php include $GLOBALS['BASE_DIR'].'/views/components/pregunta.css';?>
+            <?php include $GLOBALS['BASE_DIR'].'/views/components/nav_bar.css';?>
+            <?php include $GLOBALS['BASE_DIR'].'/views/components/lista_cursos.css';?>
+
         </style>
         <header>
             <?php
-            include __DIR__.'../components/nav_bar.php';
+            if(!isset($_SESSION['usersCUI'])){session_start();}
+            include $GLOBALS['BASE_DIR'].'/views/components/nav_bar.php';
             ?>
         </header>
 
@@ -45,9 +38,11 @@
 
             <section class="main__contenido">
                 <div class="main__contenido__header">
-                    <a id="estado_todo" href="../controllers/inicioController.php?action=get_preguntas&estado=all&curso=<?php echo $curso_actual;?>&anio=<?php echo $q_anio;?>">TODO</a>
-                    <a id="estado_open" href="../controllers/inicioController.php?action=get_preguntas&estado=open&curso=<?php echo $curso_actual;?>&anio=<?php echo $q_anio;?>">ABIERTAS</a>
-                    <a id="estado_close" href="../controllers/inicioController.php?action=get_preguntas&estado=close&curso=<?php echo $curso_actual;?>&anio=<?php echo $q_anio;?>">CERRADAS</a>
+
+                
+                    <a id="estado_todo" href="<?php echo url('inicio',['ESTADO' => 'all','CURSO' => $curso_actual,'ANIO' => $q_anio]);?>">TODO</a>
+                    <a id="estado_open" href="<?php echo url('inicio',['ESTADO' => 'open','CURSO' => $curso_actual,'ANIO' => $q_anio]);?>">ABIERTAS</a>
+                    <a id="estado_close" href="<?php echo url('inicio',['ESTADO' => 'close','CURSO' => $curso_actual,'ANIO' => $q_anio]);?>">CERRADAS</a>
                 </div>
 
                 <div class="main__contenido__q-list">
@@ -73,7 +68,7 @@
                                 <p><?php echo $dato->descripcion;?></p>
                             </div>
                             <div class="pregunta__actions">
-                                <a href="../controllers/pregunta.php?action=go_to_show_question&id_pregunta=<?php echo $dato->id;?>"><span class="pregunta-icon eye-icon"></span></a>
+                                <a href="/TASTI/pregunta/<?php echo $dato->id;?>"><span class="pregunta-icon eye-icon"></span></a>
 
                                 <?php if ($dato->estado == 0 && $dato->cui_usuario != $_SESSION['usersCUI']): ?> 
                                 <span class="pregunta-icon"></span>
@@ -81,13 +76,11 @@
                                 <div><span class="pregunta-icon"></span></div>
                                 <?php endif;?>
 
-                                <!-- editar pregunta -->
                                 <?php if ($dato->cui_usuario == $_SESSION['usersCUI']&& $dato->estado == 0): ?> 
                                 <?php $id_ = $dato->id;?>
-                                <a href="../controllers/pregunta.php?action=go_to_edit_question&id=<?php echo $id_;?>"><span class="pregunta-icon edit-icon"></span></a>
+                                <a href="<?php echo url('editar_pregunta',['id_pregunta' => $$dato->id]);?>"><span class="pregunta-icon edit-icon"></span></a>
                                 <?php elseif($_SESSION['admin']==1): ?>
-                                    <form action="../controllers/adminController.php" method="POST">
-                                        <input hidden name="action" value="goTo_formulario_eliminar">
+                                    <form action="<?php echo url('procesar_reporte_formulario')?>" method="POST">
                                         <input hidden name="modo" value="1">
                                         <input hidden name="id_pregunta" value="<?php echo $dato->id;?>">
                                         <button><span class="pregunta-icon x-mark-icon"></span></button>
@@ -97,9 +90,9 @@
                                 <?php endif;?>
 
                                 <?php if ($dato->cui_usuario == $_SESSION['usersCUI']): ?> 
-                                <a href="../controllers/pregunta.php?action=go_to_formulario_borrar_pregunta&id_pregunta=<?php echo $dato->id;?>"><span class="pregunta-icon trash-icon"></span></a>
+                                <a href="<?php echo url('borrar_pregunta',['id_pregunta' => $dato->id]);?>"><span class="pregunta-icon trash-icon"></span></a>
                                 <?php else: ?>
-                                <a href="../controllers/solicitudController.php?action=go_to_formulario_revision&id_pregunta=<?php echo $dato->id;?>"><span class="pregunta-icon flag-icon"></span></a>
+                                <a href="<?php echo url('crear_reporte_pregunta',['id_pregunta' => $dato->id]);?>"><span class="pregunta-icon flag-icon"></span></a>
                                 <?php endif;?>
                             </div>
                         </div>                    

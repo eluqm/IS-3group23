@@ -13,23 +13,15 @@
     </head>
     <body>
         <style>
-            <?php include __DIR__.'/css/general_style.css';?>
-            <?php include __DIR__.'/css/admin__solicitudes.css';?>
-            <?php include __DIR__.'/components/pregunta.css';?>
-            <?php include __DIR__.'/components/nav_bar.css';?>
-            .logo-icon {background-image: url('./../views/icons/logo.png');}
-            .eye-icon {background-image: url('./../views/icons/eye.png');}
-            .edit-icon {background-image: url('./../views/icons/edit.png');}
-            .flag-icon {background-image: url('./../views/icons/flag.png');}
-            .checkmark-icon {background-image: url('./../views/icons/checkmark.png');}
-            .trash-icon {background-image: url('./../views/icons/delete.png');}
-            .x-mark-icon {background-image: url('./../views/icons/x-mark.png');}
-            .search-icon {background-image: url('./../views/icons/search.png');}
-            .admin-icon {background-image: url('./../views/icons/admin.png');}
+            <?php include $GLOBALS['BASE_DIR'].'/views/css/general_style.css';?>
+            <?php include $GLOBALS['BASE_DIR'].'/views/css/admin__solicitudes.css';?>
+            <?php include $GLOBALS['BASE_DIR'].'/views/components/pregunta.css';?>
+            <?php include $GLOBALS['BASE_DIR'].'/views/components/nav_bar.css';?>
         </style>
         <header>
             <?php
-            include __DIR__.'../components/nav_bar.php';
+            if(!isset($_SESSION['usersCUI'])){session_start();}
+            include $GLOBALS['BASE_DIR'].'/views/components/nav_bar.php';
             ?>
         </header>
 
@@ -38,13 +30,13 @@
             <section class="main__contenido">
                 <div class="main__contenido__header">
                     <div class="main__contenido__header__row-1">
-                        <a href="../controllers/adminController.php?action=solicitudRegistro&solicitud=pendiente" id="selected">SOLICITUD DE REGISTRO</a>
-                        <a href="../controllers/adminController.php?action=solicitudRevisionPregunta&solicitud=pendiente">REPORTES</a>
+                        <a href="/TASTI/administrador/solicitudes/pendiente" id="selected">SOLICITUD DE REGISTRO</a>
+                        <a href="/TASTI/administrador/reportes/pendiente">REPORTES</a>
                     </div>
                     <div class="main__contenido__header__row-2">
-                        <a href="../controllers/adminController.php?action=solicitudRegistro&solicitud=pendiente" id="a_pendiente">PENDIENTES</a>
-                        <a href="../controllers/adminController.php?action=solicitudRegistro&solicitud=aceptada" id="a_aceptada">ACEPTADAS</a>
-                        <a href="../controllers/adminController.php?action=solicitudRegistro&solicitud=denegada" id="a_denegada">DENEGADAS</a>
+                        <a href="/TASTI/administrador/solicitudes/pendiente" id="a_pendiente">PENDIENTES</a>
+                        <a href="/TASTI/administrador/solicitudes/aceptada" id="a_aceptada">ACEPTADAS</a>
+                        <a href="/TASTI/administrador/solicitudes/denegada" id="a_denegada">DENEGADAS</a>
                     </div>
                 </div>
                 <div class="main__contenido__q-list">
@@ -63,8 +55,7 @@
                                     <p>DNI: <?php echo $dato->dni;?></p>
                                 </div>
                                 <div class="pregunta__actions">              
-                                    <form action="../controllers/adminController.php" method="POST">
-                                        <input hidden name="action" value="solicitud_registro_procesada">
+                                    <form action="<?php echo url('post_procesar_reporte')?>" method="POST">
                                         <input hidden name="id_solicitud" value="<?php echo $dato->id?>">
                                         <input hidden name="estado" value=1>
                                         <input hidden name="cui_new_user" value="<?php echo $dato->cui;?>">
@@ -72,8 +63,7 @@
                                     </form>
                                     <div><span class="pregunta-icon"></span></div>
                                     <div><span class="pregunta-icon"></span></div>
-                                    <form action="../controllers/adminController.php" method="POST">
-                                        <input hidden name="action" value="goTo_formulario_denegar_registro">
+                                    <form action="<?php echo url('denegar_reporte_formulario')?>" method="POST">
                                         <input hidden name="id_solicitud_registro" value="<?php echo $dato->id;?>">
                                         <button type="submit"><span class="pregunta-icon trash-icon"></span></button>   
                                     </form>

@@ -10,26 +10,23 @@
         <title>Programar Clase</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
-        <link href='https://fonts.googleapis.com/css?family=Overlock SC' rel='stylesheet'>
-        <link rel="stylesheet" href="css/general_style.css">
-        <link rel="stylesheet" href="components/nav_bar.css">
     </head>
     <body>
         <style>
-            <?php include __DIR__.'/css/programar_clase.css';?>
+            <?php include $GLOBALS['BASE_DIR'].'/views/css/general_style.css';?>
+            <?php include $GLOBALS['BASE_DIR'].'/views/components/nav_bar.css';?>
+            <?php include $GLOBALS['BASE_DIR'].'/views/css/programar_clase.css';?>
         </style>
         <header>
             <?php
                 if(!isset($_SESSION['usersCUI'])){session_start();}
-                include 'components/nav_bar.php';
+                include $GLOBALS['BASE_DIR'].'/views/components/nav_bar.php';
             ?>
         </header>
         <main>
-            <form class="formulario" method="POST" action="../controllers/pregunta.php">
+            <form class="formulario" method="POST" action="<?php echo url('post_crear_mentoria') ?>">
                 <h1>Programar Clase</h1>
-                <input type="hidden" name="type" value="schedule_class">
-                <input type="hidden" name="id_pregunta" value=<?php echo $_GET["id_pregunta"];?> />
+                <input type="hidden" name="id_pregunta" value=<?php echo $id_pregunta;?> />
                 
                 <label for="fecha">Fecha de Reunion</label>
                 <br/>
@@ -52,7 +49,7 @@
                 </div>
                 <div class="button-box">
                     <button class="button button_aceptar" type="submit" name="submit">Programar</button>
-                    <a class="button button_cancelar" href="../controllers/inicioController.php">Cancelar</a>
+                    <a class="button button_cancelar" href="<?php echo url('pregunta_view',['id_pregunta' => $id_pregunta]);?>">Cancelar</a>
                 </div> 
             </form>
         </main>

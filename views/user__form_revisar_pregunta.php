@@ -13,26 +13,22 @@
     </head>
     <body>    
     <style>
-        <?php include __DIR__.'/css/general_style.css';?>
-        <?php include __DIR__.'/css/forms.css';?>
-        <?php include __DIR__.'/components/pregunta.css';?>
-        <?php include __DIR__.'/components/nav_bar.css';?>
-        .logo-icon {background-image: url('./../views/icons/logo.png');}
-        .search-icon {background-image: url('./../views/icons/search.png');}
-        .admin-icon {background-image: url('./../views/icons/admin.png');}
+        <?php include $GLOBALS['BASE_DIR'].'/views/css/general_style.css';?>
+        <?php include $GLOBALS['BASE_DIR'].'/views/css/forms.css';?>
+        <?php include $GLOBALS['BASE_DIR'].'/views/components/pregunta.css';?>
+        <?php include $GLOBALS['BASE_DIR'].'/views/components/nav_bar.css';?>
     </style>
         <header>
             <?php
             if(!isset($_SESSION['usersCUI'])){session_start();}
-            include __DIR__.'../components/nav_bar.php';
+            include $GLOBALS['BASE_DIR'].'/views/components/nav_bar.php';
             ?>
         </header>
 
     <main class="main-usando-navbar ">
         <div class="formulario">
         <h1>Solicitar revision de pregunta</h1>
-        <form method="POST" action="../controllers/solicitudController.php">
-            <input type="hidden" name="action" value="crear_solicitud_revision">
+        <form method="POST" action="<?php echo url('post_crear_reporte_pregunta')?>">
             <input type="hidden" name="id_pregunta" value="<?php echo $datos_pregunta->id?>">
             <div class="pregunta__info">
                 <p><?php echo $datos_pregunta->nombre_curso; ?>><?php echo $datos_pregunta->tema;?> | <?php echo $datos_pregunta->fecha_publicacion;?></p>
@@ -44,12 +40,11 @@
             <br/>
             <div class="button-box">
                 <button class="button button_aceptar" type="submit">Enviar</button>
-                <a class="button button_cancelar" href="../controllers/inicioController.php">Cancelar</a>
+                <a class="button button_cancelar" href="<?php echo url('index')?>">Cancelar</a>
             </div>
         </form>
         </div>
     </main>
-        
         <script src="" async defer></script>
     </body>
 </html>

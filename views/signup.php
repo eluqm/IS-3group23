@@ -1,22 +1,15 @@
-<?php 
-    session_start(); 
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="stylesheet" href="css/signup.css">
     <title>Registrarse</title>
 </head>
-
-<?php 
-    include_once '../helpers/session_helper.php';
-?>
-
 <body>
+    <style>
+        <?php include $GLOBALS['BASE_DIR'].'/views/css/signup.css';?>
+    </style>
     <div class="login-container">
         <div class="image-container">
             <h1 class="title">Registrarse</h1>
@@ -24,7 +17,7 @@
         </div>
         <div class="login-info-container">
             <?php flash('register') ?>
-            <form class="inputs-container" method="post" action="../controllers/usuario.php">
+            <form class="inputs-container" method="post" action="<?php echo url('post_signup');?>">
                 <input type="hidden" name="type" value="register">
                 <label for="fname" >Nombre:</label>
                 <input class="input" name="usersName" type="text" placeholder="Ingresar nombre completo" required>
@@ -39,7 +32,7 @@
                 <label for="fname">Repetir contraseña:</label>
                 <input class="input" name="usersPwd-repeat" type="password" placeholder="Ingresar contraseña" required>
                 <button class="btn">Registrarse</button>
-                <p>¿Ya tienes cuenta?<a class="a" href="login.php">Iniciar Sesión</a></p>
+                <p>¿Ya tienes cuenta?<a class="a" href="<?php echo url('login');?>">Iniciar Sesión</a></p>
             </form>
         </div>
     </div>

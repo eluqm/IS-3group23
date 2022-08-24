@@ -11,12 +11,12 @@
 
 <body>
     <style>
-            <?php include __DIR__.'/css/general_style.css';?>
-            <?php include __DIR__.'/components/nav_bar.css';?>
-            <?php include __DIR__.'/css/admin__inicio.css';?>
-            <?php include __DIR__.'/components/pregunta.css';?>
-            <?php include __DIR__.'/components/lista_cursos.css';?>
-            <?php include __DIR__.'/css/index.css';?>
+            <?php include $GLOBALS['BASE_DIR'].'/views/css/general_style.css';?>
+            <?php include $GLOBALS['BASE_DIR'].'/views/components/nav_bar.css';?>
+            <?php include $GLOBALS['BASE_DIR'].'/views/css/admin__inicio.css';?>
+            <?php include $GLOBALS['BASE_DIR'].'/views/components/pregunta.css';?>
+            <?php include $GLOBALS['BASE_DIR'].'/views/components/lista_cursos.css';?>
+            <?php include $GLOBALS['BASE_DIR'].'/views/css/index.css';?>
     </style>
     <header class="index">
         <nav>

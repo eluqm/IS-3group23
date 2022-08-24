@@ -7,57 +7,57 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Mi Perfil</title>
+        <title>Publicar pregunta</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
         <link href='https://fonts.googleapis.com/css?family=Overlock SC' rel='stylesheet'>
-        <link rel="stylesheet" href="css/general_style.css">
-        <link rel="stylesheet" href="components/nav_bar.css">
-        <link rel="stylesheet" href="css/publicar_pregunta.css">
-        <link rel="stylesheet" href="components/pregunta.css">
     </head>
     <body>
+        <style>
+            <?php include $GLOBALS['BASE_DIR'].'/views/css/general_style.css';?>
+            <?php include $GLOBALS['BASE_DIR'].'/views/css/publicar_pregunta.css';?>
+            <?php include $GLOBALS['BASE_DIR'].'/views/components/nav_bar.css';?>
+        </style>
         <header>
             <?php
             if(!isset($_SESSION['usersCUI'])){session_start();}
-            include 'components/nav_bar.php';
+            include $GLOBALS['BASE_DIR'].'/views/components/nav_bar.php';
             ?>
         </header>
     <main class="main-usando-navbar ">
             <div class="publicar_pregunta">
             <h1>Publicar Pregunta</h1>
             <br/>
-            <form class="inputs-container" method="post" action="../controllers/pregunta.php">
+            <form class="inputs-container" method="post" action="/TASTI/publicando">
+                <input type="hidden" name="csrf_token" value="<? csrf_token(); ?>">    
                 <input type="hidden" name="type" value="store">
                 <div id="lateral">
                     <p>
-                    <label for="">T&iacute;tulo</label>
-                    <input type="text" name="titulo">
+                    <label for="titulo">T&iacute;tulo</label>
+                    <input type="text" name="titulo" id="titulo" required placeholder="Ingresar título" oninvalid="setCustomValidity('Su pregunta debe tener un título')" oninput="setCustomValidity('')">
                     </p><br/>
 
                     <p>
-                    <label for="">Tema</label>
-                    <input type="text" name="tema">
+                    <label for="tema_">Tema</label>
+                    <input type="text" name="tema" id="tema_" required placeholder="Ingresar tema" oninvalid="setCustomValidity('Su pregunta debe tener un tema')" oninput="setCustomValidity('')"/>
                     </p><br/>
 
                     <p>
-                    <label for="">Disponibilidad</label>
-                    <input type="text" name="disponibilidad">
+                    <label for="disponibilidad">Disponibilidad</label>
+                    <input type="text" name="disponibilidad" id="disponibilidad" required placeholder="Ingresar disponibilidad" oninvalid="setCustomValidity('Su pregunta debe incluir su disponibilidad')" oninput="setCustomValidity('')"/>
                     </p><br/>
 
                     <p>
-                    <label for="">Fecha L&iacute;mite</label>
-                    <input type="datetime-local" name="fecha_limite">
+                    <label for="fecha_limite">Fecha L&iacute;mite</label>
+                    <input type="datetime-local" name="fecha_limite" id="fecha_limite" required oninvalid="setCustomValidity('Su pregunta debe tener una fecha limite para ser tomada')" oninput="setCustomValidity('')"/>
                     </p><br/>
                 </div>
                     
                 <div id="principal">
-                    
-
                     <p>
-                    <label for="">Curso</label>
-                        <select name="curso">
+                    <label for="curso">Curso</label>
+                        <select name="curso" id="curso">
                             <?php
                                 include '../models/curso.php';
                                 $curso_display=new Curso;
@@ -72,8 +72,8 @@
                     </p><br/>
 
                     <p class="input-file-wrapper">
-                    <label class="descp" for="">Descripcion</label>
-                    <textarea name="descripcion" id="" cols="30" rows="7"></textarea>
+                    <label class="descp" for="descripcion">Descripcion</label>
+                    <textarea name="descripcion" id="descripcion" cols="30" rows="7" required placeholder="Incluya toda la información que alguien necesitaría para responder a su pregunta" oninvalid="setCustomValidity('Su pregunta debe tener una descripción')" oninput="setCustomValidity('')"></textarea>
                     </p><br/>
                     <p class="boton">
                     <button type="submit" name="submit">Preguntar</button>
@@ -82,9 +82,6 @@
             </form>
             </div>
     </main>
-
-
         <script src="" async defer></script>
     </body>
-
 </html>

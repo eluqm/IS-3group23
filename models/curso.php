@@ -1,7 +1,5 @@
 <?php
-namespace IS3group3\Models;
-
-use IS3group3\Config\Database;
+require_once '../config/conexion.php';
 
 class Curso {
 

@@ -13,23 +13,15 @@
     </head>
     <body>
         <style>
-            <?php include __DIR__.'/css/general_style.css';?>
-            <?php include __DIR__.'/css/admin__solicitudes.css'?>
-            <?php include __DIR__.'/components/pregunta.css';?>
-            <?php include __DIR__.'/components/nav_bar.css';?>
-            .logo-icon {background-image: url('./../views/icons/logo.png');}
-            .eye-icon {background-image: url('./../views/icons/eye.png');}
-            .edit-icon {background-image: url('./../views/icons/edit.png');}
-            .flag-icon {background-image: url('./../views/icons/flag.png');}
-            .checkmark-icon {background-image: url('./../views/icons/checkmark.png');}
-            .trash-icon {background-image: url('./../views/icons/delete.png');}
-            .x-mark-icon {background-image: url('./../views/icons/x-mark.png');}
-            .search-icon {background-image: url('./../views/icons/search.png');}
-            .admin-icon {background-image: url('./../views/icons/admin.png');}
+            <?php include $GLOBALS['BASE_DIR'].'/views/css/general_style.css';?>
+            <?php include $GLOBALS['BASE_DIR'].'/views/css/admin__solicitudes.css'?>
+            <?php include $GLOBALS['BASE_DIR'].'/views/components/pregunta.css';?>
+            <?php include $GLOBALS['BASE_DIR'].'/views/components/nav_bar.css';?>
         </style>
         <header>
             <?php
-            include __DIR__.'../components/nav_bar.php';
+            if(!isset($_SESSION['usersCUI'])){session_start();}
+            include $GLOBALS['BASE_DIR'].'/views/components/nav_bar.php';
             ?>
         </header>
 
@@ -39,13 +31,13 @@
             <section class="main__contenido">
                 <div class="main__contenido__header">
                     <div class="main__contenido__header__row-1">
-                        <a href="../controllers/adminController.php?action=solicitudRegistro&solicitud=pendiente">SOLICITUD DE REGISTRO</a>
-                        <a href="../controllers/adminController.php?action=solicitudRevisionPregunta&solicitud=pendiente" id="selected">REPORTES</a>
+                        <a href="/TASTI/administrador/solicitudes/pendiente">SOLICITUD DE REGISTRO</a>
+                        <a href="/TASTI/administrador/reportes/pendiente" id="selected">REPORTES</a>
                     </div>
                     <div class="main__contenido__header__row-2">
-                        <a href="../controllers/adminController.php?action=solicitudRevisionPregunta&solicitud=pendiente" id="a_pendiente">PENDIENTES</a>
-                        <a href="../controllers/adminController.php?action=solicitudRevisionPregunta&solicitud=aceptada" id="a_aceptada">ACEPTADAS</a>
-                        <a href="../controllers/adminController.php?action=solicitudRevisionPregunta&solicitud=denegada" id="a_denegada">DENEGADAS</a>
+                        <a href="/TASTI/administrador/reportes/pendiente" id="a_pendiente">PENDIENTES</a>
+                        <a href="/TASTI/administrador/reportes/aceptada" id="a_aceptada">ACEPTADAS</a>
+                        <a href="/TASTI/administrador/reportes/denegada" id="a_denegada">DENEGADAS</a>
                     </div>
                 </div>
                 <div class="main__contenido__q-list">
@@ -65,15 +57,13 @@
                                     <p><span>Razon: </span> <?php echo $dato->razon;?></p>
                                 </div>
                                 <div class="pregunta__actions">                        
-                                    <a href="#"><span class="pregunta-icon eye-icon"></span></a> 
-                                    <form action="../controllers/adminController.php" method="POST">
-                                        <input hidden name="action" value="goTo_formulario_eliminar">
+                                    <a href="<?php echo url('pregunta_view',['id_pregunta' => $dato->id_pregunta]); ?>"><span class="pregunta-icon eye-icon"></span></a> 
+                                    <form action="<?php echo url('procesar_reporte_formulario')?>" method="POST">
                                         <input hidden name="modo" value="0">
                                         <input hidden name="id_pregunta" value="<?php echo $dato->id_pregunta;?>">
                                         <button><span class="pregunta-icon checkmark-icon"></span></button>
                                     </form>
-                                    <form action="../controllers/adminController.php" method="POST">
-                                        <input hidden name="action" value="goTo_formulario_eliminar">
+                                    <form action="<?php echo url('procesar_reporte_formulario')?>" method="POST">
                                         <input hidden name="modo" value="2">
                                         <input hidden name="id_pregunta" value="<?php echo $dato->id_pregunta;?>">
                                         <button><span class="pregunta-icon trash-icon"></span></button>

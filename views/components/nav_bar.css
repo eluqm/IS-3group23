@@ -23,7 +23,7 @@
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
-    background-image: url('../icons/logo.png');  
+    background-image: url('https://github.com/eluqm/IS-3group3/blob/main/views/icons/logo.png?raw=true');  
 }
 
 .logo-title {
@@ -57,7 +57,7 @@
 }
 
 .search-icon {
-    background-image: url('../icons/search.png');
+    background-image: url('https://github.com/eluqm/IS-3group3/blob/main/views/icons/search.png?raw=true');
 }
 
 .nav-bar__publicar-pregunta {
@@ -88,7 +88,7 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover; 
-    background-image: url('../icons/admin.png');
+    background-image: url('https://github.com/eluqm/IS-3group3/blob/main/views/icons/admin.png?raw=true');
 }
 
 .nav-bar__perfil{
