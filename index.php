@@ -13,7 +13,7 @@ use function foo\func;
     require_once './controllers/solicitudController.php';  
 
     SimpleRouter::get('/TASTI/', [InicioController::class, 'index'])->name('index');
-    SimpleRouter::get('/TASTI/inicio/{ESTADO}/{CURSO}/{ANIO}', [InicioController::class, 'get_preguntas'])->name('Inicio');
+    SimpleRouter::get('/TASTI/inicio/{ESTADO}/{CURSO}/{ANIO}', [InicioController::class, 'get_preguntas'])->name('inicio');
     SimpleRouter::get('/TASTI/publicar', function() {
         require_once('./views/publicar_pregunta.php');
     })->name('publicar_pregunta');

@@ -16,28 +16,17 @@
     </head>
     <body>
         <style>
-            <?php include __DIR__.'/css/general_style.css';?>
-            <?php include __DIR__.'/css/inicio.css';?>
-            <?php include __DIR__.'/components/pregunta.css';?>
-            <?php include __DIR__.'/components/nav_bar.css';?>
-            <?php include __DIR__.'/components/lista_cursos.css';?>
             <?php include $GLOBALS['BASE_DIR'].'/views/css/general_style.css';?>
-            <?php include $GLOBALS['BASE_DIR'].'/views/css/user__perfil.css';?>
+            <?php include $GLOBALS['BASE_DIR'].'/views/css/inicio.css';?>
             <?php include $GLOBALS['BASE_DIR'].'/views/components/pregunta.css';?>
             <?php include $GLOBALS['BASE_DIR'].'/views/components/nav_bar.css';?>
-            .logo-icon {background-image: url('./views/icons/logo.png');}
-            .eye-icon {background-image: url('./views/icons/eye.png');}
-            .edit-icon {background-image: url('./views/icons/edit.png');}
-            .flag-icon {background-image: url('./views/icons/flag.png');}
-            .checkmark-icon {background-image: url('./views/icons/checkmark.png');}
-            .trash-icon {background-image: url('./views/icons/delete.png');}
-            .x-mark-icon {background-image: url('./views/icons/x-mark.png');}
-            .search-icon {background-image: url('./views/icons/search.png');}
-            .admin-icon {background-image: url('./views/icons/admin.png');}
+            <?php include $GLOBALS['BASE_DIR'].'/views/components/lista_cursos.css';?>
+
         </style>
         <header>
             <?php
-            include __DIR__.'../components/nav_bar.php';
+            if(!isset($_SESSION['usersCUI'])){session_start();}
+            include $GLOBALS['BASE_DIR'].'/views/components/nav_bar.php';
             ?>
         </header>
 
@@ -49,9 +38,11 @@
 
             <section class="main__contenido">
                 <div class="main__contenido__header">
-                    <a id="estado_todo" href="/TASTI/inicio/all/<?php echo $curso_actual;?>/<?php echo $q_anio;?>">TODO</a>
-                    <a id="estado_open" href="/TASTI/inicio/open/<?php echo $curso_actual;?>/<?php echo $q_anio;?>">ABIERTAS</a>
-                    <a id="estado_close" href="/TASTI/inicio/close/<?php echo $curso_actual;?>/<?php echo $q_anio;?>">CERRADAS</a>
+
+                
+                    <a id="estado_todo" href="<?php echo url('inicio',['ESTADO' => 'all','CURSO' => $curso_actual,'ANIO' => $q_anio]);?>">TODO</a>
+                    <a id="estado_open" href="<?php echo url('inicio',['ESTADO' => 'open','CURSO' => $curso_actual,'ANIO' => $q_anio]);?>">ABIERTAS</a>
+                    <a id="estado_close" href="<?php echo url('inicio',['ESTADO' => 'close','CURSO' => $curso_actual,'ANIO' => $q_anio]);?>">CERRADAS</a>
                 </div>
 
                 <div class="main__contenido__q-list">

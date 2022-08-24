@@ -15,14 +15,14 @@
     </head>
     <body>
         <style>
-            <?php include __DIR__.'/css/general_style.css';?>
-            <?php include __DIR__.'/css/publicar_pregunta.css';?>
-            <?php include __DIR__.'/components/nav_bar.css';?>
+            <?php include $GLOBALS['BASE_DIR'].'/views/css/general_style.css';?>
+            <?php include $GLOBALS['BASE_DIR'].'/views/css/publicar_pregunta.css';?>
+            <?php include $GLOBALS['BASE_DIR'].'/views/components/nav_bar.css';?>
         </style>
         <header>
             <?php
             if(!isset($_SESSION['usersCUI'])){session_start();}
-            include 'components/nav_bar.php';
+            include $GLOBALS['BASE_DIR'].'/views/components/nav_bar.php';
             ?>
         </header>
     <main class="main-usando-navbar ">

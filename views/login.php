@@ -9,6 +9,7 @@
 
     <body>
         <style>
+            if(!isset($_SESSION['usersCUI'])){session_start();}
             <?php include $GLOBALS['BASE_DIR'].'/views/css/login.css';?>
         </style>
     <div class="login-container">
