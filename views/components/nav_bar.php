@@ -10,7 +10,7 @@
     <a href="/TASTI/publicar" class="nav-bar__publicar-pregunta">+ Publicar Pregunta</a>
     <div class="nav-bar__perfil">
         <?php if($_SESSION['admin']==1) : ?>
-            <a href="/TASTI/administrador/solicitudes/pendiente" class="nav-bar__administrador"><span class="admin-icon"></span></a>
+            <a href="<?php echo url('admin_ver_solicitud_registro',['estado_solicitud' => 'pendiente']); ?>" class="nav-bar__administrador"><span class="admin-icon"></span></a>
         <?php endif; ?>
         <a href="/TASTI/perfil/<?php echo $_SESSION['usersCUI'];?>" class="nav-bar__perfil__user-name">
             <span class="user-image"></span> 

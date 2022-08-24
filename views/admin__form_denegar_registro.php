@@ -30,8 +30,7 @@
         <main class="main-usando-navbar">
             <div class="formulario">
             <h1>Denegar Registro</h1>
-            <form method="POST" action="../controllers/adminController.php">
-                <input hidden name="action" value="solicitud_registro_procesada">
+            <form method="POST" action="<?php echo url('post_procesar_reporte')?>">
                 <input hidden name="estado" value=2>
                 <input hidden name="id_solicitud" value="<?php echo $datos_registro->id?>">
                 <div class="pregunta__info">

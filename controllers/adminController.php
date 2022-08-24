@@ -26,7 +26,7 @@ class AdminController {
                 $tipo_solicitud=2;
                 break;
             default:
-                redirect("./adminController.php?action=solicitudRegistro&solicitud=pendiente");
+                redirect(url('admin_ver_reporte_pregunta',['estado_reporte' => 'pendiente']));
                 break;
         }
         return $tipo_solicitud;
@@ -56,7 +56,7 @@ class AdminController {
     public function go_to_formulario_eliminar(){
         $this->verificar_sesion();
         if(!isset($_POST['id_pregunta']) || !isset($_POST['modo'])){
-            redirect("../index.php");
+            redirect(url('index'));
         }
         /*
         0 -> aceptar solicitud de eliminacion
@@ -72,49 +72,42 @@ class AdminController {
     public function go_to_formulario_denegar_registro(){
         $this->verificar_sesion();
         if(!isset($_POST['id_solicitud_registro'])){
-            redirect("../index.php");
+            redirect(url('index'));
         }
         $datos_registro = $this->solicitud->search_SolicitudRegistro_by_ID($_POST['id_solicitud_registro']);
-        require_once("../views/admin__form_denegar_registro.php");
+        require_once($GLOBALS['BASE_DIR'].'/views/admin__form_denegar_registro.php');
 
     }
-
-    public function solicitud_eliminacion_aceptada(){
+    
+    public function solicitud_pregunta_procesada(){
         $this->verificar_sesion();
+        /*
+        0 -> aceptar solicitud de eliminacion
+        1 -> eliminar sin solicitud
+        2 -> ignorar solicitud de eliminacion
+        */
+        $action = $_POST['action'];
         $data['id_pregunta']=$_POST['id_pregunta'];
         $data['cui_usuario']=$_SESSION['usersCUI'];
         $data['descripcion']=$_POST['razon'];
         date_default_timezone_set("America/Lima");
         $data['fecha_creacion']=date('Y-m-d H:i:s');
-        $this->solicitud->solicitud_eliminacion_aceptar($data);
-        redirect("./adminController.php?action=solicitudRevisionPregunta&solicitud=pendiente");
-    }
-
-    public function solicitud_eliminacion_denegada(){
-        $this->verificar_sesion();
-        $data['id_pregunta']=$_POST['id_pregunta'];
-        $data['cui_usuario']=$_SESSION['usersCUI'];
-        $data['descripcion']=$_POST['razon'];
-        date_default_timezone_set("America/Lima");
-        $data['fecha_creacion']=date('Y-m-d H:i:s');
-        $this->solicitud->solicitud_eliminacion_denegada($data);
-        redirect("./adminController.php?action=solicitudRevisionPregunta&solicitud=pendiente");
-    }
-
-    public function eliminar_pregunta(){
-        $this->verificar_sesion();
-        $data['id_pregunta']=$_POST['id_pregunta'];
-        $data['cui_usuario']=$_SESSION['usersCUI'];
-        $data['descripcion']=$_POST['razon'];
-        date_default_timezone_set("America/Lima");
-        $data['fecha_creacion']=date('Y-m-d H:i:s');
-
-        //verificar si no hay una solicitud con una misma pregunta
-        if($this->solicitud->search_by_id_pregunta($data['id_pregunta'])==0){
-            $this->solicitud->store_solicitud_revision_pregunta($data);
+        if($action==0){
             $this->solicitud->solicitud_eliminacion_aceptar($data);
+            redirect(url('admin_ver_reporte_pregunta',['estado_reporte' => 'aceptada']));
         }
-        redirect("./adminController.php?action=solicitudRevisionPregunta&solicitud=pendiente");    
+        elseif($action ==1) {
+            //verificar si no hay una solicitud con una misma pregunta
+            if($this->solicitud->search_by_id_pregunta($data['id_pregunta'])==0){
+                $this->solicitud->store_solicitud_revision_pregunta($data);
+                $this->solicitud->solicitud_eliminacion_aceptar($data);
+            }
+            redirect(url('admin_ver_reporte_pregunta',['estado_reporte' => 'aceptada']));
+        }
+        elseif($action ==2){
+            $this->solicitud->solicitud_eliminacion_denegada($data);
+            redirect(url('admin_ver_reporte_pregunta',['estado_reporte' => 'denegada']));
+        }
     }
 
     public function solicitud_registro_procesada(){
@@ -131,13 +124,13 @@ class AdminController {
         date_default_timezone_set("America/Lima");
         $data['fecha']=date('Y-m-d H:i:s');
         $this->solicitud->solicitud_registro_procesar($data);
-        redirect("./adminController.php?action=solicitudRegistro&solicitud=pendiente");
+        redirect(url('admin_ver_solicitud_registro',['estado_solicitud' => 'pendiente']));
     }
 
     public function verificar_sesion(){
         //session_start();
         if(!isset($_SESSION['usersCUI']) || $_SESSION['admin']!=1){
-            redirect("../views/login.php");
+            redirect(url('login'));
             return 0;
         }
         else{
@@ -146,31 +139,4 @@ class AdminController {
     }
 
 }
-/*
-$init = new AdminController;
-
-if($_SERVER['REQUEST_METHOD'] == 'POST'){
-    switch($_POST['action']){
-        case 'goTo_formulario_eliminar':
-            $init->go_to_formulario_eliminar();
-            break;
-        case 'goTo_formulario_denegar_registro':
-                $init->go_to_formulario_denegar_registro();
-                break;
-        case 'eliminar_pregunta':
-            $init->eliminar_pregunta();
-            break;
-        case 'solicitud_eliminacion_aceptada':
-            $init->solicitud_eliminacion_aceptada();
-            break;
-        case 'solicitud_eliminacion_denegada':
-            $init->solicitud_eliminacion_denegada();
-            break;
-        case 'solicitud_registro_procesada':
-            $init->solicitud_registro_procesada();
-            break;
-        default:
-            redirect("../index.php");  
-    }
-*/
 ?>

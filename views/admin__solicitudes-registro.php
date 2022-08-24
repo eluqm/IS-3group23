@@ -63,8 +63,7 @@
                                     <p>DNI: <?php echo $dato->dni;?></p>
                                 </div>
                                 <div class="pregunta__actions">              
-                                    <form action="../controllers/adminController.php" method="POST">
-                                        <input hidden name="action" value="solicitud_registro_procesada">
+                                    <form action="<?php echo url('post_procesar_reporte')?>" method="POST">
                                         <input hidden name="id_solicitud" value="<?php echo $dato->id?>">
                                         <input hidden name="estado" value=1>
                                         <input hidden name="cui_new_user" value="<?php echo $dato->cui;?>">
@@ -72,8 +71,7 @@
                                     </form>
                                     <div><span class="pregunta-icon"></span></div>
                                     <div><span class="pregunta-icon"></span></div>
-                                    <form action="../controllers/adminController.php" method="POST">
-                                        <input hidden name="action" value="goTo_formulario_denegar_registro">
+                                    <form action="<?php echo url('denegar_reporte_formulario')?>" method="POST">
                                         <input hidden name="id_solicitud_registro" value="<?php echo $dato->id;?>">
                                         <button type="submit"><span class="pregunta-icon trash-icon"></span></button>   
                                     </form>

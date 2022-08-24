@@ -47,14 +47,13 @@
                             <a href="<?php echo url('borrar_pregunta',['id_pregunta' => $data->id]);?>"><span class="main_pregunta-icon trash-icon"></span></a>
                         <?php else:?>
                             <?php if($_SESSION['admin']==1):?>
-                                <form action="../controllers/adminController.php" method="POST">
-                                    <input hidden name="action" value="goTo_formulario_eliminar">
+                                <form action="<?php echo url('procesar_reporte_formulario')?>" method="POST">
                                     <input hidden name="modo" value="1">
                                     <input hidden name="id_pregunta" value="<?php echo $data->id;?>">
                                     <button><span class="main_pregunta-icon x-mark-icon"></span></button>
                                 </form>
                             <?php endif?>
-                            <a href="../controllers/solicitudController.php?action=go_to_formulario_revision&id_pregunta=<?php echo $data->id;?>"><span class="main_pregunta-icon flag-icon"></span></a>
+                            <a href="<?php echo url('crear_reporte_pregunta',['id_pregunta' => $data->id]);?>"><span class="main_pregunta-icon flag-icon"></span></a>
                         <?php endif?>
                     </div>
                 </div>
@@ -69,7 +68,7 @@
                     </div>
                     <div class="main__pregunta__info__content__dato"> 
                         <p>Usuario:</p>
-                        <p><a href="/TASTI/perfil/<?php echo $data->cui_usuario;?>"><?php echo $data->cui_usuario;?></a></p>
+                        <p><a href="<?php echo url('perfil',['cui' => $data->cui_usuario]);?>"><?php echo $data->cui_usuario;?></a></p>
                     </div>
                     <div class="main__pregunta__info__content__dato"> 
                         <p>Disponibilidad:</p>
@@ -79,7 +78,7 @@
                         <hr>
                         <div class="main__pregunta__info__content__dato"> 
                             <p>Mentor:</p>
-                            <p><a href="/TASTI/perfil/<?php echo $data->cui_mentor;?>"><?php echo $data->cui_mentor;?></a></p>
+                            <p><a href="<?php echo url('perfil',['cui' => $data->cui_mentor]);?>"><?php echo $data->cui_mentor;?></a></p>
                         </div>
                         <div class="main__pregunta__info__content__dato"> 
                             <p>Tipo de clase:</p>
@@ -136,7 +135,7 @@
                             <?php if($data->cui_usuario==$_SESSION['usersCUI']):?>
                                 <div class="main__pregunta__info__content__dato"> 
                                     <p>Mentor:</p>
-                                    <p><a href="/TASTI/perfil/<?php echo $data->cui_mentor;?>"><?php echo $data->cui_mentor;?></a></p>
+                                    <p><a href="<?php echo url('perfil',['cui' => $data->cui_mentor]);?>"><?php echo $data->cui_mentor;?></a></p>
                                 </div>
                                 <div class="main__pregunta__info__content__dato"> 
                                     <p>Tipo de clase:</p>

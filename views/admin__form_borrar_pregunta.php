@@ -29,9 +29,13 @@
         </header>
         <main class="main-usando-navbar">
             <div class="formulario">
-            <h1>Eliminar Pregunta</h1>
-            <form method="POST" action="../controllers/adminController.php">
-                <input hidden name="action" value="<?php if($action_solicitud==0): echo 'solicitud_eliminacion_aceptada'; elseif($action_solicitud==1): echo 'eliminar_pregunta'; elseif($action_solicitud==2): echo 'solicitud_eliminacion_denegada'; endif;?>">
+            <?php if($action_solicitud==2):?>
+                <h1>Descartar reporte</h1>     
+            <?php else:?>
+                <h1>Eliminar Pregunta</h1>
+            <?php endif;?>
+            <form method="POST" action="<?php echo url('post_procesar_solicitud_pregunta') ?>">
+                <input hidden name="action" value="<?php echo $action_solicitud; ?>">
                 <input hidden name="id_pregunta" value="<?php echo $datos_pregunta->id?>">
                 <div class="pregunta__info">
                     <p><?php echo $datos_pregunta->nombre_curso;?> > <?php echo $datos_pregunta->tema;?> | <?php echo $datos_pregunta->fecha_publicacion;?></p>
@@ -39,11 +43,11 @@
                     <p><?php echo $datos_pregunta->descripcion;?></p>
                 </div>
                 <hr>
-                <textarea id="razon" name="razon" placeholder="Motivo de su denuncia"></textarea>
+                <textarea id="razon" name="razon" placeholder="Proporcione más información de la decisión"></textarea>
                 <br/>
                 <div class="button-box">
-                    <button class="button button_aceptar" type="submit">Eliminar</button>
-                    <a class="button button_cancelar" href="../controllers/inicioController.php">Cancelar</a>
+                    <button class="button button_aceptar" type="submit">Enviar</button>
+                    <a class="button button_cancelar" href="<?php echo url('admin_ver_reporte_pregunta',['estado_reporte' => 'pendiente']);?>">Cancelar</a>
                 </div>
             </form>
             </div>

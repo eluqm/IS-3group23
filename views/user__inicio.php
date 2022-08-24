@@ -89,8 +89,7 @@
                                 <?php $id_ = $dato->id;?>
                                 <a href="<?php echo url('editar_pregunta',['id_pregunta' => $$dato->id]);?>"><span class="pregunta-icon edit-icon"></span></a>
                                 <?php elseif($_SESSION['admin']==1): ?>
-                                    <form action="../controllers/adminController.php" method="POST">
-                                        <input hidden name="action" value="goTo_formulario_eliminar">
+                                    <form action="<?php echo url('procesar_reporte_formulario')?>" method="POST">
                                         <input hidden name="modo" value="1">
                                         <input hidden name="id_pregunta" value="<?php echo $dato->id;?>">
                                         <button><span class="pregunta-icon x-mark-icon"></span></button>

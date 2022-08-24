@@ -42,7 +42,11 @@ use function foo\func;
     SimpleRouter::post('/TASTI/pregunta/confirmando_mentoria', [PreguntaController::class, 'confirmar_mentoria'])->name('post_confirmar_mentoria');
     SimpleRouter::post('/TASTI/pregunta/borrando', [PreguntaController::class, 'borrar_pregunta'])->name('post_borrar_pregunta');
     SimpleRouter::post('/TASTI/pregunta/editando', [PreguntaController::class, 'edit_question'])->name('post_editar_pregunta');
-    
+    SimpleRouter::post('/TASTI/administrador/reporte/procesar', [AdminController::class, 'go_to_formulario_eliminar'])->name('procesar_reporte_formulario');
+    SimpleRouter::post('/TASTI/administrador/reporte/procesando', [AdminController::class, 'solicitud_pregunta_procesada'])->name('post_procesar_solicitud_pregunta');
+    SimpleRouter::post('/TASTI/administrador/solicitud/procesar', [AdminController::class, 'go_to_formulario_denegar_registro'])->name('denegar_reporte_formulario');
+    SimpleRouter::post('/TASTI/administrador/solicitud/procesando', [AdminController::class, 'solicitud_registro_procesada'])->name('post_procesar_reporte');
+
     SimpleRouter::start();
 
 ?>

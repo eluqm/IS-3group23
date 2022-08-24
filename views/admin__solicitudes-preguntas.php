@@ -65,15 +65,13 @@
                                     <p><span>Razon: </span> <?php echo $dato->razon;?></p>
                                 </div>
                                 <div class="pregunta__actions">                        
-                                    <a href="#"><span class="pregunta-icon eye-icon"></span></a> 
-                                    <form action="../controllers/adminController.php" method="POST">
-                                        <input hidden name="action" value="goTo_formulario_eliminar">
+                                    <a href="<?php echo url('pregunta_view',['id_pregunta' => $dato->id_pregunta]); ?>"><span class="pregunta-icon eye-icon"></span></a> 
+                                    <form action="<?php echo url('procesar_reporte_formulario')?>" method="POST">
                                         <input hidden name="modo" value="0">
                                         <input hidden name="id_pregunta" value="<?php echo $dato->id_pregunta;?>">
                                         <button><span class="pregunta-icon checkmark-icon"></span></button>
                                     </form>
-                                    <form action="../controllers/adminController.php" method="POST">
-                                        <input hidden name="action" value="goTo_formulario_eliminar">
+                                    <form action="<?php echo url('procesar_reporte_formulario')?>" method="POST">
                                         <input hidden name="modo" value="2">
                                         <input hidden name="id_pregunta" value="<?php echo $dato->id_pregunta;?>">
                                         <button><span class="pregunta-icon trash-icon"></span></button>
