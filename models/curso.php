@@ -6,7 +6,7 @@ class Curso {
     private $db;
 
     public function __construct(){
-        $this->db = new database;
+        $this->db = new Database;
     }
 
     public function get_all(){

@@ -1,6 +1,8 @@
 <?php
-require_once __DIR__.'/../config/conexion.php';
+namespace IS3group3\Models;
+require_once __DIR__.'vendor/autoload.php';
 
+use IS3group3\Config\Database;
 /*
 estado:
 0 => open
@@ -12,7 +14,7 @@ class Pregunta {
     private $db;
 
     public function __construct(){
-        $this->db = new database;
+        $this->db = new Database;
     }
 
     public function register($data){

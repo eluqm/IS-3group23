@@ -1,0 +1,37 @@
+<?xml version="1.0" ?>
+<dataset>
+    <usuario cui='20204889' nombre='Annabell Manby' correo_electronico='amanby0@zdnet.com' contrasenia='JUppkOG7' estado_cuenta='1'>
+    <usuario cui='20218610' nombre='Mei Mourgue' correo_electronico='mmourgue2@prweb.com' contrasenia='fqMbOL0W' estado_cuenta='1'>
+    <usuario cui='20206090' nombre='Alex Cardis' correo_electronico='acardis4@berkeley.edu' contrasenia='1i28Z5' estado_cuenta='1'>
+    <usuario cui='20205999' nombre='Kelvin Hegley' correo_electronico='khegley5@odnoklassniki.ru' contrasenia='WEUMfar3b' estado_cuenta='1'>
+    <usuario cui='20201264' nombre='Melantha Vairow' correo_electronico='mvairow6@paginegialle.it' contrasenia='OAVsa3HGh' estado_cuenta='1'>
+
+    <usuario cui='20206921' nombre='Myrvyn Langhorne' correo_electronico='mlanghorne8@google.pl' contrasenia='kEFzTtOM5x8o' estado_cuenta='1'>
+    <usuario cui='20202995' nombre='Mellisa Simoneschi' correo_electronico='msimoneschi9@joomla.org' contrasenia='WJe33Q3b' estado_cuenta='1'>
+    <usuario cui='20218181' nombre='Germayne Duxbarry' correo_electronico='gduxbarryb@cornell.edu' contrasenia='x06sHQB6G' estado_cuenta='1'>
+    <usuario cui='20214937' nombre='Briney Pinney' correo_electronico='bpinneyi@godaddy.com' contrasenia='bhOTyeIqCR' estado_cuenta='1'>
+    <usuario cui='20208711' nombre='Cesare Shakesby' correo_electronico='cshakesbyj@pcworld.com' contrasenia='PTfIC8iu' estado_cuenta='1'>
+
+    <pregunta id='1' titulo='¿why doest work this code?' descripcion='d1' curso='1702119' tema='t1' fecha_publicacion='2022-06-13 21:56:03' cui_usuario='20204889' disponibilidad='disp1' estado='0' fecha_limite='2022-08-03 22:19:45' cui_mentor='NULL' fecha_meet='NULL' link_meet='NULL' reunion_privada='NULL' max_participantes='NULL' cupos_disponibles='NULL'/>
+    <pregunta id='2' titulo='video con olas debajo' descripcion='d2' curso='1702120' tema='t2' fecha_publicacion='2022-06-13 21:56:03' cui_usuario='20218610' disponibilidad='disp1' estado='0' fecha_limite='2022-08-03 22:19:45' cui_mentor='NULL' fecha_meet='NULL' link_meet='NULL' reunion_privada='NULL' max_participantes='NULL' cupos_disponibles='NULL'/>
+    <pregunta id='3' titulo='FaceWp filtro de post por mes wordpress' descripcion='d2' curso='1702226' tema='t2' fecha_publicacion='2022-06-13 21:56:03' cui_usuario='20206090' disponibilidad='disp1' estado='0' fecha_limite='2022-08-03 22:19:45' cui_mentor='NULL' fecha_meet='NULL' link_meet='NULL' reunion_privada='NULL' max_participantes='NULL' cupos_disponibles='NULL'/>
+    <pregunta id='4' titulo='Empty cart in ajax Woocommerce' descripcion='d2' curso='1702120' tema='t2' fecha_publicacion='2022-06-13 21:56:03' cui_usuario='20205999' disponibilidad='disp1' estado='0' fecha_limite='2022-08-03 22:19:45' cui_mentor='NULL' fecha_meet='NULL' link_meet='NULL' reunion_privada='NULL' max_participantes='NULL' cupos_disponibles='NULL'/>
+    <pregunta id='5' titulo='Ocultar menu de navegación en wordpress en template con php' descripcion='d2' curso='1702119' tema='t2' fecha_publicacion='2022-06-13 21:56:03' cui_usuario='20201264' disponibilidad='disp1' estado='0' fecha_limite='2022-08-03 22:19:45' cui_mentor='NULL' fecha_meet='NULL' link_meet='NULL' reunion_privada='NULL' max_participantes='NULL' cupos_disponibles='NULL'/>
+
+    <pregunta id='6' titulo='¿Cómo puedo seleccionar un Input en específico si tengo varios con el mismo nombre?' descripcion='d2' curso='1703130' tema='t2' fecha_publicacion='2022-06-13 21:56:03' cui_usuario='20206921' disponibilidad='disp1' estado='0' fecha_limite='2022-08-03 22:19:45' cui_mentor='NULL' fecha_meet='NULL' link_meet='NULL' reunion_privada='NULL' max_participantes='NULL' cupos_disponibles='NULL'/>
+    <pregunta id='7' titulo='Nav bien distribuido con CSS' descripcion='d2' curso='1703132' tema='t2' fecha_publicacion='2022-06-13 21:56:03' cui_usuario='20202995' disponibilidad='disp1' estado='0' fecha_limite='2022-08-03 22:19:45' cui_mentor='NULL' fecha_meet='NULL' link_meet='NULL' reunion_privada='NULL' max_participantes='NULL' cupos_disponibles='NULL'/>
+    <pregunta id='8' titulo='Como puedo ajustar el zoom a mi pagina web' descripcion='d2' curso='1703237' tema='t2' fecha_publicacion='2022-06-13 21:56:03' cui_usuario='20218181' disponibilidad='disp1' estado='0' fecha_limite='2022-08-03 22:19:45' cui_mentor='NULL' fecha_meet='NULL' link_meet='NULL' reunion_privada='NULL' max_participantes='NULL' cupos_disponibles='NULL'/>
+    <pregunta id='9' titulo='Pasé Javascript a $_POST php, pero mysqli duplica la entrada' descripcion='d2' curso='1703237' tema='t2' fecha_publicacion='2022-06-13 21:56:03' cui_usuario='20214937' disponibilidad='disp1' estado='0' fecha_limite='2022-08-03 22:19:45' cui_mentor='NULL' fecha_meet='NULL' link_meet='NULL' reunion_privada='NULL' max_participantes='NULL' cupos_disponibles='NULL'/>
+    <pregunta id='10' titulo='Acceder a todos los índices de mi Array de una consulta Con PHP Y MySQL' descripcion='d2' curso='1703130' tema='t2' fecha_publicacion='2022-06-13 21:56:03' cui_usuario='20208711' disponibilidad='disp1' estado='0' fecha_limite='2022-08-03 22:19:45' cui_mentor='NULL' fecha_meet='NULL' link_meet='NULL' reunion_privada='NULL' max_participantes='NULL' cupos_disponibles='NULL'/>
+
+    <pregunta_rechazada id="1"/>
+    <pregunta_rechazada id="2"/>
+    <pregunta_rechazada id="3"/>
+    <pregunta_rechazada id="4"/>
+    <pregunta_rechazada id="5"/>
+
+    <pregunta_no_rechazada id="6"/>
+    <pregunta_no_rechazada id="7"/>
+    <pregunta_no_rechazada id="8"/>
+    <pregunta_no_rechazada id="9"/>
+</dataset>
