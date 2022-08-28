@@ -1,16 +1,16 @@
 <?xml version="1.0" ?>
 <dataset>
-    <usuario cui='20204889' nombre='Annabell Manby' correo_electronico='amanby0@zdnet.com' contrasenia='JUppkOG7' estado_cuenta='1'>
-    <usuario cui='20218610' nombre='Mei Mourgue' correo_electronico='mmourgue2@prweb.com' contrasenia='fqMbOL0W' estado_cuenta='1'>
-    <usuario cui='20206090' nombre='Alex Cardis' correo_electronico='acardis4@berkeley.edu' contrasenia='1i28Z5' estado_cuenta='1'>
-    <usuario cui='20205999' nombre='Kelvin Hegley' correo_electronico='khegley5@odnoklassniki.ru' contrasenia='WEUMfar3b' estado_cuenta='1'>
-    <usuario cui='20201264' nombre='Melantha Vairow' correo_electronico='mvairow6@paginegialle.it' contrasenia='OAVsa3HGh' estado_cuenta='1'>
+    <usuario cui='20204889' nombre='Annabell Manby' correo_electronico='amanby0@zdnet.com' contrasenia='JUppkOG7' estado_cuenta='1'/>
+    <usuario cui='20218610' nombre='Mei Mourgue' correo_electronico='mmourgue2@prweb.com' contrasenia='fqMbOL0W' estado_cuenta='1'/>
+    <usuario cui='20206090' nombre='Alex Cardis' correo_electronico='acardis4@berkeley.edu' contrasenia='1i28Z5' estado_cuenta='1'/>
+    <usuario cui='20205999' nombre='Kelvin Hegley' correo_electronico='khegley5@odnoklassniki.ru' contrasenia='WEUMfar3b' estado_cuenta='1'/>
+    <usuario cui='20201264' nombre='Melantha Vairow' correo_electronico='mvairow6@paginegialle.it' contrasenia='OAVsa3HGh' estado_cuenta='1'/>
 
-    <usuario cui='20206921' nombre='Myrvyn Langhorne' correo_electronico='mlanghorne8@google.pl' contrasenia='kEFzTtOM5x8o' estado_cuenta='1'>
-    <usuario cui='20202995' nombre='Mellisa Simoneschi' correo_electronico='msimoneschi9@joomla.org' contrasenia='WJe33Q3b' estado_cuenta='1'>
-    <usuario cui='20218181' nombre='Germayne Duxbarry' correo_electronico='gduxbarryb@cornell.edu' contrasenia='x06sHQB6G' estado_cuenta='1'>
-    <usuario cui='20214937' nombre='Briney Pinney' correo_electronico='bpinneyi@godaddy.com' contrasenia='bhOTyeIqCR' estado_cuenta='1'>
-    <usuario cui='20208711' nombre='Cesare Shakesby' correo_electronico='cshakesbyj@pcworld.com' contrasenia='PTfIC8iu' estado_cuenta='1'>
+    <usuario cui='20206921' nombre='Myrvyn Langhorne' correo_electronico='mlanghorne8@google.pl' contrasenia='kEFzTtOM5x8o' estado_cuenta='1'/>
+    <usuario cui='20202995' nombre='Mellisa Simoneschi' correo_electronico='msimoneschi9@joomla.org' contrasenia='WJe33Q3b' estado_cuenta='1'/>
+    <usuario cui='20218181' nombre='Germayne Duxbarry' correo_electronico='gduxbarryb@cornell.edu' contrasenia='x06sHQB6G' estado_cuenta='1'/>
+    <usuario cui='20214937' nombre='Briney Pinney' correo_electronico='bpinneyi@godaddy.com' contrasenia='bhOTyeIqCR' estado_cuenta='1'/>
+    <usuario cui='20208711' nombre='Cesare Shakesby' correo_electronico='cshakesbyj@pcworld.com' contrasenia='PTfIC8iu' estado_cuenta='1'/>
 
     <pregunta id='1' titulo='¿why doest work this code?' descripcion='d1' curso='1702119' tema='t1' fecha_publicacion='2022-06-13 21:56:03' cui_usuario='20204889' disponibilidad='disp1' estado='0' fecha_limite='2022-08-03 22:19:45' cui_mentor='NULL' fecha_meet='NULL' link_meet='NULL' reunion_privada='NULL' max_participantes='NULL' cupos_disponibles='NULL'/>
     <pregunta id='2' titulo='video con olas debajo' descripcion='d2' curso='1702120' tema='t2' fecha_publicacion='2022-06-13 21:56:03' cui_usuario='20218610' disponibilidad='disp1' estado='0' fecha_limite='2022-08-03 22:19:45' cui_mentor='NULL' fecha_meet='NULL' link_meet='NULL' reunion_privada='NULL' max_participantes='NULL' cupos_disponibles='NULL'/>
@@ -29,6 +29,15 @@
     <pregunta_rechazada id="3"/>
     <pregunta_rechazada id="4"/>
     <pregunta_rechazada id="5"/>
+
+    <curso idcurso='1702119' nombre='Desarrollo Basado en Plataformas' anio='2' semestre='1'/>
+    <curso idcurso='1702120' nombre='Trabajo Interdisciplinar I' anio='2' semestre='1'/>
+    <curso idcurso='1702226' nombre='Base da Datos I' anio='2' semestre='1'/>
+    
+    <curso idcurso='1703130' nombre='Base de Datos II' anio='3' semestre='1'/>
+    <curso idcurso='1703132' nombre='Ingenieria de Software I' anio='3' semestre='1'/>
+    <curso idcurso='1703237' nombre='Ingenieria de Software II' anio='3' semestre='2'/>
+    
 
     <pregunta_no_rechazada id="6"/>
     <pregunta_no_rechazada id="7"/>

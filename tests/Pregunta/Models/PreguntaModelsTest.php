@@ -97,7 +97,48 @@ class PreguntaModelsTest extends DatabaseTestCase
     }
     public function test_edit()
     {
-        $this->markTestIncomplete( 'Not written yet.' );
+        $preguntaModel = new Pregunta();
+
+        $getQtions = $preguntaModel->findQuestionById_2(6);
+        $this->assertEquals( '¿Cómo puedo seleccionar un Input en específico si tengo varios con el mismo nombre?', $getQtions[0]->titulo);
+        $this->assertEquals( 'd2' , $getQtions[0]->descripcion);
+        $this->assertEquals( '1703130' , $getQtions[0]->curso);
+        $this->assertEquals( 't2' , $getQtions[0]->tema);
+        $this->assertEquals( '22122344' , $getQtions[0]->cui_usuario);
+        $this->assertEquals( '2022-08-03 22:19:45' , $getQtions[0]->fecha_limite);
+        $this->assertEquals( 'd1' , $getQtions[0]->cui_mentor);
+        $this->assertEquals( 'NULL' , $getQtions[0]->fecha_meet);
+        $this->assertEquals( 'NULL' , $getQtions[0]->link_meet);
+        $this->assertEquals( 'NULL' , $getQtions[0]->reunion_privada);
+        $this->assertEquals( 'NULL' , $getQtions[0]->max_participantes);
+        $this->assertEquals( 'NULL' , $getQtions[0]->cupos_disponibles);
+
+
+        $data = [
+            'id' => '6',
+            'titulo' => 'I WNAT MORE',
+            'descripcion' => 'GUY',
+            'curso' => '1702225',
+            'tema' => 'FArhenheit',
+            'cui' => 22122344,
+            'fecha_limite' => '2022-08-15 20:17:45',
+            'disponibilidad' => 'I donowt know'
+        ];
+        $preguntaModel->edit($data);
+        
+        $getQtions = $preguntaModel->findQuestionById_2(6);
+        $this->assertEquals( 'I WNAT MORE', $getQtions[0]->titulo);
+        $this->assertEquals( 'GUY' , $getQtions[0]->descripcion);
+        $this->assertEquals( '1702225' , $getQtions[0]->curso);
+        $this->assertEquals( 'FArhenheit' , $getQtions[0]->tema);
+        $this->assertEquals( '22122344' , $getQtions[0]->cui_usuario);
+        $this->assertEquals( '2022-08-15 22:19:45' , $getQtions[0]->fecha_limite);
+        $this->assertEquals( 'I donowt know' , $getQtions[0]->cui_mentor);
+        $this->assertEquals( 'NULL' , $getQtions[0]->fecha_meet);
+        $this->assertEquals( 'NULL' , $getQtions[0]->link_meet);
+        $this->assertEquals( 'NULL' , $getQtions[0]->reunion_privada);
+        $this->assertEquals( 'NULL' , $getQtions[0]->max_participantes);
+        $this->assertEquals( 'NULL' , $getQtions[0]->cupos_disponibles);
     }
     public function test_delete()
     {
