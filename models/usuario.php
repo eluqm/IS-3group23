@@ -98,7 +98,7 @@ class User {
     }
 
     public function getMisPreguntas($CUI){
-        $this->db->query("SELECT pregunta.*, curso.nombre 'nombre_curso' from pregunta INNER JOIN curso ON curso.idcurso=pregunta.curso WHERE pregunta.cui_usuario=:CUI");
+        $this->db->query("SELECT pregunta.*, curso.nombre 'nombre_curso' FROM pregunta_no_rechazada INNER JOIN pregunta on pregunta_no_rechazada.id=pregunta.id INNER JOIN curso ON curso.idcurso=pregunta.curso WHERE pregunta.cui_usuario=:CUI");
         $this->db->bind(':CUI', $CUI);
         $row = $this->db->resultSet();
         if($this->db->rowCount() > 0){
@@ -108,7 +108,7 @@ class User {
     }
 
     public function getMisMentorias($CUI){
-        $this->db->query("SELECT pregunta.*, curso.nombre 'nombre_curso' from pregunta INNER JOIN curso ON curso.idcurso=pregunta.curso WHERE pregunta.cui_mentor=:CUI");
+        $this->db->query("SELECT pregunta.*, curso.nombre 'nombre_curso' FROM pregunta_no_rechazada INNER JOIN pregunta on pregunta_no_rechazada.id=pregunta.id INNER JOIN curso ON curso.idcurso=pregunta.curso WHERE pregunta.cui_mentor=:CUI");
         $this->db->bind(':CUI', $CUI);
         $row = $this->db->resultSet();
         if($this->db->rowCount() > 0){
