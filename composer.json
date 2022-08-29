@@ -1,24 +1,17 @@
 {
-    "require" : {
-        "php": ">=7.3.0",
+    "require-dev": {
+        "phpunit/phpunit": "~4.8",
+        "phpunit/dbunit": "~2",
         "monolog/monolog": "1.25.*",
-        "phpunit/phpunit": "6.5.*",
         "miladrahimi/phprouter": "5.*",
         "pecee/simple-router": "4.3.7.2"
-      },
-
-    "autoload":{
-        
-        "psr-4":{
-          "IS3group3\\Config\\":"config/",
-          "IS3group3\\Models\\":"models/",
-          "IS3group3\\Tests\\":"tests/",
-          "IS3group3\\Controllers\\":"controllers/"
-        }
     },
-    "config": {
-        "platform": {
-            "php": "7.3.0"
+    "autoload":{
+        "psr-4":{
+            "IS3group3\\Config\\":"config/",
+            "IS3group3\\Models\\":"models/",
+            "IS3group3\\Tests\\":"tests/",
+            "IS3group3\\Controllers\\":"controllers/"
+          }
         }
-    }
 }

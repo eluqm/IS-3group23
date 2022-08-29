@@ -142,7 +142,13 @@ class PreguntaModelsTest extends DatabaseTestCase
     }
     public function test_delete()
     {
-        $this->markTestIncomplete( 'Not written yet.' );
+        $preguntaModel = new Pregunta();
+
+        $preguntaModel->delete(10);
+
+        $getQtion = $preguntaModel->findQuestionById_2(10);
+        
+        $this->assertNull( $getQtion );
     }
 }
 ?>
