@@ -10,10 +10,9 @@
     "autoload":{
         
         "psr-4":{
-          "IS3group3\\Config\\":"config/",
           "IS3group3\\Models\\":"models/",
-          "IS3group3\\Tests\\":"tests/",
-          "IS3group3\\Controllers\\":"controllers/"
+          "Config\\":"config/",
+          "IS3group3\\Tests\\":"tests/"
         }
     },
     "config": {

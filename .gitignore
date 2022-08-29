@@ -1,4 +1,5 @@
 test.php
 controllers/pregunta_git.php
 vendor
-views/user_profiles
+config/conexionDatabase.php
+config/conexionDatabaseAdapter.php
