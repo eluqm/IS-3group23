@@ -22,8 +22,8 @@
         <nav>
             <img src="../views/icons/CsLogo.png" width="100" height="80px" alt="Logo de la escuela de ciencia de la computación">
             <img src="../views/icons/logo.png" width="120" height="80px" alt="Logo de TASTI">
-            <a class="a" href="../views/login.php"><button class="btn" type="submit" name="submit">Iniciar Sesión</button></a>
-            <a class="a" href="../views/signup.php"><button class="btn" type="submit" name="submit">Registrarse</button></a>
+            <a class="a" href="<?php echo url('login');?>"><button class="btn" type="submit" name="submit">Iniciar Sesión</button></a>
+            <a class="a" href="<?php echo url('signup');?>"><button class="btn" type="submit" name="submit">Registrarse</button></a>
         </nav>
     </header>
 
