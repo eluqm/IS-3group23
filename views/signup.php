@@ -13,7 +13,7 @@
     <div class="login-container">
         <div class="image-container">
             <h1 class="title">Registrarse</h1>
-            <img src="icons/registro.svg" width="450" height="500px">
+            <img src="https://raw.githubusercontent.com/eluqm/IS-3group3/539ee899794474359ad6b82576d329b57607cf82/views/icons/registro.svg" width="450" height="500px">
         </div>
         <div class="login-info-container">
             <?php flash('register') ?>
